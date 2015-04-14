@@ -1,0 +1,70 @@
+{
+    "steps": [
+              {
+              "instruction": "Answer the following questions about your sleep last night",
+              "_class": "RKIntroductionStep",
+              "name": "intro step",
+              "identifier": "iid_001",
+              "caption": "Sleep Survey"
+              },
+              {
+              "question": "How did you feel last night?",
+              "answerFormat": {
+              "_class": "RKTextAnswerFormat"
+              },
+              "_class": "RKQuestionStep",
+              "name": "Text",
+              "identifier": "qid_005",
+              "optional": true
+              },
+              {
+              "question": "How long did you take to fall asleep last night?",
+              "answerFormat": {
+              "_class": "RKTimeIntervalAnswerFormat"
+              },
+              "_class": "RKQuestionStep",
+              "name": "Time Interval",
+              "identifier": "qid_006",
+              "optional": true
+              },
+              {
+              "question": "How many hours did you sleep last night?",
+              "answerFormat": {
+              "options": [
+                          {
+                          "_class": "RKAnswerOption",
+                          "shortText": "Less than seven"
+                          },
+                          {
+                          "_class": "RKAnswerOption",
+                          "shortText": "Between seven and eight"
+                          },
+                          {
+                          "_class": "RKAnswerOption",
+                          "shortText": "More than eight"
+                          }
+                          ],
+              "_class": "RKChoiceAnswerFormat",
+              "style": "singleChoice"
+              },
+              "_class": "RKQuestionStep",
+              "name": "Choices ONE",
+              "identifier": "qid_003",
+              "optional": true
+              },
+              {
+              "question": "What time did you get up?",
+              "answerFormat": {
+              "style": "time",
+              "_class": "RKDateAnswerFormat"
+              },
+              "_class": "RKQuestionStep",
+              "name": "time",
+              "identifier": "qid_008",
+              "optional": true
+              }
+              ],
+    "name": "Demo",
+    "identifier": "tid_001",
+    "_class": "RKTask"
+}

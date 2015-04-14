@@ -1,0 +1,5 @@
+{
+    "info": "Please enter your address above. Your address will be used to determine the air quality in your area, which will be displayed in the Study App dashboard.",
+    "link": "More Information.",
+    "details" : "The Asthma Study app uses a service that, based on your Longitude and Latitude, checks for known air quality conditions in your area. We will use your address to calculate your home's longitude and latitude and provide the information to the service so we can present that data to you.\n\nIf you prefer not sharing your precise home location, we suggest providing a nearby address that will likely have the same air quality conditions that your home.\n\nIt is important to note that your home location will ONLY be recorded on your phone and will not be shared with our investigators or anyone else. We respect your privacy and understand the sensitivity of this and all other information collected by the study - your privacy and securing your data is paramount to this study and to each of the persons involved in it.\n\nThank you for providing access to this information - and for helping us better understand this disease.",
+}

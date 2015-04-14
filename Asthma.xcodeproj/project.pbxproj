@@ -1,0 +1,1203 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A004E0B1AA7918600F7A9A9 /* consent.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5A004E091AA7917900F7A9A9 /* consent.pdf */; };
+		5A0F98E71AA3BB2900A2A7EB /* AboutYou.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F98E61AA3BB2900A2A7EB /* AboutYou.json */; };
+		5B0432451A30413A000DC9ED /* APHInEligibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0432441A30413A000DC9ED /* APHInEligibleViewController.m */; };
+		5B18CEE21A2D057C001A905E /* TermsAndConditions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B18CEE11A2D057C001A905E /* TermsAndConditions.json */; };
+		5B1D9D591A1BD046000F4AD6 /* APHDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1D9D541A1BD046000F4AD6 /* APHDashboard.storyboard */; };
+		5B1D9D5A1A1BD046000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D561A1BD046000F4AD6 /* APHDashboardEditViewController.m */; };
+		5B1D9D5B1A1BD046000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D581A1BD046000F4AD6 /* APHDashboardViewController.m */; };
+		5B47BA8E1A211E330080F8DC /* APHAirQualityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B47BA8D1A211E330080F8DC /* APHAirQualityCollectionViewCell.m */; };
+		5B47BA941A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B47BA931A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m */; };
+		5B55FDC41A02C618009BEE5E /* APHOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B55FDC31A02C618009BEE5E /* APHOnboarding.storyboard */; };
+		5B8ED4AC1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8ED4AB1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m */; };
+		5B8ED4B01A836BFA009CDE44 /* APHBadgesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8ED4AF1A836BFA009CDE44 /* APHBadgesCollectionViewCell.m */; };
+		5B975A381A11317800A34E42 /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B975A361A11317800A34E42 /* Learn.json */; };
+		5B975A391A11317800A34E42 /* WithdrawStudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B975A371A11317800A34E42 /* WithdrawStudy.json */; };
+		5BB10C101A91F4C4002D2DD2 /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5BB10C0F1A91F4C4002D2DD2 /* Intro.mp4 */; };
+		5BB10C2E1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB10C2D1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m */; };
+		5BB6473E19F6E34800AA30AA /* APHInclusionCriteriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6472B19F6E34800AA30AA /* APHInclusionCriteriaViewController.m */; };
+		5BB6474A19F6E35B00AA30AA /* APHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6474919F6E35B00AA30AA /* APHAppDelegate.m */; };
+		5BB6479619F6E5B300AA30AA /* APCParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BB6478E19F6E5B300AA30AA /* APCParameters.json */; };
+		5BB6479719F6E5B300AA30AA /* APHTasksAndSchedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BB6478F19F6E5B300AA30AA /* APHTasksAndSchedules.json */; };
+		5BBDAEC31A33E2B40047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEC21A33E2B40047DF87 /* HTMLContent */; };
+		5BBDAEEE1A35025D0047DF87 /* APHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */; };
+		5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEF41A3515960047DF87 /* LocationInfo.json */; };
+		6C13EE2D1A97D77D003D10C9 /* MedicalHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */; };
+		6C13EE311A97D783003D10C9 /* AsthmaMedicationSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */; };
+		6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE321A97D78A003D10C9 /* YourAsthma.json */; };
+		6C13EE351A97D78F003D10C9 /* AsthmaHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE341A97D78F003D10C9 /* AsthmaHistory.json */; };
+		6C1F53EF1A9550C50068F233 /* APHAirQualityDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F53EE1A9550C50068F233 /* APHAirQualityDataModel.m */; };
+		6C3C6C661A64809300A1E390 /* APHConsentTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C6C651A64809300A1E390 /* APHConsentTaskViewController.m */; };
+		6C3C6C7A1A6734BB00A1E390 /* APHQuizStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C6C791A6734BB00A1E390 /* APHQuizStepViewController.m */; };
+		6C45842E1A911572007D076D /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4584291A910313007D076D /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C6995C21A84234C001C557E /* APHCalendarCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6995C11A84234C001C557E /* APHCalendarCollectionViewController.m */; };
+		6C6995C61A84236A001C557E /* APHCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6995C51A84236A001C557E /* APHCalendarCollectionViewCell.m */; };
+		6CB01B751A6EEC74003BFA39 /* QuizResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB01B741A6EEC74003BFA39 /* QuizResultTableViewCell.m */; };
+		6CB01B7A1A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB01B791A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m */; };
+		6CB769471A702C8C00A89871 /* APHQuizQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB769461A702C8C00A89871 /* APHQuizQuestionTableViewCell.m */; };
+		6CBA91F01A927A4500A7E562 /* APHCalendarDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBA91EF1A927A4500A7E562 /* APHCalendarDataModel.m */; };
+		6CBA91F71A928C4500A7E562 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CBA91F61A928C4500A7E562 /* APHConsentSection.json */; };
+		6CECC1CC1A79A13C00458980 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CECC1CB1A79A13C00458980 /* StudyOverview.json */; };
+		6CF025131A68459D00073EA7 /* APHBooleanQuestionStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF025121A68459D00073EA7 /* APHBooleanQuestionStep.m */; };
+		6CF025181A68C84B00073EA7 /* APHConsentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF025171A68C84B00073EA7 /* APHConsentTask.m */; };
+		6CF0252B1A69C7F300073EA7 /* APHQuizEvaluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF0252A1A69C7F300073EA7 /* APHQuizEvaluationViewController.m */; };
+		7423AB5F1AA40714004A325A /* APHConsentRedirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7423AB5E1AA40714004A325A /* APHConsentRedirector.m */; };
+		74EF8DDC1ABEF5A7001B47E1 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD1271ABEF36C0071C218 /* BridgeSDK.framework */; };
+		74EF8DDD1ABEF5A7001B47E1 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD1271ABEF36C0071C218 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74EF8DE41ABEF5AF001B47E1 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC004711AC863460042B2B1 /* ResearchKit.framework */; };
+		74EF8DE51ABEF5AF001B47E1 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC004711AC863460042B2B1 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B3CBC971A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC911A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m */; };
+		7B3CBC981A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC931A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m */; };
+		7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */; };
+		7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */; };
+		7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */; };
+		A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */; };
+		A78116511A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */; };
+		A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */; };
+		A78116561A96B69B00CEC822 /* 10_PotentialBenifits_Alt@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A781164A1A96B69B00CEC822 /* 10_PotentialBenifits_Alt@3x.m4v */; };
+		A78116571A96B69B00CEC822 /* 11_VisitingDoctor@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A781164B1A96B69B00CEC822 /* 11_VisitingDoctor@3x.m4v */; };
+		A78116581A96B69B00CEC822 /* 12_Recontact@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A781164C1A96B69B00CEC822 /* 12_Recontact@3x.m4v */; };
+		CF175C181A01B2E0008C10C9 /* asthma.bothers.json in Resources */ = {isa = PBXBuildFile; fileRef = CF175C171A01B2E0008C10C9 /* asthma.bothers.json */; };
+		CFCA433419F5B00200D68EEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCA433319F5B00200D68EEE /* main.m */; };
+		CFCA433F19F5B00200D68EEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCA433E19F5B00200D68EEE /* Images.xcassets */; };
+		CFCA436219F5BE8500D68EEE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFCA436019F5BE8500D68EEE /* LaunchScreen.xib */; };
+		CFCA436319F5BE8500D68EEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFCA436119F5BE8500D68EEE /* Main.storyboard */; };
+		CFCA43B919F5C96C00D68EEE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA43B619F5C96C00D68EEE /* AVFoundation.framework */; };
+		CFCA43BA19F5C96C00D68EEE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA43B719F5C96C00D68EEE /* CoreData.framework */; };
+		CFCA43BB19F5C96C00D68EEE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA43B819F5C96C00D68EEE /* Security.framework */; };
+		CFCA43BD19F5C98800D68EEE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA43BC19F5C98800D68EEE /* HealthKit.framework */; };
+		CFE623BE19FAD114001BFF5A /* SleepSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = CFE623BD19FAD114001BFF5A /* SleepSurvey.json */; };
+		F5192D361A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5192D351A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m */; };
+		F5192D3A1A34C6D300A5CF3D /* APHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5192D391A34C6D300A5CF3D /* APHConstants.m */; };
+		F53F27AE1A2D348600A1D725 /* APHTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F27A81A2D348600A1D725 /* APHTableViewItem.m */; };
+		F551E1131A2FD54E00397330 /* AsthmaDailyPrompt.json in Resources */ = {isa = PBXBuildFile; fileRef = F551E10E1A2FD54E00397330 /* AsthmaDailyPrompt.json */; };
+		F551E1141A2FD54E00397330 /* AsthmaWeekly.json in Resources */ = {isa = PBXBuildFile; fileRef = F551E10F1A2FD54E00397330 /* AsthmaWeekly.json */; };
+		F585DA941A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F585DA931A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m */; };
+		F5B1F1B71A33CE1B00C377FB /* APHDailyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B1F1B61A33CE1B00C377FB /* APHDailyTaskViewController.m */; };
+		F5B1F1BA1A33D0F900C377FB /* APHWeeklyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B1F1B91A33D0F900C377FB /* APHWeeklyTaskViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6C4584281A910313007D076D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5179B2919D09128001DCCB7;
+			remoteInfo = APCAppCore;
+		};
+		6C45842A1A910313007D076D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5179B3419D09128001DCCB7;
+			remoteInfo = APCAppCoreTests;
+		};
+		6CC004701AC863460042B2B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = OpenResearchKit;
+		};
+		743AD1261ABEF36C0071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 80855F5019BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+		743AD1281ABEF36C0071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 80855F5B19BE258C006601C7;
+			remoteInfo = BridgeSDKTests;
+		};
+		743AD12A1ABEF4F20071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = OpenResearchKit;
+		};
+		743AD12C1ABEF4F90071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F5179B2819D09128001DCCB7;
+			remoteInfo = APCAppCore;
+		};
+		743AD12E1ABEF5070071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 80855F4F19BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+		74B2443C1AD6CADA00B6D3CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		74EF8DDE1ABEF5A7001B47E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 80855F4F19BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+		74EF8DE61ABEF5AF001B47E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = OpenResearchKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5F12B381A2F87D90015982C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				74EF8DDD1ABEF5A7001B47E1 /* BridgeSDK.framework in Embed Frameworks */,
+				6C45842E1A911572007D076D /* APCAppCore.framework in Embed Frameworks */,
+				74EF8DE51ABEF5AF001B47E1 /* ResearchKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5A004E091AA7917900F7A9A9 /* consent.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = consent.pdf; sourceTree = "<group>"; };
+		5A0F98E61AA3BB2900A2A7EB /* AboutYou.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AboutYou.json; sourceTree = "<group>"; };
+		5B0432431A30413A000DC9ED /* APHInEligibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInEligibleViewController.h; sourceTree = "<group>"; };
+		5B0432441A30413A000DC9ED /* APHInEligibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHInEligibleViewController.m; sourceTree = "<group>"; };
+		5B18CEE11A2D057C001A905E /* TermsAndConditions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TermsAndConditions.json; sourceTree = "<group>"; };
+		5B1D9D541A1BD046000F4AD6 /* APHDashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHDashboard.storyboard; sourceTree = "<group>"; };
+		5B1D9D551A1BD046000F4AD6 /* APHDashboardEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardEditViewController.h; sourceTree = "<group>"; };
+		5B1D9D561A1BD046000F4AD6 /* APHDashboardEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardEditViewController.m; sourceTree = "<group>"; };
+		5B1D9D571A1BD046000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
+		5B1D9D581A1BD046000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
+		5B47BA8C1A211E330080F8DC /* APHAirQualityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAirQualityCollectionViewCell.h; sourceTree = "<group>"; };
+		5B47BA8D1A211E330080F8DC /* APHAirQualityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAirQualityCollectionViewCell.m; sourceTree = "<group>"; };
+		5B47BA921A2123250080F8DC /* APHDashboardAirQualityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardAirQualityTableViewCell.h; sourceTree = "<group>"; };
+		5B47BA931A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardAirQualityTableViewCell.m; sourceTree = "<group>"; };
+		5B55FDC31A02C618009BEE5E /* APHOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHOnboarding.storyboard; sourceTree = "<group>"; };
+		5B8ED4AA1A834182009CDE44 /* APHDashboardBadgesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardBadgesTableViewCell.h; sourceTree = "<group>"; };
+		5B8ED4AB1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardBadgesTableViewCell.m; sourceTree = "<group>"; };
+		5B8ED4AE1A836BFA009CDE44 /* APHBadgesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHBadgesCollectionViewCell.h; sourceTree = "<group>"; };
+		5B8ED4AF1A836BFA009CDE44 /* APHBadgesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHBadgesCollectionViewCell.m; sourceTree = "<group>"; };
+		5B975A361A11317800A34E42 /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
+		5B975A371A11317800A34E42 /* WithdrawStudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WithdrawStudy.json; sourceTree = "<group>"; };
+		5BB10C0F1A91F4C4002D2DD2 /* Intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intro.mp4; sourceTree = "<group>"; };
+		5BB10C2C1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAirQualitySectionHeaderView.h; sourceTree = "<group>"; };
+		5BB10C2D1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAirQualitySectionHeaderView.m; sourceTree = "<group>"; };
+		5BB6472A19F6E34800AA30AA /* APHInclusionCriteriaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInclusionCriteriaViewController.h; sourceTree = "<group>"; };
+		5BB6472B19F6E34800AA30AA /* APHInclusionCriteriaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHInclusionCriteriaViewController.m; sourceTree = "<group>"; };
+		5BB6474819F6E35B00AA30AA /* APHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHAppDelegate.h; path = Startup/APHAppDelegate.h; sourceTree = "<group>"; };
+		5BB6474919F6E35B00AA30AA /* APHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHAppDelegate.m; path = Startup/APHAppDelegate.m; sourceTree = "<group>"; };
+		5BB6478E19F6E5B300AA30AA /* APCParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APCParameters.json; sourceTree = "<group>"; };
+		5BB6478F19F6E5B300AA30AA /* APHTasksAndSchedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHTasksAndSchedules.json; sourceTree = "<group>"; };
+		5BBDAEC21A33E2B40047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
+		5BBDAEEC1A35025D0047DF87 /* APHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWebViewController.h; sourceTree = "<group>"; };
+		5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWebViewController.m; sourceTree = "<group>"; };
+		5BBDAEF41A3515960047DF87 /* LocationInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationInfo.json; sourceTree = "<group>"; };
+		6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MedicalHistory.json; sourceTree = "<group>"; };
+		6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaMedicationSurvey.json; sourceTree = "<group>"; };
+		6C13EE321A97D78A003D10C9 /* YourAsthma.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YourAsthma.json; sourceTree = "<group>"; };
+		6C13EE341A97D78F003D10C9 /* AsthmaHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaHistory.json; sourceTree = "<group>"; };
+		6C1F53ED1A9550C50068F233 /* APHAirQualityDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAirQualityDataModel.h; sourceTree = "<group>"; };
+		6C1F53EE1A9550C50068F233 /* APHAirQualityDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAirQualityDataModel.m; sourceTree = "<group>"; };
+		6C3C6C641A64809300A1E390 /* APHConsentTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHConsentTaskViewController.h; path = ../TasksAndSteps/APHConsentTaskViewController.h; sourceTree = "<group>"; };
+		6C3C6C651A64809300A1E390 /* APHConsentTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHConsentTaskViewController.m; path = ../TasksAndSteps/APHConsentTaskViewController.m; sourceTree = "<group>"; };
+		6C3C6C781A6734BB00A1E390 /* APHQuizStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuizStepViewController.h; sourceTree = "<group>"; };
+		6C3C6C791A6734BB00A1E390 /* APHQuizStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHQuizStepViewController.m; sourceTree = "<group>"; };
+		6C6995C01A84234C001C557E /* APHCalendarCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCalendarCollectionViewController.h; sourceTree = "<group>"; };
+		6C6995C11A84234C001C557E /* APHCalendarCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCalendarCollectionViewController.m; sourceTree = "<group>"; };
+		6C6995C41A84236A001C557E /* APHCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCalendarCollectionViewCell.h; sourceTree = "<group>"; };
+		6C6995C51A84236A001C557E /* APHCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCalendarCollectionViewCell.m; sourceTree = "<group>"; };
+		6CB01B731A6EEC74003BFA39 /* QuizResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizResultTableViewCell.h; sourceTree = "<group>"; };
+		6CB01B741A6EEC74003BFA39 /* QuizResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizResultTableViewCell.m; sourceTree = "<group>"; };
+		6CB01B781A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuizTextViewTableViewCell.h; sourceTree = "<group>"; };
+		6CB01B791A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHQuizTextViewTableViewCell.m; sourceTree = "<group>"; };
+		6CB769451A702C8C00A89871 /* APHQuizQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuizQuestionTableViewCell.h; sourceTree = "<group>"; };
+		6CB769461A702C8C00A89871 /* APHQuizQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHQuizQuestionTableViewCell.m; sourceTree = "<group>"; };
+		6CBA91EE1A927A4500A7E562 /* APHCalendarDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCalendarDataModel.h; sourceTree = "<group>"; };
+		6CBA91EF1A927A4500A7E562 /* APHCalendarDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCalendarDataModel.m; sourceTree = "<group>"; };
+		6CBA91F61A928C4500A7E562 /* APHConsentSection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHConsentSection.json; sourceTree = "<group>"; };
+		6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = researchkit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		6CECC1CB1A79A13C00458980 /* StudyOverview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudyOverview.json; sourceTree = "<group>"; };
+		6CF025111A68459D00073EA7 /* APHBooleanQuestionStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHBooleanQuestionStep.h; sourceTree = "<group>"; };
+		6CF025121A68459D00073EA7 /* APHBooleanQuestionStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHBooleanQuestionStep.m; sourceTree = "<group>"; };
+		6CF025161A68C84B00073EA7 /* APHConsentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHConsentTask.h; sourceTree = "<group>"; };
+		6CF025171A68C84B00073EA7 /* APHConsentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHConsentTask.m; sourceTree = "<group>"; };
+		6CF025291A69C7F300073EA7 /* APHQuizEvaluationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuizEvaluationViewController.h; sourceTree = "<group>"; };
+		6CF0252A1A69C7F300073EA7 /* APHQuizEvaluationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHQuizEvaluationViewController.m; sourceTree = "<group>"; };
+		7423AB5D1AA40714004A325A /* APHConsentRedirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHConsentRedirector.h; sourceTree = "<group>"; };
+		7423AB5E1AA40714004A325A /* APHConsentRedirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHConsentRedirector.m; sourceTree = "<group>"; };
+		743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = BridgeSDK/BridgeSDK.xcodeproj; sourceTree = "<group>"; };
+		7B3CBC901A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHEnrollmentForRecontactTaskViewController.h; sourceTree = "<group>"; };
+		7B3CBC911A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHEnrollmentForRecontactTaskViewController.m; sourceTree = "<group>"; };
+		7B3CBC921A76C6CC00DE27A4 /* APHEnrollmentIntroduction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHEnrollmentIntroduction.h; sourceTree = "<group>"; };
+		7B3CBC931A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHEnrollmentIntroduction.m; sourceTree = "<group>"; };
+		7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHEnrollmentIntroduction.storyboard; sourceTree = "<group>"; };
+		7B3CBC951A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHEnrollmentIntroTableViewController.h; sourceTree = "<group>"; };
+		7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHEnrollmentIntroTableViewController.m; sourceTree = "<group>"; };
+		7B72A79C1A128708002FCD1E /* Asthma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Asthma.entitlements; sourceTree = "<group>"; };
+		7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
+		7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
+		A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits_Alt@2x.m4v"; sourceTree = "<group>"; };
+		A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_VisitingDoctor@2x.m4v"; sourceTree = "<group>"; };
+		A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_Recontact@2x.m4v"; sourceTree = "<group>"; };
+		A781164A1A96B69B00CEC822 /* 10_PotentialBenifits_Alt@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits_Alt@3x.m4v"; sourceTree = "<group>"; };
+		A781164B1A96B69B00CEC822 /* 11_VisitingDoctor@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_VisitingDoctor@3x.m4v"; sourceTree = "<group>"; };
+		A781164C1A96B69B00CEC822 /* 12_Recontact@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_Recontact@3x.m4v"; sourceTree = "<group>"; };
+		CF175C171A01B2E0008C10C9 /* asthma.bothers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = asthma.bothers.json; sourceTree = "<group>"; };
+		CFCA432E19F5B00200D68EEE /* Asthma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asthma.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCA433219F5B00200D68EEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFCA433319F5B00200D68EEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFCA433E19F5B00200D68EEE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Asthma/Images.xcassets; sourceTree = "<group>"; };
+		CFCA436019F5BE8500D68EEE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Startup/LaunchScreen.xib; sourceTree = "<group>"; };
+		CFCA436119F5BE8500D68EEE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Startup/Main.storyboard; sourceTree = "<group>"; };
+		CFCA43B619F5C96C00D68EEE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CFCA43B719F5C96C00D68EEE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CFCA43B819F5C96C00D68EEE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CFCA43BC19F5C98800D68EEE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		CFE623BD19FAD114001BFF5A /* SleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SleepSurvey.json; sourceTree = "<group>"; };
+		F5192D341A34AC2A00A5CF3D /* APHAsthmaBadgesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAsthmaBadgesObject.h; sourceTree = "<group>"; };
+		F5192D351A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAsthmaBadgesObject.m; sourceTree = "<group>"; };
+		F5192D381A34C6D300A5CF3D /* APHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHConstants.h; sourceTree = "<group>"; };
+		F5192D391A34C6D300A5CF3D /* APHConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHConstants.m; sourceTree = "<group>"; };
+		F53F27A71A2D348600A1D725 /* APHTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTableViewItem.h; sourceTree = "<group>"; };
+		F53F27A81A2D348600A1D725 /* APHTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTableViewItem.m; sourceTree = "<group>"; };
+		F551E10E1A2FD54E00397330 /* AsthmaDailyPrompt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaDailyPrompt.json; sourceTree = "<group>"; };
+		F551E10F1A2FD54E00397330 /* AsthmaWeekly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaWeekly.json; sourceTree = "<group>"; };
+		F585DA921A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTableViewDashboardAQAlertItem.h; sourceTree = "<group>"; };
+		F585DA931A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTableViewDashboardAQAlertItem.m; sourceTree = "<group>"; };
+		F5B1F1B51A33CE1B00C377FB /* APHDailyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDailyTaskViewController.h; sourceTree = "<group>"; };
+		F5B1F1B61A33CE1B00C377FB /* APHDailyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDailyTaskViewController.m; sourceTree = "<group>"; };
+		F5B1F1B81A33D0F900C377FB /* APHWeeklyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWeeklyTaskViewController.h; sourceTree = "<group>"; };
+		F5B1F1B91A33D0F900C377FB /* APHWeeklyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWeeklyTaskViewController.m; sourceTree = "<group>"; };
+		F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppCore.xcodeproj; path = AppCore/APCAppCore/APCAppCore.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFCA432B19F5B00200D68EEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCA43BD19F5C98800D68EEE /* HealthKit.framework in Frameworks */,
+				74EF8DDC1ABEF5A7001B47E1 /* BridgeSDK.framework in Frameworks */,
+				74EF8DE41ABEF5AF001B47E1 /* ResearchKit.framework in Frameworks */,
+				CFCA43B919F5C96C00D68EEE /* AVFoundation.framework in Frameworks */,
+				CFCA43BA19F5C96C00D68EEE /* CoreData.framework in Frameworks */,
+				CFCA43BB19F5C96C00D68EEE /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B1D9D531A1BD046000F4AD6 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				5B1D9D541A1BD046000F4AD6 /* APHDashboard.storyboard */,
+				5B1D9D571A1BD046000F4AD6 /* APHDashboardViewController.h */,
+				5B1D9D581A1BD046000F4AD6 /* APHDashboardViewController.m */,
+				6C6995C01A84234C001C557E /* APHCalendarCollectionViewController.h */,
+				6C6995C11A84234C001C557E /* APHCalendarCollectionViewController.m */,
+				6CBA91EE1A927A4500A7E562 /* APHCalendarDataModel.h */,
+				6CBA91EF1A927A4500A7E562 /* APHCalendarDataModel.m */,
+				6C1F53ED1A9550C50068F233 /* APHAirQualityDataModel.h */,
+				6C1F53EE1A9550C50068F233 /* APHAirQualityDataModel.m */,
+				5B1D9D551A1BD046000F4AD6 /* APHDashboardEditViewController.h */,
+				5B1D9D561A1BD046000F4AD6 /* APHDashboardEditViewController.m */,
+				F585DA911A333064003C5CAC /* Objects */,
+				5B47BA8B1A211E330080F8DC /* Cells */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		5B47BA8B1A211E330080F8DC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6C6995C41A84236A001C557E /* APHCalendarCollectionViewCell.h */,
+				6C6995C51A84236A001C557E /* APHCalendarCollectionViewCell.m */,
+				5B47BA8C1A211E330080F8DC /* APHAirQualityCollectionViewCell.h */,
+				5B47BA8D1A211E330080F8DC /* APHAirQualityCollectionViewCell.m */,
+				5B47BA921A2123250080F8DC /* APHDashboardAirQualityTableViewCell.h */,
+				5B47BA931A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m */,
+				5B8ED4AA1A834182009CDE44 /* APHDashboardBadgesTableViewCell.h */,
+				5B8ED4AB1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m */,
+				5B8ED4AE1A836BFA009CDE44 /* APHBadgesCollectionViewCell.h */,
+				5B8ED4AF1A836BFA009CDE44 /* APHBadgesCollectionViewCell.m */,
+				5BB10C2C1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.h */,
+				5BB10C2D1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5BB10C0E1A91F4C4002D2DD2 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				A781163E1A96B69B00CEC822 /* Consent */,
+				5BB10C0F1A91F4C4002D2DD2 /* Intro.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		5BB6472719F6E34800AA30AA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5B55FDC31A02C618009BEE5E /* APHOnboarding.storyboard */,
+				5BB6472A19F6E34800AA30AA /* APHInclusionCriteriaViewController.h */,
+				5BB6472B19F6E34800AA30AA /* APHInclusionCriteriaViewController.m */,
+				5B0432431A30413A000DC9ED /* APHInEligibleViewController.h */,
+				5B0432441A30413A000DC9ED /* APHInEligibleViewController.m */,
+				5BBDAEEC1A35025D0047DF87 /* APHWebViewController.h */,
+				5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */,
+				6C3C6C641A64809300A1E390 /* APHConsentTaskViewController.h */,
+				6C3C6C651A64809300A1E390 /* APHConsentTaskViewController.m */,
+				7423AB5D1AA40714004A325A /* APHConsentRedirector.h */,
+				7423AB5E1AA40714004A325A /* APHConsentRedirector.m */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5BB6475319F6E57F00AA30AA /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B1D9D531A1BD046000F4AD6 /* Dashboard */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		5BB6478C19F6E5B300AA30AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5BB10C0E1A91F4C4002D2DD2 /* Videos */,
+				5BBDAEE81A3500EB0047DF87 /* PDF */,
+				5BBDAEC21A33E2B40047DF87 /* HTMLContent */,
+				F5B1F1A71A33BEC000C377FB /* Certificates */,
+				5BB6478D19F6E5B300AA30AA /* JSONs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5BB6478D19F6E5B300AA30AA /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				F551E10C1A2FD54E00397330 /* SurveyJSONs */,
+				6CBA91F61A928C4500A7E562 /* APHConsentSection.json */,
+				5B18CEE11A2D057C001A905E /* TermsAndConditions.json */,
+				5BBDAEF41A3515960047DF87 /* LocationInfo.json */,
+				5B975A361A11317800A34E42 /* Learn.json */,
+				6CECC1CB1A79A13C00458980 /* StudyOverview.json */,
+				5B975A371A11317800A34E42 /* WithdrawStudy.json */,
+				CF175C171A01B2E0008C10C9 /* asthma.bothers.json */,
+				5BB6478E19F6E5B300AA30AA /* APCParameters.json */,
+				5BB6478F19F6E5B300AA30AA /* APHTasksAndSchedules.json */,
+				CFE623BD19FAD114001BFF5A /* SleepSurvey.json */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
+		5BBDAEE81A3500EB0047DF87 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				5A004E091AA7917900F7A9A9 /* consent.pdf */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
+		6C4584241A910313007D076D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C4584291A910313007D076D /* APCAppCore.framework */,
+				6C45842B1A910313007D076D /* APCAppCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CB01B771A6EEC78003BFA39 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				6C3C6C781A6734BB00A1E390 /* APHQuizStepViewController.h */,
+				6C3C6C791A6734BB00A1E390 /* APHQuizStepViewController.m */,
+				6CF025291A69C7F300073EA7 /* APHQuizEvaluationViewController.h */,
+				6CF0252A1A69C7F300073EA7 /* APHQuizEvaluationViewController.m */,
+				6CB01B731A6EEC74003BFA39 /* QuizResultTableViewCell.h */,
+				6CB01B741A6EEC74003BFA39 /* QuizResultTableViewCell.m */,
+				6CB01B781A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.h */,
+				6CB01B791A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m */,
+				6CB769451A702C8C00A89871 /* APHQuizQuestionTableViewCell.h */,
+				6CB769461A702C8C00A89871 /* APHQuizQuestionTableViewCell.m */,
+			);
+			name = Quiz;
+			sourceTree = "<group>";
+		};
+		6CC004681AC863460042B2B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CC004711AC863460042B2B1 /* ResearchKit.framework */,
+				74B2443D1AD6CADA00B6D3CC /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		743AD11D1ABEF36C0071C218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				743AD1271ABEF36C0071C218 /* BridgeSDK.framework */,
+				743AD1291ABEF36C0071C218 /* BridgeSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B3CBC8E1A76C6A900DE27A4 /* EnrollmentForRecontact */ = {
+			isa = PBXGroup;
+			children = (
+				7B3CBC901A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.h */,
+				7B3CBC911A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m */,
+				7B3CBC921A76C6CC00DE27A4 /* APHEnrollmentIntroduction.h */,
+				7B3CBC931A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m */,
+				7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */,
+				7B3CBC951A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.h */,
+				7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */,
+			);
+			name = EnrollmentForRecontact;
+			sourceTree = "<group>";
+		};
+		A781163E1A96B69B00CEC822 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				A781163F1A96B69B00CEC822 /* 2x */,
+				A78116461A96B69B00CEC822 /* 3x */,
+			);
+			path = Consent;
+			sourceTree = "<group>";
+		};
+		A781163F1A96B69B00CEC822 /* 2x */ = {
+			isa = PBXGroup;
+			children = (
+				A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */,
+				A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */,
+				A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */,
+			);
+			path = 2x;
+			sourceTree = "<group>";
+		};
+		A78116461A96B69B00CEC822 /* 3x */ = {
+			isa = PBXGroup;
+			children = (
+				A781164A1A96B69B00CEC822 /* 10_PotentialBenifits_Alt@3x.m4v */,
+				A781164B1A96B69B00CEC822 /* 11_VisitingDoctor@3x.m4v */,
+				A781164C1A96B69B00CEC822 /* 12_Recontact@3x.m4v */,
+			);
+			path = 3x;
+			sourceTree = "<group>";
+		};
+		CFCA432519F5B00200D68EEE = {
+			isa = PBXGroup;
+			children = (
+				CFCA433019F5B00200D68EEE /* Asthma */,
+				CFCA433E19F5B00200D68EEE /* Images.xcassets */,
+				CFCA43B519F5C8B200D68EEE /* Frameworks */,
+				CFCA432F19F5B00200D68EEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFCA432F19F5B00200D68EEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFCA432E19F5B00200D68EEE /* Asthma.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFCA433019F5B00200D68EEE /* Asthma */ = {
+			isa = PBXGroup;
+			children = (
+				CFCA435819F5BA1800D68EEE /* Startup */,
+				5BB6472719F6E34800AA30AA /* Onboarding */,
+				5BB6475319F6E57F00AA30AA /* TabBarControllers */,
+				F5B1F1B41A33CDCF00C377FB /* TasksAndSteps */,
+				5BB6478C19F6E5B300AA30AA /* Resources */,
+				F53F27A51A2D348600A1D725 /* Library */,
+				CFCA433119F5B00200D68EEE /* Supporting Files */,
+			);
+			path = Asthma;
+			sourceTree = "<group>";
+		};
+		CFCA433119F5B00200D68EEE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B72A79C1A128708002FCD1E /* Asthma.entitlements */,
+				CFCA433219F5B00200D68EEE /* Info.plist */,
+				CFCA433319F5B00200D68EEE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFCA435819F5BA1800D68EEE /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				5BB6474819F6E35B00AA30AA /* APHAppDelegate.h */,
+				5BB6474919F6E35B00AA30AA /* APHAppDelegate.m */,
+				CFCA436119F5BE8500D68EEE /* Main.storyboard */,
+				CFCA436019F5BE8500D68EEE /* LaunchScreen.xib */,
+				7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */,
+				7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */,
+			);
+			name = Startup;
+			sourceTree = "<group>";
+		};
+		CFCA43B519F5C8B200D68EEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */,
+				6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */,
+				F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */,
+				CFCA43B619F5C96C00D68EEE /* AVFoundation.framework */,
+				CFCA43B719F5C96C00D68EEE /* CoreData.framework */,
+				CFCA43BC19F5C98800D68EEE /* HealthKit.framework */,
+				CFCA43B819F5C96C00D68EEE /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F53F27A51A2D348600A1D725 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F53F27A61A2D348600A1D725 /* Model */,
+				F5192D381A34C6D300A5CF3D /* APHConstants.h */,
+				F5192D391A34C6D300A5CF3D /* APHConstants.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F53F27A61A2D348600A1D725 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F53F27A71A2D348600A1D725 /* APHTableViewItem.h */,
+				F53F27A81A2D348600A1D725 /* APHTableViewItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F551E10C1A2FD54E00397330 /* SurveyJSONs */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F98E61AA3BB2900A2A7EB /* AboutYou.json */,
+				F551E10E1A2FD54E00397330 /* AsthmaDailyPrompt.json */,
+				F551E10F1A2FD54E00397330 /* AsthmaWeekly.json */,
+				6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */,
+				6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */,
+				6C13EE321A97D78A003D10C9 /* YourAsthma.json */,
+				6C13EE341A97D78F003D10C9 /* AsthmaHistory.json */,
+			);
+			path = SurveyJSONs;
+			sourceTree = "<group>";
+		};
+		F585DA911A333064003C5CAC /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				F585DA921A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.h */,
+				F585DA931A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m */,
+				F5192D341A34AC2A00A5CF3D /* APHAsthmaBadgesObject.h */,
+				F5192D351A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		F5B1F1A71A33BEC000C377FB /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Certificates;
+			sourceTree = "<group>";
+		};
+		F5B1F1B41A33CDCF00C377FB /* TasksAndSteps */ = {
+			isa = PBXGroup;
+			children = (
+				7B3CBC8E1A76C6A900DE27A4 /* EnrollmentForRecontact */,
+				6CF025161A68C84B00073EA7 /* APHConsentTask.h */,
+				6CF025171A68C84B00073EA7 /* APHConsentTask.m */,
+				6CF025111A68459D00073EA7 /* APHBooleanQuestionStep.h */,
+				6CF025121A68459D00073EA7 /* APHBooleanQuestionStep.m */,
+				F5B1F1B51A33CE1B00C377FB /* APHDailyTaskViewController.h */,
+				F5B1F1B61A33CE1B00C377FB /* APHDailyTaskViewController.m */,
+				F5B1F1B81A33D0F900C377FB /* APHWeeklyTaskViewController.h */,
+				F5B1F1B91A33D0F900C377FB /* APHWeeklyTaskViewController.m */,
+				6CB01B771A6EEC78003BFA39 /* Quiz */,
+			);
+			path = TasksAndSteps;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFCA432D19F5B00200D68EEE /* Asthma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFCA435119F5B00200D68EEE /* Build configuration list for PBXNativeTarget "Asthma" */;
+			buildPhases = (
+				CFCA432A19F5B00200D68EEE /* Sources */,
+				CFCA432B19F5B00200D68EEE /* Frameworks */,
+				CFCA432C19F5B00200D68EEE /* Resources */,
+				F5F12B381A2F87D90015982C /* Embed Frameworks */,
+				F53F27B11A2D373100A1D725 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				743AD12F1ABEF5070071C218 /* PBXTargetDependency */,
+				743AD12B1ABEF4F20071C218 /* PBXTargetDependency */,
+				743AD12D1ABEF4F90071C218 /* PBXTargetDependency */,
+				74EF8DDF1ABEF5A7001B47E1 /* PBXTargetDependency */,
+				74EF8DE71ABEF5AF001B47E1 /* PBXTargetDependency */,
+			);
+			name = Asthma;
+			productName = Asthma;
+			productReference = CFCA432E19F5B00200D68EEE /* Asthma.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFCA432619F5B00200D68EEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Apple, Inc.";
+				TargetAttributes = {
+					CFCA432D19F5B00200D68EEE = {
+						CreatedOnToolsVersion = 6.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = CFCA432919F5B00200D68EEE /* Build configuration list for PBXProject "Asthma" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFCA432519F5B00200D68EEE;
+			productRefGroup = CFCA432F19F5B00200D68EEE /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6C4584241A910313007D076D /* Products */;
+					ProjectRef = F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 743AD11D1ABEF36C0071C218 /* Products */;
+					ProjectRef = 743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = 6CC004681AC863460042B2B1 /* Products */;
+					ProjectRef = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				CFCA432D19F5B00200D68EEE /* Asthma */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6C4584291A910313007D076D /* APCAppCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = APCAppCore.framework;
+			remoteRef = 6C4584281A910313007D076D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C45842B1A910313007D076D /* APCAppCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = APCAppCoreTests.xctest;
+			remoteRef = 6C45842A1A910313007D076D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6CC004711AC863460042B2B1 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 6CC004701AC863460042B2B1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		743AD1271ABEF36C0071C218 /* BridgeSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BridgeSDK.framework;
+			remoteRef = 743AD1261ABEF36C0071C218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		743AD1291ABEF36C0071C218 /* BridgeSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeSDKTests.xctest;
+			remoteRef = 743AD1281ABEF36C0071C218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		74B2443D1AD6CADA00B6D3CC /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 74B2443C1AD6CADA00B6D3CC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFCA432C19F5B00200D68EEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78116511A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v in Resources */,
+				CFCA436219F5BE8500D68EEE /* LaunchScreen.xib in Resources */,
+				5BB6479719F6E5B300AA30AA /* APHTasksAndSchedules.json in Resources */,
+				A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */,
+				A78116571A96B69B00CEC822 /* 11_VisitingDoctor@3x.m4v in Resources */,
+				6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */,
+				6C13EE351A97D78F003D10C9 /* AsthmaHistory.json in Resources */,
+				5B18CEE21A2D057C001A905E /* TermsAndConditions.json in Resources */,
+				CFCA436319F5BE8500D68EEE /* Main.storyboard in Resources */,
+				5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */,
+				7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */,
+				A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */,
+				A78116581A96B69B00CEC822 /* 12_Recontact@3x.m4v in Resources */,
+				6CBA91F71A928C4500A7E562 /* APHConsentSection.json in Resources */,
+				CF175C181A01B2E0008C10C9 /* asthma.bothers.json in Resources */,
+				5BBDAEC31A33E2B40047DF87 /* HTMLContent in Resources */,
+				5B975A391A11317800A34E42 /* WithdrawStudy.json in Resources */,
+				A78116561A96B69B00CEC822 /* 10_PotentialBenifits_Alt@3x.m4v in Resources */,
+				F551E1141A2FD54E00397330 /* AsthmaWeekly.json in Resources */,
+				6CECC1CC1A79A13C00458980 /* StudyOverview.json in Resources */,
+				CFE623BE19FAD114001BFF5A /* SleepSurvey.json in Resources */,
+				5BB10C101A91F4C4002D2DD2 /* Intro.mp4 in Resources */,
+				5A0F98E71AA3BB2900A2A7EB /* AboutYou.json in Resources */,
+				5A004E0B1AA7918600F7A9A9 /* consent.pdf in Resources */,
+				F551E1131A2FD54E00397330 /* AsthmaDailyPrompt.json in Resources */,
+				6C13EE311A97D783003D10C9 /* AsthmaMedicationSurvey.json in Resources */,
+				5B1D9D591A1BD046000F4AD6 /* APHDashboard.storyboard in Resources */,
+				5BB6479619F6E5B300AA30AA /* APCParameters.json in Resources */,
+				6C13EE2D1A97D77D003D10C9 /* MedicalHistory.json in Resources */,
+				5B975A381A11317800A34E42 /* Learn.json in Resources */,
+				CFCA433F19F5B00200D68EEE /* Images.xcassets in Resources */,
+				5B55FDC41A02C618009BEE5E /* APHOnboarding.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F53F27B11A2D373100A1D725 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFCA432A19F5B00200D68EEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CBA91F01A927A4500A7E562 /* APHCalendarDataModel.m in Sources */,
+				F5B1F1B71A33CE1B00C377FB /* APHDailyTaskViewController.m in Sources */,
+				6C3C6C661A64809300A1E390 /* APHConsentTaskViewController.m in Sources */,
+				6C1F53EF1A9550C50068F233 /* APHAirQualityDataModel.m in Sources */,
+				6CB01B7A1A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m in Sources */,
+				5B0432451A30413A000DC9ED /* APHInEligibleViewController.m in Sources */,
+				6CB01B751A6EEC74003BFA39 /* QuizResultTableViewCell.m in Sources */,
+				7B3CBC981A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m in Sources */,
+				6CF025131A68459D00073EA7 /* APHBooleanQuestionStep.m in Sources */,
+				7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */,
+				5BB10C2E1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m in Sources */,
+				5BB6474A19F6E35B00AA30AA /* APHAppDelegate.m in Sources */,
+				6C6995C21A84234C001C557E /* APHCalendarCollectionViewController.m in Sources */,
+				6CB769471A702C8C00A89871 /* APHQuizQuestionTableViewCell.m in Sources */,
+				F5B1F1BA1A33D0F900C377FB /* APHWeeklyTaskViewController.m in Sources */,
+				5B47BA8E1A211E330080F8DC /* APHAirQualityCollectionViewCell.m in Sources */,
+				6C6995C61A84236A001C557E /* APHCalendarCollectionViewCell.m in Sources */,
+				5B47BA941A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m in Sources */,
+				F53F27AE1A2D348600A1D725 /* APHTableViewItem.m in Sources */,
+				5B1D9D5A1A1BD046000F4AD6 /* APHDashboardEditViewController.m in Sources */,
+				7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */,
+				F585DA941A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m in Sources */,
+				6CF025181A68C84B00073EA7 /* APHConsentTask.m in Sources */,
+				5B8ED4AC1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m in Sources */,
+				7B3CBC971A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m in Sources */,
+				5B8ED4B01A836BFA009CDE44 /* APHBadgesCollectionViewCell.m in Sources */,
+				6C3C6C7A1A6734BB00A1E390 /* APHQuizStepViewController.m in Sources */,
+				7423AB5F1AA40714004A325A /* APHConsentRedirector.m in Sources */,
+				F5192D3A1A34C6D300A5CF3D /* APHConstants.m in Sources */,
+				6CF0252B1A69C7F300073EA7 /* APHQuizEvaluationViewController.m in Sources */,
+				5BBDAEEE1A35025D0047DF87 /* APHWebViewController.m in Sources */,
+				CFCA433419F5B00200D68EEE /* main.m in Sources */,
+				5BB6473E19F6E34800AA30AA /* APHInclusionCriteriaViewController.m in Sources */,
+				5B1D9D5B1A1BD046000F4AD6 /* APHDashboardViewController.m in Sources */,
+				F5192D361A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		743AD12B1ABEF4F20071C218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenResearchKit;
+			targetProxy = 743AD12A1ABEF4F20071C218 /* PBXContainerItemProxy */;
+		};
+		743AD12D1ABEF4F90071C218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = APCAppCore;
+			targetProxy = 743AD12C1ABEF4F90071C218 /* PBXContainerItemProxy */;
+		};
+		743AD12F1ABEF5070071C218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeSDK;
+			targetProxy = 743AD12E1ABEF5070071C218 /* PBXContainerItemProxy */;
+		};
+		74EF8DDF1ABEF5A7001B47E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeSDK;
+			targetProxy = 74EF8DDE1ABEF5A7001B47E1 /* PBXContainerItemProxy */;
+		};
+		74EF8DE71ABEF5AF001B47E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenResearchKit;
+			targetProxy = 74EF8DE61ABEF5AF001B47E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		367C87271A7FF8F7003B5D17 /* DebugAndSendToDataVerificationServer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"USE_DATA_VERIFICATION_CLIENT=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = DebugAndSendToDataVerificationServer;
+		};
+		367C87281A7FF8F7003B5D17 /* DebugAndSendToDataVerificationServer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Asthma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = DebugAndSendToDataVerificationServer;
+		};
+		5BB6479C19F6E78500AA30AA /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Development;
+		};
+		5BB6479D19F6E78500AA30AA /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEVELOPMENT=1",
+				);
+				INFOPLIST_FILE = Asthma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Development;
+		};
+		CFCA434F19F5B00200D68EEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CFCA435019F5B00200D68EEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFCA435219F5B00200D68EEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Asthma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		CFCA435319F5B00200D68EEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Asthma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFCA432919F5B00200D68EEE /* Build configuration list for PBXProject "Asthma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCA434F19F5B00200D68EEE /* Debug */,
+				367C87271A7FF8F7003B5D17 /* DebugAndSendToDataVerificationServer */,
+				5BB6479C19F6E78500AA30AA /* Development */,
+				CFCA435019F5B00200D68EEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFCA435119F5B00200D68EEE /* Build configuration list for PBXNativeTarget "Asthma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCA435219F5B00200D68EEE /* Debug */,
+				367C87281A7FF8F7003B5D17 /* DebugAndSendToDataVerificationServer */,
+				5BB6479D19F6E78500AA30AA /* Development */,
+				CFCA435319F5B00200D68EEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFCA432619F5B00200D68EEE /* Project object */;
+}
