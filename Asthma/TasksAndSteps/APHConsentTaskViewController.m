@@ -151,7 +151,7 @@ static const int numberOfQuestions = 3;
         }
         
         return YES;//always present the quiz evaluation
-    }else
+    }
     return YES;
     
 }
