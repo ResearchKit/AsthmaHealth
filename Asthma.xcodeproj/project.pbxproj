@@ -831,7 +831,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh";
+			shellScript = "\"${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
