@@ -62,6 +62,7 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
 @property  (nonatomic, strong)  NSArray  *rkControlCusomisations;
 @property  (nonatomic, strong)  ORKConsentDocument *consentDocument;
 @property  (nonatomic, strong)  HKHealthStore *healthStore;
+@property  (nonatomic, assign)  NSInteger environment;
 @end
 
 @implementation APHAppDelegate
@@ -87,12 +88,12 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
     else if ( [defaults objectForKey:previousVersionKey] == nil)
     {
         APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        if ([self performMigrationFromOneToTwoWithError:&migrationError])
+        if (![self performMigrationFromOneToTwoWithError:&migrationError])
         {
             APCLogEvent(@"Migration from version 1 to 2 has failed.");
         }
 
-        if ([self performMigrationFromTwoToThreeWithError:&migrationError])
+        if (![self performMigrationFromTwoToThreeWithError:&migrationError])
         {
             APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
         }
@@ -100,7 +101,7 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
     else if ([[defaults objectForKey:previousVersionKey] isEqual: @2])
     {
         APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        if ([self performMigrationFromTwoToThreeWithError:&migrationError])
+        if (![self performMigrationFromTwoToThreeWithError:&migrationError])
         {
             APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
         }
@@ -134,10 +135,17 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
                                               };
     
     NSMutableDictionary * dictionary = [super defaultInitializationOptions];
+    
+#ifdef DEBUG
+    self.environment = SBBEnvironmentStaging;
+#else
+    self.environment = SBBEnvironmentProd;
+#endif
+
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(SBBEnvironmentProd),
+                                           kBridgeEnvironmentKey                : @(self.environment),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
@@ -169,8 +177,8 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
 
 -(void)setUpTasksReminder{
     //Reminders
-    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyTaskID reminderBody:NSLocalizedString(@"Complete Daily Survey", nil)];
-    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklyScheduleTaskId reminderBody:NSLocalizedString(@"Complete Weekly Survey", nil)];
+    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyTaskID reminderBody:NSLocalizedString(@"Daily Survey", nil)];
+    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklyScheduleTaskId reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
     
     //define completion as defined in resultsSummary
     NSPredicate *medicationPredicate = [NSPredicate predicateWithFormat:@"SELF.integerValue == 1"];
@@ -248,69 +256,6 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
                  kScheduleOffsetOffsetKey: @(3)
                  }
              ];
-}
-
-/*********************************************************************************/
-#pragma mark - Datasubstrate Delegate Methods
-/*********************************************************************************/
-
-- (NSDictionary *) tasksAndSchedulesWillBeLoaded {
-    
-    NSString                    *resource = [[NSBundle mainBundle] pathForResource:self.initializationOptions[kTasksAndSchedulesJSONFileNameKey]
-                                                                            ofType:@"json"];
-    
-    NSData                      *jsonData = [NSData dataWithContentsOfFile:resource];
-    NSError                     *error;
-    NSDictionary                *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                              options:NSJSONReadingMutableContainers
-                                                                                error:&error];
-    if (dictionary == nil) {
-        APCLogError2 (error);
-    }
-    
-    NSArray                     *schedules = [dictionary objectForKey:kJsonSchedulesKey];
-    NSMutableDictionary         *newDictionary = [dictionary mutableCopy];
-    NSMutableArray              *newSchedulesArray = [NSMutableArray new];
-    
-    for (NSDictionary *schedule in schedules) {
-        
-        if ([[schedule objectForKey:kJsonScheduleTaskIDKey] isEqualToString:kWeeklyScheduleTaskId]) {
-            //migrate the start day of weekly survey to Saturday
-            NSInteger           zeroBasedDay = 6;//weekly survey should always show up on Sat
-            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
-            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
-            NSString            *weekdayValue = (NSString *)scheduleObjects.lastObject;
-            
-            if (weekdayValue.integerValue != zeroBasedDay) {
-                
-                if ([scheduleObjects count] == kExpectedNumOfCompInScheduleStr) {
-                    [scheduleObjects removeLastObject];
-                    
-                    [scheduleObjects addObject:[NSString stringWithFormat:@"%ld", (long)zeroBasedDay]];
-                }
-                
-                NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
-                
-                [schedule setValue:newScheduleString
-                            forKey:kJsonScheduleStringKey];
-                
-                [newSchedulesArray addObject:schedule];
-            }
-            
-        }
-        else
-        {
-            [newSchedulesArray addObject:schedule];
-        }
-    }
-    
-    [newDictionary setValue:[dictionary objectForKey:kJsonTasksKey]
-                     forKey:kJsonTasksKey];
-    
-    [newDictionary setValue:newSchedulesArray
-                     forKey:kJsonSchedulesKey];
-    
-    return newDictionary;
 }
 
 /*********************************************************************************/

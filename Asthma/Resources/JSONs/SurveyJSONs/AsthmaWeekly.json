@@ -1,7 +1,7 @@
 {
-    "identifier": "AsthmaDailyPrompt",
+    "identifier": "AsthmaWeeklyPrompt",
     "type": "Survey",
-    "name": "AsthmaDailyPrompt",
+    "name": "AsthmaWeeklyPrompt",
     "questions": [
         {
             "identifier": "asthma_doc_visit",

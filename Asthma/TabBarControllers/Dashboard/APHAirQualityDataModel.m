@@ -42,7 +42,7 @@ static NSString * kLatitudeKey              = @"latitude";
 static NSString * kLongitudeKey             = @"longitude";
 static NSString * kLifemapURL               = @"https://alerts.lifemap-solutions.com";
 static NSString * kAlertGetJson             = @"/alert/get_aqi.json";
-static NSString * klifemapCertificateFilename = @"lifemap-solutions";
+static NSString * klifemapCertificateFilename = @"mssm_asthma_public_04092015";
 static NSString * kFileInfoNameKey          = @"filename";
 static NSString * kFileInfoTimeStampKey     = @"timestamp";
 static NSString * kFileInfoContentTypeKey   = @"contentType";
@@ -166,7 +166,7 @@ static NSString * kItemName                 = @"Air Quality Report";
                                                                    dataBlock:^(NSError** __unused error){ return jsonData;}]];
         
         NSMutableDictionary * fileInfoEntry = [NSMutableDictionary dictionary];
-        fileInfoEntry[kFileInfoNameKey] = filename;
+        fileInfoEntry[kFileInfoNameKey] = fullFileName;
         fileInfoEntry[kFileInfoTimeStampKey] = [NSDate new];
         fileInfoEntry[kFileInfoContentTypeKey] = @"application/json";
         [self.filesList addObject:fileInfoEntry];

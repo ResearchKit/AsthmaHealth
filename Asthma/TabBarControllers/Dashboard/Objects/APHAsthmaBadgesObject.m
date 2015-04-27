@@ -35,6 +35,7 @@
 #import "APHConstants.h"
 
 static const int maximumWorkDays = 5;
+static const int daysToSearchForCompletedWeeklySurvey = 21;
 
 @import APCAppCore;
 
@@ -107,7 +108,7 @@ static const int maximumWorkDays = 5;
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startOn" ascending:YES];
         NSFetchRequest *request = [APCScheduledTask request];
         [request setShouldRefreshRefetchedObjects:YES];
-        NSDate *startDate = [NSDate startOfDay:[[NSDate date] dateByAddingDays:-4]];
+        NSDate *startDate = [NSDate startOfDay:[[NSDate date] dateByAddingDays:-daysToSearchForCompletedWeeklySurvey]];
         NSDate *endDate = [NSDate tomorrowAtMidnight];
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (startOn <= %@) AND task.taskID == %@", startDate, endDate, kWeeklySurveyTaskID];
@@ -146,31 +147,31 @@ static const int maximumWorkDays = 5;
 {
     _workAttendanceValue = -1;
     if (self.completedWeeklyScheduledTasks.count > 0) {
-        for (APCScheduledTask *task in self.completedWeeklyScheduledTasks) {
-            NSString * resultSummary = task.lastResult.resultSummary;
-            NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : [NSDictionary new];
-            
-            NSString *keyString;
-            int missedDays = 0;
-            for (int i = 0; i < 7; i++) {
-                keyString = [kDaysMissedKey stringByAppendingFormat:@"%i", i];
-                if (dictionary[keyString]) {
-                    missedDays++;
-                }
+        APCScheduledTask *completedWeeklyTask = self.completedWeeklyScheduledTasks.lastObject;
+        
+        NSString * resultSummary = completedWeeklyTask.lastResult.resultSummary;
+        NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : [NSDictionary new];
+        
+        NSString *keyString;
+        int missedDays = 0;
+        for (int i = 0; i < 7; i++) {
+            keyString = [kDaysMissedKey stringByAppendingFormat:@"%i", i];
+            if (dictionary[keyString]) {
+                missedDays++;
             }
-            
-            if (missedDays > 5) {
-                missedDays = 5;
-            }
-            NSNumber *inferredWorkedDays;
-            if (maximumWorkDays - missedDays > 0) {
-                inferredWorkedDays = [NSNumber numberWithInt:(maximumWorkDays - missedDays)];
-            }else{
-                inferredWorkedDays = [NSNumber numberWithInt:0];
-            }
-            
-            _workAttendanceValue = (float)inferredWorkedDays.floatValue/(float)maximumWorkDays;
         }
+        
+        if (missedDays > 5) {
+            missedDays = 5;
+        }
+        NSNumber *inferredWorkedDays;
+        if (maximumWorkDays - missedDays > 0) {
+            inferredWorkedDays = [NSNumber numberWithInt:(maximumWorkDays - missedDays)];
+        }else{
+            inferredWorkedDays = [NSNumber numberWithInt:0];
+        }
+        
+        _workAttendanceValue = (float)inferredWorkedDays.floatValue/(float)maximumWorkDays;
     }
 }
 
@@ -249,7 +250,8 @@ static const int maximumWorkDays = 5;
         }
     }
     
-    for (APCScheduledTask * weeklyCompletedTask in self.completedWeeklyScheduledTasks) {
+    if (self.completedWeeklyScheduledTasks.lastObject) {
+        APCScheduledTask *weeklyCompletedTask = (APCScheduledTask *)self.completedWeeklyScheduledTasks.lastObject;
         NSString * resultSummary = weeklyCompletedTask.lastResult.resultSummary;
         NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
         if ([dictionary[kSteroid1Key] boolValue] || [dictionary[kSteroid2Key] boolValue]) {

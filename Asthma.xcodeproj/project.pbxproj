@@ -86,6 +86,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		08084A981AD840390006AB9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
 		6C4584281A910313007D076D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */;
@@ -141,13 +148,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 80855F4F19BE258C006601C7;
 			remoteInfo = BridgeSDK;
-		};
-		74B2443C1AD6CADA00B6D3CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
-			remoteInfo = ResearchKitTests;
 		};
 		74EF8DDE1ABEF5A7001B47E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -454,7 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				6CC004711AC863460042B2B1 /* ResearchKit.framework */,
-				74B2443D1AD6CADA00B6D3CC /* ResearchKitTests.xctest */,
+				08084A991AD840390006AB9C /* ResearchKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -732,6 +732,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		08084A991AD840390006AB9C /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 08084A981AD840390006AB9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6C4584291A910313007D076D /* APCAppCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -765,13 +772,6 @@
 			fileType = wrapper.cfbundle;
 			path = BridgeSDKTests.xctest;
 			remoteRef = 743AD1281ABEF36C0071C218 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		74B2443D1AD6CADA00B6D3CC /* ResearchKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ResearchKitTests.xctest;
-			remoteRef = 74B2443C1AD6CADA00B6D3CC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
