@@ -129,8 +129,6 @@
         [self.tasksReminder setReminderOn:@YES];
     }
 
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    
     return self.tasksReminder.reminders.count;
     
 }

@@ -162,7 +162,7 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
             if (sampleType)
             {
                 [self.dataSubstrate.healthStore enableBackgroundDeliveryForType:sampleType
-                                                                      frequency:HKUpdateFrequencyImmediate
+                                                                      frequency:HKUpdateFrequencyHourly
                                                                  withCompletion:^(BOOL success, NSError *error)
     {
                      if (!success)
