@@ -44,6 +44,7 @@
 #import "APHCalendarDataModel.h"
 #import "APHAirQualityDataModel.h"
 #import "APHConstants.h"
+#import "APHAppDelegate.h"
 
 static NSString *kTooltipBadgesContent = @"As you complete daily surveys, work without asthma interruption, and achieve asthma-free nights and days, you'll earn badges for succeeding five of the last seven days. Tap item to see calendar view.";
 static NSString *kTooltipStepsContent = @"This graph shows the number of steps you have taken each day, as recorded by your phone or connected device. Tap the button in the upper right corner to make the graph larger.";
@@ -74,7 +75,6 @@ NSString *const kDataNotAvailable = @"N/A";
 @property (nonatomic, assign) BOOL shouldAnimateObjects;
 
 //Air Quality
-@property (nonatomic, strong) APHAirQualityDataModel *airQualityDataModel;
 @property (nonatomic, strong) APHTableViewDashboardAQAlertItem * aqiObject;
 @property (nonatomic, assign) float numberOfItemsForAirQuality;
 @property (nonatomic, assign) float airQualityCollectionViewCellHeight;
@@ -124,8 +124,7 @@ NSString *const kDataNotAvailable = @"N/A";
     //calendar
     self.calendarDataModel = [[APHCalendarDataModel alloc]init];
     //air quality properties to be updated on notification from APHAirQualityDataModel
-    self.airQualityDataModel = [[APHAirQualityDataModel alloc]init];
-    self.airQualityDataModel.airQualityReportReceiver = self;
+    
     self.numberOfItemsForAirQuality = 0;
     self.airQualityCollectionViewCellHeight = 0.0f;
     self.airQualityCollectionViewHeaderHeight = 0.0f;
@@ -141,6 +140,14 @@ NSString *const kDataNotAvailable = @"N/A";
     self.rowItemsOrder = [NSMutableArray arrayWithArray:[defaults objectForKey:kAPCDashboardRowItemsOrder]];
     self.badgeObject = [APHAsthmaBadgesObject new];
     self.shouldAnimateObjects = NO;
+    
+    //get aqi if exists
+    __weak APHAirQualityDataModel *airQualityDataModel = [(APHAppDelegate *)[UIApplication sharedApplication].delegate airQualityDataModel];
+    airQualityDataModel.airQualityReportReceiver = self;
+    if (airQualityDataModel.aqiObject) {
+        [self airQualityModel:airQualityDataModel didDeliverAirQualityAlert:airQualityDataModel.aqiObject];
+    }
+    
     [self prepareScoringObjects];
     [self prepareData];
 }
@@ -764,21 +771,14 @@ NSString *const kDataNotAvailable = @"N/A";
 #pragma mark - APHAirQualityDataModel 
 -(void)airQualityModel:(APHAirQualityDataModel *)__unused model didDeliverAirQualityAlert:(APHTableViewDashboardAQAlertItem *)alert{
     
-    __weak APHDashboardViewController *weakSelf = self;
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        weakSelf.aqiObject = alert;
-        weakSelf.numberOfItemsForAirQuality = 4;
-        weakSelf.airQualityCollectionViewCellHeight = 54.0f;
-        weakSelf.airQualityCollectionViewHeaderHeight = 36.0f;
-        weakSelf.aqiObject.showTomorrowInfo = YES;
-        weakSelf.shouldAnimateObjects = NO;
-        [weakSelf prepareData];
-    });
-   
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        weakSelf.shouldAnimateObjects = YES;
-    });
+    self.aqiObject = alert;
+    self.numberOfItemsForAirQuality = 4;
+    self.airQualityCollectionViewCellHeight = 54.0f;
+    self.airQualityCollectionViewHeaderHeight = 36.0f;
+    self.aqiObject.showTomorrowInfo = YES;
+    self.shouldAnimateObjects = NO;
+    [self prepareData];
+    self.shouldAnimateObjects = YES;
     
 }
 

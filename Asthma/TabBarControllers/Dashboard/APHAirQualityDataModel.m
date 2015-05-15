@@ -58,7 +58,6 @@ static NSString * kItemName                 = @"Air Quality Report";
 @property (nonatomic, strong) CLLocationManager * locationManager;
 @property (nonatomic, strong) SBBNetworkManager * networkManager;
 @property (nonatomic, strong) NSMutableDictionary *aqiResponse;
-@property (nonatomic, strong) APHTableViewDashboardAQAlertItem *aqiObject;
 @property (nonatomic) BOOL fetchingAirQualityReport;
 
 //compression and encryption
@@ -290,27 +289,27 @@ static NSString * kItemName                 = @"Air Quality Report";
     if (!self.fetchingAirQualityReport && ((currentTime - lastAQICheckedTime) >= kAQICheckInterval)) {
         self.fetchingAirQualityReport = YES;
         //Make Network call for Air Quality in block
-            [self.networkManager get:kAlertGetJson headers:nil parameters:@{@"lat":@(lat),@"lon":@(lon)} completion:^(NSURLSessionDataTask __unused *task, id responseObject, NSError *error) {
-                APCLogError2(error);
-                weakSelf.fetchingAirQualityReport = NO;
-                if (!error) {
-                    weakSelf.aqiObject.aqiDictionary = responseObject;
-                    weakSelf.aqiResponse = [[NSMutableDictionary alloc]initWithDictionary:responseObject];
+        [self.networkManager get:kAlertGetJson headers:nil parameters:@{@"lat":@(lat),@"lon":@(lon)} completion:^(NSURLSessionDataTask __unused *task, id responseObject, NSError *error) {
+            APCLogError2(error);
+            weakSelf.fetchingAirQualityReport = NO;
+            if (!error) {
+                weakSelf.aqiObject.aqiDictionary = responseObject;
+                weakSelf.aqiResponse = [[NSMutableDictionary alloc]initWithDictionary:responseObject];
+                
+                //send notification for [APHDashboardViewController to prepareData];
+                APCLogEventWithData(kNetworkEvent, (@{
+                                                      @"event_detail" : @"Received Air Quality Info from Server"
+                                                      }));
+                
+                //sends a new AQIAlert to the dashboard. The dashboard should receive it on the main thread.
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if ([weakSelf.airQualityReportReceiver respondsToSelector:@selector(airQualityModel:didDeliverAirQualityAlert:)]) {
+                        [weakSelf.airQualityReportReceiver airQualityModel:weakSelf didDeliverAirQualityAlert:weakSelf.aqiObject];
+                    }
                     
-                    //send notification for [APHDashboardViewController to prepareData];
-                    APCLogEventWithData(kNetworkEvent, (@{
-                                                          @"event_detail" : @"Received Air Quality Info from Server"
-                                                          }));
-                    
-                    //sends a new AQIAlert to the dashboard. The dashboard should receive it on the main thread.
-                    [weakSelf.airQualityReportReceiver airQualityModel:weakSelf didDeliverAirQualityAlert:weakSelf.aqiObject];
-                    
-                    //Complete processing of the data (encryption, zipping, upload) on a secondary queue
-                    dispatch_queue_t processAirQualityQueue = dispatch_queue_create("com.apple.asthma", DISPATCH_QUEUE_SERIAL);
-                    dispatch_async(processAirQualityQueue, ^{
                     [weakSelf prepareDictionaries];
-                    });
-                }}];
+                });
+            }}];
     }
 }
 

@@ -30,9 +30,6 @@
 		5BBDAEC31A33E2B40047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEC21A33E2B40047DF87 /* HTMLContent */; };
 		5BBDAEEE1A35025D0047DF87 /* APHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */; };
 		5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEF41A3515960047DF87 /* LocationInfo.json */; };
-		6C13EE2D1A97D77D003D10C9 /* MedicalHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */; };
-		6C13EE311A97D783003D10C9 /* AsthmaMedicationSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */; };
-		6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE321A97D78A003D10C9 /* YourAsthma.json */; };
 		6C13EE351A97D78F003D10C9 /* AsthmaHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE341A97D78F003D10C9 /* AsthmaHistory.json */; };
 		6C1F53EF1A9550C50068F233 /* APHAirQualityDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F53EE1A9550C50068F233 /* APHAirQualityDataModel.m */; };
 		6C3C6C661A64809300A1E390 /* APHConsentTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C6C651A64809300A1E390 /* APHConsentTaskViewController.m */; };
@@ -40,6 +37,10 @@
 		6C45842E1A911572007D076D /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4584291A910313007D076D /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C6995C21A84234C001C557E /* APHCalendarCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6995C11A84234C001C557E /* APHCalendarCollectionViewController.m */; };
 		6C6995C61A84236A001C557E /* APHCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6995C51A84236A001C557E /* APHCalendarCollectionViewCell.m */; };
+		6CA7DE841B03D288008EB83D /* AsthmaDailyPrompt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CA7DE831B03D288008EB83D /* AsthmaDailyPrompt.json */; };
+		6CA7DE861B03D291008EB83D /* AsthmaMedicationSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CA7DE851B03D291008EB83D /* AsthmaMedicationSurvey.json */; };
+		6CA7DE891B03D299008EB83D /* MedicalHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CA7DE881B03D299008EB83D /* MedicalHistory.json */; };
+		6CA7DE8C1B03D29F008EB83D /* YourAsthma.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CA7DE8B1B03D29F008EB83D /* YourAsthma.json */; };
 		6CB01B751A6EEC74003BFA39 /* QuizResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB01B741A6EEC74003BFA39 /* QuizResultTableViewCell.m */; };
 		6CB01B7A1A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB01B791A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m */; };
 		6CB769471A702C8C00A89871 /* APHQuizQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB769461A702C8C00A89871 /* APHQuizQuestionTableViewCell.m */; };
@@ -78,7 +79,6 @@
 		F5192D361A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5192D351A34AC2A00A5CF3D /* APHAsthmaBadgesObject.m */; };
 		F5192D3A1A34C6D300A5CF3D /* APHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5192D391A34C6D300A5CF3D /* APHConstants.m */; };
 		F53F27AE1A2D348600A1D725 /* APHTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F27A81A2D348600A1D725 /* APHTableViewItem.m */; };
-		F551E1131A2FD54E00397330 /* AsthmaDailyPrompt.json in Resources */ = {isa = PBXBuildFile; fileRef = F551E10E1A2FD54E00397330 /* AsthmaDailyPrompt.json */; };
 		F551E1141A2FD54E00397330 /* AsthmaWeekly.json in Resources */ = {isa = PBXBuildFile; fileRef = F551E10F1A2FD54E00397330 /* AsthmaWeekly.json */; };
 		F585DA941A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F585DA931A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m */; };
 		F5B1F1B71A33CE1B00C377FB /* APHDailyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B1F1B61A33CE1B00C377FB /* APHDailyTaskViewController.m */; };
@@ -216,9 +216,6 @@
 		5BBDAEEC1A35025D0047DF87 /* APHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWebViewController.h; sourceTree = "<group>"; };
 		5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWebViewController.m; sourceTree = "<group>"; };
 		5BBDAEF41A3515960047DF87 /* LocationInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationInfo.json; sourceTree = "<group>"; };
-		6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MedicalHistory.json; sourceTree = "<group>"; };
-		6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaMedicationSurvey.json; sourceTree = "<group>"; };
-		6C13EE321A97D78A003D10C9 /* YourAsthma.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YourAsthma.json; sourceTree = "<group>"; };
 		6C13EE341A97D78F003D10C9 /* AsthmaHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaHistory.json; sourceTree = "<group>"; };
 		6C1F53ED1A9550C50068F233 /* APHAirQualityDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAirQualityDataModel.h; sourceTree = "<group>"; };
 		6C1F53EE1A9550C50068F233 /* APHAirQualityDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAirQualityDataModel.m; sourceTree = "<group>"; };
@@ -230,6 +227,10 @@
 		6C6995C11A84234C001C557E /* APHCalendarCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCalendarCollectionViewController.m; sourceTree = "<group>"; };
 		6C6995C41A84236A001C557E /* APHCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCalendarCollectionViewCell.h; sourceTree = "<group>"; };
 		6C6995C51A84236A001C557E /* APHCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCalendarCollectionViewCell.m; sourceTree = "<group>"; };
+		6CA7DE831B03D288008EB83D /* AsthmaDailyPrompt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaDailyPrompt.json; sourceTree = "<group>"; };
+		6CA7DE851B03D291008EB83D /* AsthmaMedicationSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaMedicationSurvey.json; sourceTree = "<group>"; };
+		6CA7DE881B03D299008EB83D /* MedicalHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MedicalHistory.json; sourceTree = "<group>"; };
+		6CA7DE8B1B03D29F008EB83D /* YourAsthma.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YourAsthma.json; sourceTree = "<group>"; };
 		6CB01B731A6EEC74003BFA39 /* QuizResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizResultTableViewCell.h; sourceTree = "<group>"; };
 		6CB01B741A6EEC74003BFA39 /* QuizResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizResultTableViewCell.m; sourceTree = "<group>"; };
 		6CB01B781A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuizTextViewTableViewCell.h; sourceTree = "<group>"; };
@@ -284,7 +285,6 @@
 		F5192D391A34C6D300A5CF3D /* APHConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHConstants.m; sourceTree = "<group>"; };
 		F53F27A71A2D348600A1D725 /* APHTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTableViewItem.h; sourceTree = "<group>"; };
 		F53F27A81A2D348600A1D725 /* APHTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTableViewItem.m; sourceTree = "<group>"; };
-		F551E10E1A2FD54E00397330 /* AsthmaDailyPrompt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaDailyPrompt.json; sourceTree = "<group>"; };
 		F551E10F1A2FD54E00397330 /* AsthmaWeekly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaWeekly.json; sourceTree = "<group>"; };
 		F585DA921A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTableViewDashboardAQAlertItem.h; sourceTree = "<group>"; };
 		F585DA931A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTableViewDashboardAQAlertItem.m; sourceTree = "<group>"; };
@@ -602,12 +602,12 @@
 		F551E10C1A2FD54E00397330 /* SurveyJSONs */ = {
 			isa = PBXGroup;
 			children = (
+				6CA7DE831B03D288008EB83D /* AsthmaDailyPrompt.json */,
+				6CA7DE851B03D291008EB83D /* AsthmaMedicationSurvey.json */,
+				6CA7DE881B03D299008EB83D /* MedicalHistory.json */,
+				6CA7DE8B1B03D29F008EB83D /* YourAsthma.json */,
 				5A0F98E61AA3BB2900A2A7EB /* AboutYou.json */,
-				F551E10E1A2FD54E00397330 /* AsthmaDailyPrompt.json */,
 				F551E10F1A2FD54E00397330 /* AsthmaWeekly.json */,
-				6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */,
-				6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */,
-				6C13EE321A97D78A003D10C9 /* YourAsthma.json */,
 				6C13EE341A97D78F003D10C9 /* AsthmaHistory.json */,
 			);
 			path = SurveyJSONs;
@@ -659,6 +659,7 @@
 				CFCA432B19F5B00200D68EEE /* Frameworks */,
 				CFCA432C19F5B00200D68EEE /* Resources */,
 				F5F12B381A2F87D90015982C /* Embed Frameworks */,
+				F53F27B11A2D373100A1D725 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -685,6 +686,7 @@
 				TargetAttributes = {
 					CFCA432D19F5B00200D68EEE = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 65K7WW4NRC;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -786,13 +788,14 @@
 				5BB6479719F6E5B300AA30AA /* APHTasksAndSchedules.json in Resources */,
 				A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */,
 				A78116571A96B69B00CEC822 /* 11_VisitingDoctor@3x.m4v in Resources */,
-				6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */,
 				6C13EE351A97D78F003D10C9 /* AsthmaHistory.json in Resources */,
 				5B18CEE21A2D057C001A905E /* TermsAndConditions.json in Resources */,
 				CFCA436319F5BE8500D68EEE /* Main.storyboard in Resources */,
 				5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */,
+				6CA7DE861B03D291008EB83D /* AsthmaMedicationSurvey.json in Resources */,
 				7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */,
 				A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */,
+				6CA7DE841B03D288008EB83D /* AsthmaDailyPrompt.json in Resources */,
 				A78116581A96B69B00CEC822 /* 12_Recontact@3x.m4v in Resources */,
 				6CBA91F71A928C4500A7E562 /* APHConsentSection.json in Resources */,
 				CF175C181A01B2E0008C10C9 /* asthma.bothers.json in Resources */,
@@ -805,11 +808,10 @@
 				5BB10C101A91F4C4002D2DD2 /* Intro.mp4 in Resources */,
 				5A0F98E71AA3BB2900A2A7EB /* AboutYou.json in Resources */,
 				5A004E0B1AA7918600F7A9A9 /* consent.pdf in Resources */,
-				F551E1131A2FD54E00397330 /* AsthmaDailyPrompt.json in Resources */,
-				6C13EE311A97D783003D10C9 /* AsthmaMedicationSurvey.json in Resources */,
+				6CA7DE8C1B03D29F008EB83D /* YourAsthma.json in Resources */,
 				5B1D9D591A1BD046000F4AD6 /* APHDashboard.storyboard in Resources */,
 				5BB6479619F6E5B300AA30AA /* APCParameters.json in Resources */,
-				6C13EE2D1A97D77D003D10C9 /* MedicalHistory.json in Resources */,
+				6CA7DE891B03D299008EB83D /* MedicalHistory.json in Resources */,
 				5B975A381A11317800A34E42 /* Learn.json in Resources */,
 				CFCA433F19F5B00200D68EEE /* Images.xcassets in Resources */,
 				5B55FDC41A02C618009BEE5E /* APHOnboarding.storyboard in Resources */,
@@ -817,6 +819,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F53F27B11A2D373100A1D725 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CFCA432A19F5B00200D68EEE /* Sources */ = {
@@ -947,7 +965,10 @@
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -955,7 +976,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
 			};
 			name = DebugAndSendToDataVerificationServer;
 		};
@@ -1013,7 +1034,10 @@
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DEVELOPMENT=1",
@@ -1025,7 +1049,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
 			};
 			name = Development;
 		};
@@ -1122,7 +1146,10 @@
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1130,7 +1157,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
 			};
 			name = Debug;
 		};
@@ -1143,7 +1170,10 @@
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1151,7 +1181,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
 			};
 			name = Release;
 		};

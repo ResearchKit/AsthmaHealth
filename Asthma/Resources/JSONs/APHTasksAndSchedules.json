@@ -70,7 +70,7 @@
                   },
                   {
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * *",
+                  "scheduleString": "0 5 * * 6",
                   "taskID": "WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a"
                   },
                   {

@@ -819,7 +819,10 @@
                   "type": "SurveyQuestion",
                   "constraints": {
                   "dataType": "integer",
-                  "type": "IntegerConstraints"
+                    "step": null,
+                    "type": "IntegerConstraints",
+                    "maxValue": 20,
+                    "minValue": 1
                   }
                   }
                   ]

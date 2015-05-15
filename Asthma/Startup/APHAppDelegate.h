@@ -34,8 +34,8 @@
 #import <UIKit/UIKit.h>
 
 @import APCAppCore;
-
+@class APHAirQualityDataModel;
 @interface APHAppDelegate : APCAppDelegate
-
+@property (nonatomic, strong) APHAirQualityDataModel *airQualityDataModel;
 @end
 
