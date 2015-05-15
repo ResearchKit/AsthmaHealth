@@ -37,7 +37,7 @@
 
 - (BOOL) performMigrationFromOneToTwoWithError:(NSError *__autoreleasing *)error{
     
-    BOOL success = [self addEuroQoLSurvey] && [self updateAllSurveysWithError:error];
+    BOOL success = [self updateAllSurveysWithError:error];
     
     return success;
 }
@@ -79,42 +79,6 @@
     return success;
 }
 
-
-- (BOOL)addEuroQoLSurvey {    
-    
-    NSDictionary * staticScheduleAndTask = @{ @"tasks":
-                                                  @[
-                                                      @{
-                                                          @"taskTitle"                : @"EuroQoL Quality of Life Survey",
-                                                          @"taskID"                   : @"EQ5D-00d025a0-c12b-11e4-8dfc-aa07a5b093db",
-                                                          @"taskFileName"             : @"EQ_5D",
-                                                          @"taskClassName"            : @"APHEQ5TaskViewController",
-                                                          @"taskCompletionTimeString" : @"9 Questions"
-                                                          }
-                                                      ],
-                                              
-                                              @"schedules":
-                                                  @[
-                                                      
-                                                      @{
-                                                          @"expires"     : @"P89D",
-                                                          @"scheduleType"     : @"once",
-                                                          @"taskID"           : @"EQ5D-00d025a0-c12b-11e4-8dfc-aa07a5b093db"
-                                                          }
-                                                      ]
-                                              };
-    
-    [APCTask updateTasksFromJSON:staticScheduleAndTask[@"tasks"]
-                       inContext:self.dataSubstrate.persistentContext];
-    
-    [APCSchedule createSchedulesFromJSON:staticScheduleAndTask[@"schedules"]
-                               inContext:self.dataSubstrate.persistentContext];
-    
-    APCScheduler *scheduler = [[APCScheduler alloc] initWithDataSubstrate:self.dataSubstrate];
-    [scheduler updateScheduledTasksIfNotUpdating:YES];
-     
-    return YES;
-}
 
 - (BOOL)addRecontactSurvey
 {
