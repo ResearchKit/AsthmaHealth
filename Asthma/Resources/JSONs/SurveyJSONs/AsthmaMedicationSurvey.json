@@ -818,7 +818,7 @@
                   "guid": "21987af2-4846-48e4-fc80-27e3371186e0",
                   "type": "SurveyQuestion",
                   "constraints": {
-                  "dataType": "integer",
+                    "dataType": "integer",
                     "step": null,
                     "type": "IntegerConstraints",
                     "maxValue": 20,
