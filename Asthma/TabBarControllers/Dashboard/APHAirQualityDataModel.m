@@ -79,7 +79,6 @@ static NSString * kItemName                 = @"Air Quality Report";
         [defaults removeObjectForKey:kAQILastChecked];
         _networkManager = [[SBBNetworkManager alloc] initWithBaseURL:kLifemapURL];
         [self.locationManager startUpdatingLocation];
-        [self createZipArchive];
     }
     return self;
 }
@@ -112,7 +111,6 @@ static NSString * kItemName                 = @"Air Quality Report";
         NSDictionary *results = [self.aqiResponse objectForKey:@"results"];
         //do we actually have air quality reports, not just a reporting area?
         if ([results objectForKey:@"reports"] && ![[results objectForKey:@"reporting_area"] isKindOfClass:[NSNull class]]) {
-            [[NSUserDefaults standardUserDefaults] setDouble:[[NSDate date] timeIntervalSinceReferenceDate] forKey:kAQILastChecked];
             [self insertIntoZipArchive:results filename:@"aqiResponse"];
             
             NSMutableDictionary *latLongDictionary = [[NSMutableDictionary alloc]init];
@@ -190,6 +188,7 @@ static NSString * kItemName                 = @"Air Quality Report";
         if (![self.zipArchive updateEntries:self.zipEntries error:&error]) {
             APCLogError2(error);
         }else{
+            APCLogDebug(@"Outputting AirQuality infoDict to console\n%@", self.infoDict);
             [self encryptZip];
         }
     }
@@ -206,7 +205,7 @@ static NSString * kItemName                 = @"Air Quality Report";
             APCLogDebug(@"Encryption of zip file failed, won't upload");
         }
     }
-    [self cleanUpTemporaryDirectory];
+    [self cleanUp];
 }
 
 -(void)uploadEncryptedZip{
@@ -241,7 +240,7 @@ static NSString * kItemName                 = @"Air Quality Report";
     }
 }
 
--(void)cleanUpTemporaryDirectory{
+-(void)cleanUp{
     NSError *err;
     if (![[NSFileManager defaultManager] removeItemAtPath:self.encryptedArchiveFilename error:&err]) {
         APCLogError2(err);
@@ -274,19 +273,25 @@ static NSString * kItemName                 = @"Air Quality Report";
 - (void)locationManager:(CLLocationManager *) __unused manager
      didUpdateLocations:(NSArray *)locations
 {
+
     CLLocation * currentLocation = [locations lastObject];
     CLLocationCoordinate2D coordinate = [currentLocation coordinate];
     
     float lat = coordinate.latitude;
     float lon = coordinate.longitude;
     
-    NSTimeInterval lastAQICheckedTime = [[NSUserDefaults standardUserDefaults] doubleForKey:kAQILastChecked];
-    NSTimeInterval currentTime = [[NSDate date] timeIntervalSinceReferenceDate];
+    NSDate *lastAQICheckedTime = [[NSUserDefaults standardUserDefaults] objectForKey:kAQILastChecked] ?: nil;
+    
+    NSDate *currentTime = [NSDate date];
     self.aqiResponse = [[NSMutableDictionary alloc]init];
     
     __weak APHAirQualityDataModel *weakSelf = self;
     
-    if (!self.fetchingAirQualityReport && ((currentTime - lastAQICheckedTime) >= kAQICheckInterval)) {
+    if (!self.fetchingAirQualityReport && (([currentTime timeIntervalSinceDate: lastAQICheckedTime]) >= kAQICheckInterval)) {
+        [[NSUserDefaults standardUserDefaults]setObject:[NSDate new] forKey:kAQILastChecked];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+        [self createZipArchive];
         self.fetchingAirQualityReport = YES;
         //Make Network call for Air Quality in block
         [self.networkManager get:kAlertGetJson headers:nil parameters:@{@"lat":@(lat),@"lon":@(lon)} completion:^(NSURLSessionDataTask __unused *task, id responseObject, NSError *error) {
