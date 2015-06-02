@@ -975,7 +975,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = DebugAndSendToDataVerificationServer;
 		};
@@ -1048,7 +1048,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Development;
 		};
@@ -1156,7 +1156,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1180,7 +1180,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
