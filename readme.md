@@ -1,5 +1,7 @@
-Asthma Health
+SMU Asthma Health
 =============
+The SMU Asthma Health is the extension of the original Apple Asthma project. The app is intregrated with the OpenSpirometry module, developed by Dr. Eric C. Larson, Southern Methodist University, Dallas TX. This module is enable users to perform Spirometry test. Note that, the system is currenly in the beginning of developing stage, so some modules are not available.
+
 The Asthma Mobile Health study is a personalized app that helps individuals gain greater insight into their asthma, adhere to treatment plans, and avoid triggers. The app presents a variety of surveys to better understand unique triggers for asthma exacerbations, and connects with HealthKit to track inhaler usage and peak flow values. 
 
 Building the App
@@ -15,7 +17,7 @@ Building the App
 First, check out the source, including all the dependencies:
 
 ```
-git clone --recurse-submodules https://github.com/ResearchKit/AsthmaHealth.git
+git clone --recurse-submodules https://github.com/redeian/AsthmaHealth.git
 ```
 
 ###Building it
