@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Spiro Container View Controller-->
+        <scene sceneID="24G-ug-jd2">
+            <objects>
+                <viewController restorationIdentifier="SMUSpiroContainerViewController" storyboardIdentifier="SMUSpiroContainerViewController" automaticallyAdjustsScrollViewInsets="NO" id="VSh-mZ-8tE" customClass="SMUSpiroContainerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="II1-pV-mxg"/>
+                        <viewControllerLayoutGuide type="bottom" id="fnP-Wh-HO6"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zQd-fI-iB5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lof-uO-ksH">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="541"/>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-ji-pPl">
+                                <rect key="frame" x="137" y="529" width="32" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fnP-Wh-HO6" firstAttribute="top" secondItem="q4v-ji-pPl" secondAttribute="bottom" constant="9" id="TVu-fC-Z6i"/>
+                            <constraint firstAttribute="centerX" secondItem="q4v-ji-pPl" secondAttribute="centerX" constant="7" id="e4n-KE-1Ym"/>
+                            <constraint firstItem="q4v-ji-pPl" firstAttribute="leading" secondItem="zQd-fI-iB5" secondAttribute="leadingMargin" constant="121" id="ll2-cM-n0Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q4v-ji-pPl" secondAttribute="trailing" constant="135" id="pX8-tY-kcL"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="nextSubmitButton" destination="q4v-ji-pPl" id="gSi-MX-8Zq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5q-Qe-HkX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11" y="-829"/>
+        </scene>
+        <!--Spiro Whistle Analyzer View Controller-->
+        <scene sceneID="duc-eS-Y8e">
+            <objects>
+                <viewController restorationIdentifier="SMUSpiroWhistleAnalyzerViewController" storyboardIdentifier="SMUSpiroWhistleAnalyzerViewController" automaticallyAdjustsScrollViewInsets="NO" id="Yh7-QK-ZaA" customClass="SMUSpiroWhistleAnalyzerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6d5-6A-zQ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="uc3-A3-r4f"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AlS-8X-pAo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBs-pZ-vyf">
+                                <rect key="frame" x="145" y="269" width="30" height="30"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testPressed:" destination="Yh7-QK-ZaA" eventType="touchUpInside" id="k2C-7J-z7L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="YBs-pZ-vyf" secondAttribute="centerX" id="248-Qm-Y8i"/>
+                            <constraint firstAttribute="centerY" secondItem="YBs-pZ-vyf" secondAttribute="centerY" id="Eox-xS-sRk"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhb-aK-7w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="611" y="-791"/>
+        </scene>
+        <!--Spiro Initial View Controller-->
+        <scene sceneID="Eyk-2L-EJR">
+            <objects>
+                <viewController restorationIdentifier="SMUSpiroInitialViewController" storyboardIdentifier="SMUSpiroInitialViewController" id="f4H-hZ-zdU" customClass="SMUSpiroInitialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UIe-ro-wRG"/>
+                        <viewControllerLayoutGuide type="bottom" id="k2r-sd-6dX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RDw-bo-3fk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-xj-twX">
+                                <rect key="frame" x="110" y="218" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gce-TF-UId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="-791"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

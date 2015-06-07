@@ -40,5 +40,7 @@
 
 - (BOOL) performMigrationFromOneToTwoWithError:(NSError * __autoreleasing *)error;
 - (BOOL) performMigrationFromTwoToThreeWithError:(NSError * __autoreleasing *)error;
+- (BOOL) performMigrationFromThreeToFourWithError:(NSError * __autoreleasing *)error;
+
 
 @end

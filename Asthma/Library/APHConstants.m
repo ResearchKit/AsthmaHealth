@@ -50,6 +50,7 @@ NSString * const kDaysMissedKey = @"MissedDay:";
 
 NSString * const kDailySurveyTaskID = @"DailyPrompt-27829fa5-d731-4372-ba30-a5859f655297";
 NSString * const kWeeklySurveyTaskID = @"WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a";
+NSString * const kDailyFVCTaskId  = @"FVC-c2379e84-b943-11e4-a71e-12e3f512a338";
 
 NSString * const kSteroid1StepIdentifier = @"asthma_medicine";
 NSString * const kSteroid2StepIdentifier = @"prednisone";
