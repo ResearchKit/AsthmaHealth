@@ -1,29 +1,27 @@
 //
-//  SMUSpiroWhistleAnalyzerViewController.m
+//  SMUSpiroSettingsViewController.m
 //  Asthma
 //
-//  Created by Eric Larson on 5/27/15.
+//  Created by Daniel Huang on 6/17/15.
 //  Copyright (c) 2015 Apple, Inc. All rights reserved.
 //
 
-#import "SMUSpiroWhistleAnalyzerViewController.h"
+#import "SMUSpiroSettingsViewController.h"
 
-@interface SMUSpiroWhistleAnalyzerViewController ()
+@interface SMUSpiroSettingsViewController ()
 
 @end
 
-@implementation SMUSpiroWhistleAnalyzerViewController
+@implementation SMUSpiroSettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
 
-
-- (IBAction)testPressed:(id)sender {
-    
-    [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*

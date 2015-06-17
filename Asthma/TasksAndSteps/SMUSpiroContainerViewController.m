@@ -18,14 +18,16 @@
 @implementation SMUSpiroContainerViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    //[super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (ORKStepResult *)result {
-    
+    ORKStep *step = [[ORKStep alloc] initWithIdentifier:@"SpiroStep"];
     if (!self.cachedResult) {
-        self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:self.step.identifier];
+        self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:step.identifier];
+
     }
     
     return self.cachedResult;
