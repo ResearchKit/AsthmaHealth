@@ -59,7 +59,6 @@
 		7B3CBC981A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC931A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m */; };
 		7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */; };
 		7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */; };
-		7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */; };
 		A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */; };
 		A78116511A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */; };
 		A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */; };
@@ -259,8 +258,6 @@
 		7B3CBC951A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHEnrollmentIntroTableViewController.h; sourceTree = "<group>"; };
 		7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHEnrollmentIntroTableViewController.m; sourceTree = "<group>"; };
 		7B72A79C1A128708002FCD1E /* Asthma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Asthma.entitlements; sourceTree = "<group>"; };
-		7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
-		7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
 		A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits_Alt@2x.m4v"; sourceTree = "<group>"; };
 		A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_VisitingDoctor@2x.m4v"; sourceTree = "<group>"; };
 		A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_Recontact@2x.m4v"; sourceTree = "<group>"; };
@@ -560,8 +557,6 @@
 				5BB6474919F6E35B00AA30AA /* APHAppDelegate.m */,
 				CFCA436119F5BE8500D68EEE /* Main.storyboard */,
 				CFCA436019F5BE8500D68EEE /* LaunchScreen.xib */,
-				7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */,
-				7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */,
 			);
 			name = Startup;
 			sourceTree = "<group>";
@@ -659,7 +654,6 @@
 				CFCA432B19F5B00200D68EEE /* Frameworks */,
 				CFCA432C19F5B00200D68EEE /* Resources */,
 				F5F12B381A2F87D90015982C /* Embed Frameworks */,
-				F53F27B11A2D373100A1D725 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -819,22 +813,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		F53F27B11A2D373100A1D725 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CFCA432A19F5B00200D68EEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -860,7 +838,6 @@
 				5B47BA941A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m in Sources */,
 				F53F27AE1A2D348600A1D725 /* APHTableViewItem.m in Sources */,
 				5B1D9D5A1A1BD046000F4AD6 /* APHDashboardEditViewController.m in Sources */,
-				7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */,
 				F585DA941A33307B003C5CAC /* APHTableViewDashboardAQAlertItem.m in Sources */,
 				6CF025181A68C84B00073EA7 /* APHConsentTask.m in Sources */,
 				5B8ED4AC1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m in Sources */,
@@ -975,7 +952,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = DebugAndSendToDataVerificationServer;
 		};
@@ -1048,7 +1025,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Development;
 		};
@@ -1156,7 +1133,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1180,7 +1157,7 @@
 					"-Wextra",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30227e0f-74e5-4aec-9e53-802317c13f85";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
