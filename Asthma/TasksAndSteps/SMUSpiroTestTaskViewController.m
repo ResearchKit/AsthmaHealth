@@ -30,8 +30,7 @@ static  NSString  *kLungFunctionInit = @"lungFunctionInit";
     
     {
         ORKStep *step = [[ORKStep alloc] initWithIdentifier:kLungFunctionTest];
-     //   step.title = @"hello";
-         step.title = ORKLocalizedString(@"FITNESS_TASK_TITLE", nil);
+
         [steps addObject:step];
         
         ORKStep *step2 = [[ORKStep alloc] initWithIdentifier:kLungFunctionInit];

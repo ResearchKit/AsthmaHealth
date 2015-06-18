@@ -65,6 +65,9 @@
 		7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */; };
 		7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */; };
 		7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */; };
+		A4FDB9EC1B31D14F00787D7B /* ForcedExpirationTest.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */; };
+		A4FDB9FF1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */; };
+		A4FDBA021B3210D400787D7B /* SMUSpiroSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */; };
 		A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */; };
 		A78116511A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */; };
 		A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */; };
@@ -291,6 +294,11 @@
 		7B72A79C1A128708002FCD1E /* Asthma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Asthma.entitlements; sourceTree = "<group>"; };
 		7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
 		7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
+		A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ForcedExpirationTest.json; sourceTree = "<group>"; };
+		A4FDB9FD1B3210C800787D7B /* SMUSpiroLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUSpiroLearnMoreViewController.h; path = ../../SMUSpiroLearnMoreViewController.h; sourceTree = "<group>"; };
+		A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroLearnMoreViewController.m; path = ../../SMUSpiroLearnMoreViewController.m; sourceTree = "<group>"; };
+		A4FDBA001B3210D400787D7B /* SMUSpiroSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUSpiroSettingsViewController.h; path = ../../SMUSpiroSettingsViewController.h; sourceTree = "<group>"; };
+		A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroSettingsViewController.m; path = ../../SMUSpiroSettingsViewController.m; sourceTree = "<group>"; };
 		A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits_Alt@2x.m4v"; sourceTree = "<group>"; };
 		A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_VisitingDoctor@2x.m4v"; sourceTree = "<group>"; };
 		A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_Recontact@2x.m4v"; sourceTree = "<group>"; };
@@ -439,6 +447,7 @@
 				5B975A361A11317800A34E42 /* Learn.json */,
 				6CECC1CB1A79A13C00458980 /* StudyOverview.json */,
 				5B975A371A11317800A34E42 /* WithdrawStudy.json */,
+				A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */,
 				CF175C171A01B2E0008C10C9 /* asthma.bothers.json */,
 				5BB6478E19F6E5B300AA30AA /* APCParameters.json */,
 				5BB6478F19F6E5B300AA30AA /* APHTasksAndSchedules.json */,
@@ -459,6 +468,10 @@
 		5C72DB031B24034A0089A3D0 /* LungFunctionTest */ = {
 			isa = PBXGroup;
 			children = (
+				A4FDB9FD1B3210C800787D7B /* SMUSpiroLearnMoreViewController.h */,
+				A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */,
+				A4FDBA001B3210D400787D7B /* SMUSpiroSettingsViewController.h */,
+				A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */,
 				5C72DB041B2403740089A3D0 /* SMUSpiroTestTaskViewController.h */,
 				5C72DB051B2403740089A3D0 /* SMUSpiroTestTaskViewController.m */,
 				5C72DB061B2403740089A3D0 /* SMUSpiroStoryboard.storyboard */,
@@ -866,6 +879,7 @@
 				6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */,
 				6C13EE351A97D78F003D10C9 /* AsthmaHistory.json in Resources */,
 				5B18CEE21A2D057C001A905E /* TermsAndConditions.json in Resources */,
+				A4FDB9EC1B31D14F00787D7B /* ForcedExpirationTest.json in Resources */,
 				CFCA436319F5BE8500D68EEE /* Main.storyboard in Resources */,
 				5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */,
 				7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */,
@@ -912,6 +926,7 @@
 				6CB01B751A6EEC74003BFA39 /* QuizResultTableViewCell.m in Sources */,
 				7B3CBC981A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m in Sources */,
 				6CF025131A68459D00073EA7 /* APHBooleanQuestionStep.m in Sources */,
+				A4FDBA021B3210D400787D7B /* SMUSpiroSettingsViewController.m in Sources */,
 				7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */,
 				5BB10C2E1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m in Sources */,
 				5BB6474A19F6E35B00AA30AA /* APHAppDelegate.m in Sources */,
@@ -932,6 +947,7 @@
 				7B3CBC971A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m in Sources */,
 				5C72DB111B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m in Sources */,
 				5B8ED4B01A836BFA009CDE44 /* APHBadgesCollectionViewCell.m in Sources */,
+				A4FDB9FF1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m in Sources */,
 				6C3C6C7A1A6734BB00A1E390 /* APHQuizStepViewController.m in Sources */,
 				7423AB5F1AA40714004A325A /* APHConsentRedirector.m in Sources */,
 				F5192D3A1A34C6D300A5CF3D /* APHConstants.m in Sources */,
