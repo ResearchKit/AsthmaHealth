@@ -9,6 +9,7 @@
 #import "SMUSpiroWhistleAnalyzerViewController.h"
 
 @interface SMUSpiroWhistleAnalyzerViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *SpiroGraphicImageView;
 
 @end
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIImage *image = [UIImage imageNamed: @"SpiroGraphic.png"];
+    [[self SpiroGraphicImageView] setImage:image];
     
 }
 

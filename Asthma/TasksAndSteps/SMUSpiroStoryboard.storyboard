@@ -104,6 +104,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="SpiroGraphicImageView" destination="5N9-Qz-8Ly" id="At5-OM-acf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhb-aK-7w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,14 +178,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-xj-twX">
-                                <rect key="frame" x="110" y="218" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sd-28-6MX">
+                                <rect key="frame" x="16" y="30" width="288" height="250"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="qhr-uH-NPq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-iU-q4g">
+                                <rect key="frame" x="16" y="308" width="288" height="250"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWX-3C-cVq">
-                                <rect key="frame" x="136" y="247" width="32" height="30"/>
+                                <rect key="frame" x="16" y="277" width="32" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -192,11 +200,20 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Sd-28-6MX" firstAttribute="top" secondItem="UIe-ro-wRG" secondAttribute="bottom" constant="10" id="7yt-jW-Elq"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="yPs-iU-q4g" secondAttribute="bottom" constant="10" id="9Gn-0N-RJt"/>
+                            <constraint firstItem="0Sd-28-6MX" firstAttribute="leading" secondItem="RDw-bo-3fk" secondAttribute="leadingMargin" id="JXP-bb-13W"/>
+                            <constraint firstItem="yPs-iU-q4g" firstAttribute="leading" secondItem="RDw-bo-3fk" secondAttribute="leadingMargin" id="KId-h1-wDg"/>
+                            <constraint firstItem="0Sd-28-6MX" firstAttribute="trailing" secondItem="RDw-bo-3fk" secondAttribute="trailingMargin" id="wfb-mm-t5e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yPs-iU-q4g" secondAttribute="trailing" id="wgu-ac-gpR"/>
+                            <constraint firstItem="yPs-iU-q4g" firstAttribute="height" secondItem="0Sd-28-6MX" secondAttribute="height" id="zLD-jY-xIr"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gce-TF-UId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="-791"/>
+            <point key="canvasLocation" x="998" y="-791"/>
         </scene>
         <!--Spiro Completion View Controller-->
         <scene sceneID="yV9-TO-4fl">
