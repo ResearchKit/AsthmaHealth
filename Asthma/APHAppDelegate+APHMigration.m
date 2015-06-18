@@ -123,13 +123,11 @@
             [[NSUserDefaults standardUserDefaults]setObject:reminder.reminderBody forKey:reminder.reminderIdentifier];
         }
     }
-    
+        
     //Enable reminders if notifications permitted
     if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone){
         [self.tasksReminder setReminderOn:@YES];
     }
-
-    [[NSUserDefaults standardUserDefaults]synchronize];
     
     return self.tasksReminder.reminders.count;
     
