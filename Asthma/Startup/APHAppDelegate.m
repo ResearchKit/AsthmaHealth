@@ -36,7 +36,6 @@
 #import "APHConsentTaskViewController.h"
 #import "APHBooleanQuestionStep.h"
 #import "APHConsentTask.h"
-#import "APHAppDelegate+APHMigration.h"
 #import "APHConstants.h"
 #import "APHAirQualityDataModel.h"
 
@@ -71,62 +70,6 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
 /*********************************************************************************/
 #pragma mark - App Specific Code
 /*********************************************************************************/
-
-- (void)performMigrationAfterDataSubstrateFrom:(NSInteger) __unused previousVersion currentVersion:(NSInteger) __unused currentVersion
-{
-    NSDictionary*   infoDictionary      = [[NSBundle mainBundle] infoDictionary];
-    NSString*       majorVersion        = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSString*       minorVersion        = [infoDictionary objectForKey:@"CFBundleVersion"];
-    NSUserDefaults* defaults            = [NSUserDefaults standardUserDefaults];
-    NSError*        migrationError      = nil;
-    
-    if ([self doesPersisteStoreExist] == NO)
-    {
-        APCLogEvent(@"This application is being launched for the first time. We know this because there is no persistent store.");
-    }
-    else if ( [defaults objectForKey:kPreviousVersionKey] == nil)
-    {
-        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        if (![self performMigrationFromOneToTwoWithError:&migrationError])
-        {
-            APCLogEvent(@"Migration from version 1 to 2 has failed.");
-        }
-
-        if (![self performMigrationFromTwoToThreeWithError:&migrationError])
-        {
-            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:kPreviousVersionKey], @(kTheEntireDataModelOfTheApp));
-        }
-    }
-    else if ([[defaults objectForKey:kPreviousVersionKey] isEqual: @2])
-    {
-        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        if (![self performMigrationFromTwoToThreeWithError:&migrationError])
-        {
-            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:kPreviousVersionKey], @(kTheEntireDataModelOfTheApp));
-        }
-    }
-    else if ([[defaults objectForKey:kPreviousVersionKey] isEqual: @3])
-    {
-        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        if (![self performMigrationFromThreeToFourWithError:&migrationError])
-        {
-            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:kPreviousVersionKey], @(kTheEntireDataModelOfTheApp));
-        }
-    }
-    
-    [defaults setObject:majorVersion
-                 forKey:@"shortVersionString"];
-    
-    [defaults setObject:minorVersion
-                 forKey:@"version"];
-    
-
-    if (!migrationError)
-    {
-        [defaults setObject:@(currentVersion) forKey:kPreviousVersionKey];
-    }
-
-}
 
 - (BOOL)application:(UIApplication*) __unused application willFinishLaunchingWithOptions:(NSDictionary*) __unused launchOptions
 {
