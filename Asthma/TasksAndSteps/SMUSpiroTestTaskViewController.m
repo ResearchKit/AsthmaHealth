@@ -11,6 +11,7 @@
 
 static  NSString  *kLungFunctionTest = @"lungFunctionTest";
 static  NSString  *kLungFunctionInit = @"lungFunctionInit";
+static  NSString  *kLungFunctionCompletion = @"lungFunctionCompletion";
 
 
 @interface SMUSpiroTestTaskViewController ()
@@ -35,6 +36,9 @@ static  NSString  *kLungFunctionInit = @"lungFunctionInit";
         
         ORKStep *step2 = [[ORKStep alloc] initWithIdentifier:kLungFunctionInit];
         [steps addObject:step2];
+        
+        ORKStep *step3 = [[ORKStep alloc] initWithIdentifier:kLungFunctionCompletion];
+        [steps addObject:step3];
     }
     
     //The identifier gets set as the title in the navigation bar.
@@ -52,13 +56,16 @@ static  NSString  *kLungFunctionInit = @"lungFunctionInit";
     NSDictionary  *controllers = @{kLungFunctionTest : @[@"SMUSpiroStoryboard",
                                                          @"SMUSpiroWhistleAnalyzerViewController"],
                                    kLungFunctionInit : @[@"SMUSpiroStoryboard",
-                                                         @"SMUSpiroInitialViewController"]};
+                                                         @"SMUSpiroInitialViewController"],
+                                   kLungFunctionCompletion :
+                                       @[@"SMUSpiroStoryboard",
+                                         @"SMUSpiroCompletionViewController"]};
     
     
     
     APCStepViewController  *controller = nil;
     
-    if ( step.identifier == kLungFunctionTest || step.identifier == kLungFunctionInit) {
+    if ( step.identifier == kLungFunctionTest || step.identifier == kLungFunctionInit || step.identifier == kLungFunctionCompletion) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:[controllers objectForKey:step.identifier][0]
                                                                  bundle:nil];
         

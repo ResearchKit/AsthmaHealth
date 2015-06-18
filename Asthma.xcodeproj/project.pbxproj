@@ -68,6 +68,7 @@
 		A4FDB9EC1B31D14F00787D7B /* ForcedExpirationTest.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */; };
 		A4FDB9FF1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */; };
 		A4FDBA021B3210D400787D7B /* SMUSpiroSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */; };
+		A4FDBA1E1B32668F00787D7B /* SMUSpiroCompletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */; };
 		A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */; };
 		A78116511A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */; };
 		A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */; };
@@ -299,6 +300,8 @@
 		A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroLearnMoreViewController.m; path = ../../SMUSpiroLearnMoreViewController.m; sourceTree = "<group>"; };
 		A4FDBA001B3210D400787D7B /* SMUSpiroSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUSpiroSettingsViewController.h; path = ../../SMUSpiroSettingsViewController.h; sourceTree = "<group>"; };
 		A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroSettingsViewController.m; path = ../../SMUSpiroSettingsViewController.m; sourceTree = "<group>"; };
+		A4FDBA1C1B32668F00787D7B /* SMUSpiroCompletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroCompletionViewController.h; sourceTree = "<group>"; };
+		A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroCompletionViewController.m; sourceTree = "<group>"; };
 		A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits_Alt@2x.m4v"; sourceTree = "<group>"; };
 		A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_VisitingDoctor@2x.m4v"; sourceTree = "<group>"; };
 		A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_Recontact@2x.m4v"; sourceTree = "<group>"; };
@@ -480,6 +483,8 @@
 				5C72DB091B2403740089A3D0 /* SMUSpiroContainerViewController.h */,
 				5C72DB0A1B2403740089A3D0 /* SMUSpiroContainerViewController.m */,
 				5C72DB0B1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.h */,
+				A4FDBA1C1B32668F00787D7B /* SMUSpiroCompletionViewController.h */,
+				A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */,
 				5C72DB0C1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m */,
 			);
 			name = LungFunctionTest;
@@ -936,6 +941,7 @@
 				5C72DB0F1B2403740089A3D0 /* SMUSpiroInitialViewController.m in Sources */,
 				5B47BA8E1A211E330080F8DC /* APHAirQualityCollectionViewCell.m in Sources */,
 				5C72DB101B2403740089A3D0 /* SMUSpiroContainerViewController.m in Sources */,
+				A4FDBA1E1B32668F00787D7B /* SMUSpiroCompletionViewController.m in Sources */,
 				6C6995C61A84236A001C557E /* APHCalendarCollectionViewCell.m in Sources */,
 				5B47BA941A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m in Sources */,
 				F53F27AE1A2D348600A1D725 /* APHTableViewItem.m in Sources */,
