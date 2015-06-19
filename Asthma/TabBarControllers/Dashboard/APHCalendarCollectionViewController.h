@@ -34,6 +34,8 @@
 #import <UIKit/UIKit.h>
 #import "APHAsthmaBadgesObject.h"
 
+static NSString *calendarDataSourceDidUpdateComplianceDictionaryNotification = @"calendarDataSourceDidUpdateComplianceDictionaryNotification";
+
 typedef NS_ENUM(NSUInteger, APHCalendarTaskType) {
     kAPHCalendarTaskTypeParticipation,
     kAPHCalendarTaskTypeAttendance,
@@ -43,8 +45,11 @@ typedef NS_ENUM(NSUInteger, APHCalendarTaskType) {
 
 @protocol APHCalendarDataSource <NSObject>
 
-///Should return a dictionary of keys of NSString days present only if task was scheduled, with a NSString compliance flag expressed as 1 or 0.
--(NSDictionary *)userCompliedWithDailyScheduledTasks: (APHCalendarTaskType)task inMonth:(NSUInteger)month inYear:(NSUInteger)year;
+//Should create a dictionary of keys of NSString days present only if task was scheduled, with a NSString compliance flag expressed as 1 or 0.
+//Data source will post calendarDataSourceDidUpdateComplianceDictionaryNotification when completed
+-(void)createComplianceDictionaryForTaskType:(APHCalendarTaskType)task
+                                     inMonth:(NSUInteger)month
+                                      inYear:(NSUInteger)year;
 
 @end
 

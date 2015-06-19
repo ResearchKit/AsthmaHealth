@@ -70,7 +70,8 @@ static int divisorForCollectionViewCellWidth = 8;
 static int numberOfSectionsInCollectionView = 7;
 static int numberOfItemsInSection = 7;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     if (self.taskType == kAPHCalendarTaskTypeParticipation) {
@@ -85,11 +86,15 @@ static int numberOfItemsInSection = 7;
     if (self.taskType == kAPHCalendarTaskTypeFreeNights) {
         self.title = NSLocalizedString(@"Undisturbed Nights", nil);
     }
-    
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadCollectionView:) name:calendarDataSourceDidUpdateComplianceDictionaryNotification object:nil];
+    //posted by APCBaseTaskViewController when user completes an activity
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getDataUpdate) name:APCActivityCompletionNotification object:nil];
+
     [self setCalendarAttributes];
     [self setDesignAttributes];
     [self setNavigationAttributes];
-
+    
     [self.nextMonthButton setTransform: CGAffineTransformMakeRotation(M_PI)];
     // Register cell classes
     [self.collectionView registerClass:[APHCalendarCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -97,23 +102,39 @@ static int numberOfItemsInSection = 7;
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-    self.compliance = [self.dataSource userCompliedWithDailyScheduledTasks:self.taskType inMonth:self.MM inYear:self.YYYY];
+}
+
+-(void) reloadCollectionView: (NSNotification *)notification
+{
+    [self performSelector:@selector(dismiss) withObject:self afterDelay:0.5];
+    self.compliance = (NSDictionary *)[notification object];
     [self.collectionView reloadData];
 }
 
--(void)setCalendarAttributes{
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (void)dismiss
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)setCalendarAttributes
+{
     self.MM = [self MMForCurrentMonth];
     self.YYYY = [self YYYYForCurrentMonth];
     [self setMMYYYY];
     [self setCurrentMonthDays];
-    
-    //ask the delegate for the compliance
-    self.compliance = [self.dataSource userCompliedWithDailyScheduledTasks:self.taskType inMonth:self.MM inYear:self.YYYY];
+    [self getDataUpdate];
 }
 
--(void)setDesignAttributes{
+-(void)setDesignAttributes
+{
     
     self.weekdayFontColor = [UIColor darkGrayColor];
     self.weekendFontColor = [UIColor lightGrayColor];
@@ -123,11 +144,11 @@ static int numberOfItemsInSection = 7;
     
 }
 
--(void)setNavigationAttributes{
+-(void)setNavigationAttributes
+{
     //setup buttons
     self.nextMonthButton = [[UIButton alloc]init];
     
-    //TODO: needs image
     [self.nextMonthButton setBackgroundImage:[UIImage imageNamed:@"back_button"] forState:UIControlStateNormal];
     [self.nextMonthButton addTarget:self action:@selector(nextMonthAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -139,23 +160,34 @@ static int numberOfItemsInSection = 7;
     [self.navigationItem setLeftBarButtonItem:backButton];
 }
 
+- (void)getDataUpdate{
+    //ask the delegate for the compliance
+    
+    APCSpinnerViewController *spinnerController = [[APCSpinnerViewController alloc] init];
+    [self presentViewController:spinnerController animated:YES completion:nil];
+    [self.dataSource createComplianceDictionaryForTaskType:self.taskType inMonth:self.MM inYear:self.YYYY];
+}
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)__unused collectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)__unused collectionView
+{
     return numberOfSectionsInCollectionView;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)__unused collectionView numberOfItemsInSection:(NSInteger) __unused section {
+- (NSInteger)collectionView:(UICollectionView *)__unused collectionView numberOfItemsInSection:(NSInteger) __unused section
+{
     return numberOfItemsInSection;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     APHCalendarCollectionViewCell *calendarCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     calendarCell.contentView.backgroundColor = [UIColor whiteColor];
     
@@ -163,7 +195,7 @@ static int numberOfItemsInSection = 7;
         case 0:
             calendarCell.contentView.backgroundColor = [UIColor whiteColor];
             switch (indexPath.item) {
-                //Weekday Labels
+                    //Weekday Labels
                 case 0:
                     [calendarCell setDateText:@"S" complianceColor:[UIColor clearColor] fontSize:calendarDayLabelFontSize fontColor:self.weekendFontColor];
                     break;
@@ -349,7 +381,7 @@ static int numberOfItemsInSection = 7;
             break;
             
         default:
-
+            
             break;
     }
     
@@ -377,7 +409,7 @@ static int numberOfItemsInSection = 7;
     if ([kind isEqualToString:@"UICollectionElementKindSectionHeader"]) {
         reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"sectionHeader" forIndexPath:indexPath];
         reusableView.backgroundColor = [UIColor whiteColor];
-
+        
         for (UIView *view in reusableView.subviews) {
             [view removeFromSuperview];
         }
@@ -434,9 +466,7 @@ static int numberOfItemsInSection = 7;
     }
     [self setMMYYYY];
     [self setCurrentMonthDays];
-    //ask the delegate for the compliance
-    self.compliance = [self.dataSource userCompliedWithDailyScheduledTasks:self.taskType inMonth:self.MM inYear:self.YYYY];
-    [self.collectionView reloadData];
+    [self getDataUpdate];
 }
 
 -(void)lastMonthAction: (id)__unused sender{
@@ -450,9 +480,7 @@ static int numberOfItemsInSection = 7;
     }
     [self setMMYYYY];
     [self setCurrentMonthDays];
-    //ask the delegate for the compliance
-    self.compliance = [self.dataSource userCompliedWithDailyScheduledTasks:self.taskType inMonth:self.MM inYear:self.YYYY];
-    [self.collectionView reloadData];
+    [self getDataUpdate];
 }
 
 -(void)setCurrentMonthDays{
@@ -488,7 +516,7 @@ static int numberOfItemsInSection = 7;
     }
     
     self.currentMonthDays = dayStrings;
-
+    
 }
 
 -(BOOL)isValidDateForDay:(NSInteger)DD month:(NSInteger)MM year:(NSInteger)YYYY{

@@ -36,5 +36,9 @@
 @import APCAppCore;
 
 @interface APHCalendarDataModel : NSObject <APHCalendarDataSource>
--(NSDictionary *)userCompliedWithDailyScheduledTasks:(APHCalendarTaskType)task inMonth:(NSUInteger)month inYear:(NSUInteger)year;
+
+-(void)createComplianceDictionaryForTaskType:(APHCalendarTaskType)task
+                                     inMonth:(NSUInteger)month
+                                      inYear:(NSUInteger)year;
+
 @end
