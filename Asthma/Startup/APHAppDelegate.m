@@ -250,6 +250,8 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
                                                             }];
     
     [[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
+    
+    self.dataSubstrate.parameters.bypassServer = YES;
     self.dataSubstrate.parameters.hideExampleConsent = NO;
 }
 
