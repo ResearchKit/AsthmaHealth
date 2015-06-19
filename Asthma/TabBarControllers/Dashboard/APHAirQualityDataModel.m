@@ -288,8 +288,8 @@ static NSString * kItemName                 = @"Air Quality Report";
     __weak APHAirQualityDataModel *weakSelf = self;
     
     if (!self.fetchingAirQualityReport && (([currentTime timeIntervalSinceDate: lastAQICheckedTime]) >= kAQICheckInterval)) {
-        [[NSUserDefaults standardUserDefaults]setObject:[NSDate new] forKey:kAQILastChecked];
-        [[NSUserDefaults standardUserDefaults]synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate new] forKey:kAQILastChecked];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
         [self createZipArchive];
         self.fetchingAirQualityReport = YES;
