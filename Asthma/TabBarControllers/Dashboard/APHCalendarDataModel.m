@@ -100,7 +100,7 @@ static float const kParticipationTrophyThreshold = 0.85;
                  }
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
-                     [[NSNotificationCenter defaultCenter]postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+                     [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
                  });
                  
              }
@@ -169,7 +169,7 @@ static float const kParticipationTrophyThreshold = 0.85;
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+            [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
         });
         
     }
@@ -209,7 +209,7 @@ static float const kParticipationTrophyThreshold = 0.85;
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+            [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
         });
         
     }
@@ -247,7 +247,7 @@ static float const kParticipationTrophyThreshold = 0.85;
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+            [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
         });
     }
 }
