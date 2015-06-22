@@ -87,7 +87,7 @@ static int numberOfItemsInSection = 7;
         self.title = NSLocalizedString(@"Undisturbed Nights", nil);
     }
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadCollectionView:) name:calendarDataSourceDidUpdateComplianceDictionaryNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollectionView:) name:calendarDataSourceDidUpdateComplianceDictionaryNotification object:nil];
     //posted by APCBaseTaskViewController when user completes an activity
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getDataUpdate) name:APCActivityCompletionNotification object:nil];
 
@@ -116,7 +116,7 @@ static int numberOfItemsInSection = 7;
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)dismiss
