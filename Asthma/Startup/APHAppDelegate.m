@@ -45,7 +45,6 @@
 static NSString *const kStudyIdentifier                 = @"studyname";
 static NSString *const kAppPrefix                       = @"studyname";
 static NSString *const kVideoShownKey                   = @"VideoShown";
-static NSString *const kWeeklyScheduleTaskId            = @"WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a";
 static NSString *const kJsonSchedulesKey                = @"schedules";
 static NSString *const kJsonScheduleStringKey           = @"scheduleString";
 static NSString *const kJsonScheduleTaskIDKey           = @"taskID";
@@ -199,7 +198,7 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
 -(void)setUpTasksReminder{
     //Reminders
     APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyTaskID reminderBody:NSLocalizedString(@"Daily Survey", nil)];
-    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklyScheduleTaskId reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
+    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyTaskID reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
     
     //define completion as defined in resultsSummary
     NSPredicate *medicationPredicate = [NSPredicate predicateWithFormat:@"SELF.integerValue == 1"];
@@ -233,15 +232,16 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
 {
     [APCAppearanceInfo setAppearanceDictionary:@{
                                                  kPrimaryAppColorKey : [UIColor colorWithRed:0.133 green:0.122 blue:0.447 alpha:1.000],
-                                                 @"DailyPrompt-27829fa5-d731-4372-ba30-a5859f655297" : [UIColor appTertiaryGreenColor],
-                                                 @"WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a" : [UIColor appTertiaryGreenColor],
-                                                 @"MedicalHistory-b3cd0d66-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
-                                                 @"AsthmaMedication-c2379e84-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
-                                                 @"YourAsthma-cc06cd68-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
-                                                 @"AsthmaHistory-d6d07ba4-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
-                                                 @"APHEnrollmentForRecontactTaskViewController-1E174065-5B02-11E4-8ED6-0800200C9A66" : [UIColor appTertiaryPurpleColor],
-                                                 @"AboutYou-27829fa5-d731-4372-ba30-a5859f688297" : [UIColor appTertiaryPurpleColor],
+                                                 kDailySurveyTaskID : [UIColor appTertiaryGreenColor],
+                                                 kWeeklySurveyTaskID : [UIColor appTertiaryGreenColor],
+                                                 kMedicalHistorySurveyTaskID: [UIColor appTertiaryPurpleColor],
+                                                 kMedicationSurveyTaskID: [UIColor appTertiaryPurpleColor],
+                                                 kYourAsthmaSurveyTaskID : [UIColor appTertiaryPurpleColor],
+                                                 kAsthmaHistorySurveyTaskID : [UIColor appTertiaryPurpleColor],
+                                                 kEnrollmentSurveyTaskID : [UIColor appTertiaryPurpleColor],
+                                                 kAboutYouSurveyTaskID : [UIColor appTertiaryPurpleColor],
                                                  }];
+    
     [[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];
     
     [[UINavigationBar appearance] setTitleTextAttributes: @{
@@ -285,15 +285,15 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
 {
     return @[
              @{
-                 kScheduleOffsetTaskIdKey: @"YourAsthma-cc06cd68-b943-11e4-a71e-12e3f512a338",
+                 kScheduleOffsetTaskIdKey: kYourAsthmaSurveyTaskID,
                  kScheduleOffsetOffsetKey: @(1)
                  },
              @{
-                 kScheduleOffsetTaskIdKey: @"AboutYou-27829fa5-d731-4372-ba30-a5859f688297",
+                 kScheduleOffsetTaskIdKey: kAboutYouSurveyTaskID,
                  kScheduleOffsetOffsetKey: @(2)
                  },
              @{
-                 kScheduleOffsetTaskIdKey: @"MedicalHistory-b3cd0d66-b943-11e4-a71e-12e3f512a338",
+                 kScheduleOffsetTaskIdKey: kMedicalHistorySurveyTaskID,
                  kScheduleOffsetOffsetKey: @(3)
                  }
              ];
