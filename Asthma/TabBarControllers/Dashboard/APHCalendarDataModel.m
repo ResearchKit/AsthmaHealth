@@ -131,7 +131,7 @@ static NSString *kNoParticipationBoolean    = @"0";
         dateRange = [[APCDateRange alloc]initWithStartDate:startDate endDate:endDate];
         
         NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
-        NSArray *scheduledTasks = [self weeklySurveyScheduledTasksForDateRange:dateRange];
+        NSArray *scheduledTasks = [self scheduledTasksForDateRange:dateRange survey:kWeeklySurveyTaskID];
         for(APCScheduledTask *scheduledTask in scheduledTasks){
             //need to get to scheduledTasks
             
@@ -198,7 +198,7 @@ static NSString *kNoParticipationBoolean    = @"0";
         
         NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
         
-        NSArray *scheduledTasks = [self dailySurveyScheduledTasksForDateRange:dateRange];
+        NSArray *scheduledTasks = [self scheduledTasksForDateRange:dateRange survey:kDailySurveyTaskID];
         for(APCScheduledTask *scheduledTask in scheduledTasks){
             NSDate *startOn = scheduledTask.startOn;
             
@@ -236,7 +236,7 @@ static NSString *kNoParticipationBoolean    = @"0";
         dateRange = [[APCDateRange alloc]initWithStartDate:startDate endDate:endDate];
         
         NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
-        NSArray *scheduledTasks = [self dailySurveyScheduledTasksForDateRange:dateRange];
+        NSArray *scheduledTasks = [self scheduledTasksForDateRange:dateRange survey:kDailySurveyTaskID];
         for(APCScheduledTask *scheduledTask in scheduledTasks){
             
             NSDate *startOn = scheduledTask.startOn;
@@ -273,31 +273,10 @@ static NSString *kNoParticipationBoolean    = @"0";
     
 }
 
-#pragma mark - Fetch Requests
-- (NSArray *)dailySurveyScheduledTasksForDateRange: (APCDateRange *)dateRange
+#pragma mark - Fetch Request
+- (NSArray *)scheduledTasksForDateRange: (APCDateRange *)dateRange survey: (NSString *)surveyTaskID
 {
-    NSArray *dailyScheduledTasks = nil;
-    APCAppDelegate *appDelegate = (APCAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startOn" ascending:NO];
-    NSFetchRequest *request = [APCScheduledTask request];
-    [request setShouldRefreshRefetchedObjects:YES];
-    NSDate *startDate = dateRange.startDate;
-    NSDate *endDate = dateRange.endDate;
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (startOn <= %@) AND task.taskID == %@", startDate, endDate, kDailySurveyTaskID];
-    request.predicate = predicate;
-    request.sortDescriptors = @[sortDescriptor];
-    
-    NSError *error = nil;
-    dailyScheduledTasks = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
-    APCLogError2(error);
-    
-    return dailyScheduledTasks;
-}
-
-- (NSArray *)weeklySurveyScheduledTasksForDateRange: (APCDateRange *)dateRange
-{
-    NSArray *weeklyScheduledTasks = nil;
+    NSArray *scheduledTasks = nil;
     APCAppDelegate *appDelegate = (APCAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startOn" ascending:YES];
     NSFetchRequest *request = [APCScheduledTask request];
@@ -305,15 +284,15 @@ static NSString *kNoParticipationBoolean    = @"0";
     NSDate *startDate = dateRange.startDate;
     NSDate *endDate = dateRange.endDate;
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (startOn <= %@) AND task.taskID == %@", startDate, endDate, kWeeklySurveyTaskID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (startOn <= %@) AND task.taskID == %@", startDate, endDate, surveyTaskID];
     request.predicate = predicate;
     request.sortDescriptors = @[sortDescriptor];
     
     NSError *error = nil;
-    weeklyScheduledTasks = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
+    scheduledTasks = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
     APCLogError2(error);
     
-    return weeklyScheduledTasks;
+    return scheduledTasks;
 }
 
 @end
