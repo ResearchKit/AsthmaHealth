@@ -506,6 +506,7 @@ static int numberOfItemsInSection = 7;
     }
     
     NSInteger j = 1;
+    //render 6 weeks of calendar to page, with days as appropriate
     while (i < 43) {
         if ([self isValidDateForDay:j month:self.MM year:self.YYYY]) {
             [dayStrings addObject:[NSString stringWithFormat:@"%i", (int)j]];
