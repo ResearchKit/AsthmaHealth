@@ -67,8 +67,6 @@ static float const kParticipationTrophyThreshold = 0.85;
         [comps setYear:year];
         NSDate *endDate = [gregorian dateFromComponents:comps];
         
-        APCLogDebug(@"========== THE TIME BEFORE QUERY: %@" , [NSDate date]);
-        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"taskID == %@ OR taskID == %@", kDailySurveyTaskID, kWeeklySurveyTaskID];
         
         [[APCScheduler defaultScheduler] fetchTaskGroupsFromDate:startDate
@@ -78,7 +76,6 @@ static float const kParticipationTrophyThreshold = 0.85;
                                                  toReportResults:^(NSDictionary *dates, NSError *queryError)
          {
              
-             APCLogDebug(@"========== THE TIME AFTER QUERY: %@" , [NSDate date]);
              NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
              //iterate over the task groups setting the complianceDictionary
              if (!queryError) {
