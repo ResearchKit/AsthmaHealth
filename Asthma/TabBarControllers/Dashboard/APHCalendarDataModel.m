@@ -257,20 +257,6 @@ static NSString *kNoParticipationBoolean    = @"0";
     }
 }
 
-#pragma mark Helpers
--(BOOL)isValidDateForDay:(NSInteger)DD month:(NSInteger)MM year:(NSInteger)YYYY{
-    
-    //Check validity of date
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'"];
-    
-    NSString *endDateString = [NSString stringWithFormat:@"%i-%i-%i", (int)YYYY, (int)MM, (int)DD];
-    NSDate *endDate = [dateFormatter dateFromString:endDateString];
-    
-    return endDate != nil;
-    
-}
-
 #pragma mark - Fetch Request
 - (NSArray *)scheduledTasksForDateRange: (APCDateRange *)dateRange survey: (NSString *)surveyTaskID
 {
