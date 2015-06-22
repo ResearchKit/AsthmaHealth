@@ -63,13 +63,11 @@ static NSString *kNoParticipationBoolean    = @"0";
         
         NSDate *startDate = [gregorian dateFromComponents:comps];
         
-        NSInteger endDay = 1;
+        NSRange daysRange = [gregorian rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:startDate];
         
-        while ([self isValidDateForDay:endDay month:month year:year]) {
-            ++endDay;
-        }
-        
-        [comps setDay:endDay -1];
+        NSInteger endDay = daysRange.length;
+
+        [comps setDay:endDay];
         [comps setMonth:month];
         [comps setYear:year];
         NSDate *endDate = [gregorian dateFromComponents:comps];
