@@ -80,20 +80,18 @@ NSString * const kMedicineValue  = @"3";
     //day symptoms
     {
         ORKBooleanQuestionResult *result = (ORKBooleanQuestionResult *)[self answerForSurveyStepIdentifier:kDaySymptomsIdentifier];
-        if ([result booleanAnswer] == [NSNumber numberWithBool:1]) {
-            dictionary[kDaytimeSickKey] = @1;
-        }else if([result booleanAnswer] == [NSNumber numberWithBool:0]){
-            dictionary[kDaytimeSickKey] = @0;
+        
+        if ([result booleanAnswer]) {
+            dictionary[kDaytimeSickKey] = [result booleanAnswer];
         }
     }
     
     //night symptoms
     {
         ORKBooleanQuestionResult *result = (ORKBooleanQuestionResult *)[self answerForSurveyStepIdentifier:kNightSymptomsIdentifier];
-        if ([result booleanAnswer] == [NSNumber numberWithBool:1]) {
-            dictionary[kNighttimeSickKey] = @1;
-        }else if([result booleanAnswer] == [NSNumber numberWithBool:0]){
-            dictionary[kNighttimeSickKey] = @0;
+        
+        if ([result booleanAnswer]) {
+            dictionary[kNighttimeSickKey] = [result booleanAnswer];
         }
     }
     
@@ -101,12 +99,8 @@ NSString * const kMedicineValue  = @"3";
     //PeakFlow
     {
         ORKNumericQuestionResult *result = (ORKNumericQuestionResult *)[self answerForSurveyStepIdentifier:kPeakFlowStepIdentifier];
-        if ([result numericAnswer]) {
-            NSNumber * peakFlow = [result numericAnswer] ? [result numericAnswer] : @0;
-            if (peakFlow) {
-                dictionary[kPeakFlowKey] = peakFlow;
-            }
-        }
+        
+        dictionary[kPeakFlowKey] = [result numericAnswer] ?: @(NO);
         
     }
     
