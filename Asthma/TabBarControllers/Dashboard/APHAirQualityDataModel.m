@@ -295,11 +295,13 @@ static NSString * kItemName                 = @"Air Quality Report";
         self.fetchingAirQualityReport = YES;
         //Make Network call for Air Quality in block
         [self.networkManager get:kAlertGetJson headers:nil parameters:@{@"lat":@(lat),@"lon":@(lon)} completion:^(NSURLSessionDataTask __unused *task, id responseObject, NSError *error) {
+            __typeof__(self) strongSelf = weakSelf;
+            
             APCLogError2(error);
-            weakSelf.fetchingAirQualityReport = NO;
+            strongSelf.fetchingAirQualityReport = NO;
             if (!error) {
-                weakSelf.aqiObject.aqiDictionary = responseObject;
-                weakSelf.aqiResponse = [[NSMutableDictionary alloc]initWithDictionary:responseObject];
+                strongSelf.aqiObject.aqiDictionary = responseObject;
+                strongSelf.aqiResponse = [[NSMutableDictionary alloc]initWithDictionary:responseObject];
                 
                 //send notification for [APHDashboardViewController to prepareData];
                 APCLogEventWithData(kNetworkEvent, (@{
@@ -307,12 +309,13 @@ static NSString * kItemName                 = @"Air Quality Report";
                                                       }));
                 
                 //sends a new AQIAlert to the dashboard. The dashboard should receive it on the main thread.
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    if ([weakSelf.airQualityReportReceiver respondsToSelector:@selector(airQualityModel:didDeliverAirQualityAlert:)]) {
-                        [weakSelf.airQualityReportReceiver airQualityModel:weakSelf didDeliverAirQualityAlert:weakSelf.aqiObject];
+                    if ([strongSelf.airQualityReportReceiver respondsToSelector:@selector(airQualityModel:didDeliverAirQualityAlert:)]) {
+                        [strongSelf.airQualityReportReceiver airQualityModel:strongSelf didDeliverAirQualityAlert:strongSelf.aqiObject];
                     }
                     
-                    [weakSelf prepareDictionaries];
+                    [strongSelf prepareDictionaries];
                 });
             }}];
     }

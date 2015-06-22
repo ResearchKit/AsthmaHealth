@@ -162,7 +162,7 @@ NSString *const kDataNotAvailable = @"N/A";
     }
     
     {
-        self.peakScore = [[APCScoring alloc] initWithTask:@"DailyPrompt-27829fa5-d731-4372-ba30-a5859f655297"
+        self.peakScore = [[APCScoring alloc] initWithTask:kDailySurveyTaskID
                                              numberOfDays:-kNumberOfDaysToDisplay
                                                  valueKey:kPeakFlowKey
                                                   dataKey:nil
