@@ -46,6 +46,13 @@
     return success;
 }
 
+- (BOOL) performMigrationFromThreeToFourWithError:(NSError * __autoreleasing *)error
+{
+    BOOL    success = [self addLungFunctionTest] && [self addRecontactSurvey] && [self updateAllSurveysWithError:error];
+    
+    return success;
+}
+
 - (BOOL)updateAllSurveysWithError:(NSError *__autoreleasing *)error {
     
     BOOL success = NO;
@@ -105,5 +112,43 @@
 
     return YES;
 }
+
+
+- (BOOL)addLungFunctionTest
+{
+    
+    NSDictionary * staticScheduleAndTask = @{ @"tasks":
+                                                  @[
+                                                      @{
+                                                          @"taskTitle" : @"Forced Expiration Test",
+                                                          @"taskID": @"FVC-c2379e84-b943-11e4-a71e-12e3f512a338",
+                                                          @"taskClassName" : @"SMUSpiroTestTaskViewController",
+                                                          @"taskCompletionTimeString" : @"3 Lung Function Tests"
+                                                          }
+                                                      ],
+                                              
+                                              @"schedules":
+                                                  @[
+                                                      
+                                                      @{
+                                                          @"scheduleType": @"recurring",
+                                                          @"scheduleString": @"0 5 * * *",
+                                                          @"taskID": @"FVC-c2379e84-b943-11e4-a71e-12e3f512a338"
+                                                          }
+                                                      ]
+                                              };
+    
+    [APCTask updateTasksFromJSON:staticScheduleAndTask[@"tasks"]
+                       inContext:self.dataSubstrate.persistentContext];
+    
+    [APCSchedule createSchedulesFromJSON:staticScheduleAndTask[@"schedules"]
+                               inContext:self.dataSubstrate.persistentContext];
+    
+    APCScheduler *scheduler = [[APCScheduler alloc] initWithDataSubstrate:self.dataSubstrate];
+    [scheduler updateScheduledTasksIfNotUpdating:YES];
+    
+    return YES;
+}
+
 
 @end

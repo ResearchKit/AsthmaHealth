@@ -46,6 +46,7 @@ static NSString *const kStudyIdentifier                 = @"studyname";
 static NSString *const kAppPrefix                       = @"studyname";
 static NSString *const kVideoShownKey                   = @"VideoShown";
 static NSString *const kWeeklyScheduleTaskId            = @"WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a";
+
 static NSString *const kJsonSchedulesKey                = @"schedules";
 static NSString *const kJsonScheduleStringKey           = @"scheduleString";
 static NSString *const kJsonScheduleTaskIDKey           = @"taskID";
@@ -97,11 +98,30 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
         {
             APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
         }
+        
+        if (![self performMigrationFromThreeToFourWithError:&migrationError])
+        {
+            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
+        }
     }
     else if ([[defaults objectForKey:previousVersionKey] isEqual: @2])
     {
         APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
         if (![self performMigrationFromTwoToThreeWithError:&migrationError])
+        {
+            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
+        }
+        
+        if (![self performMigrationFromThreeToFourWithError:&migrationError])
+        {
+            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
+        }
+    }
+    else if ([[defaults objectForKey:previousVersionKey] isEqual: @3])
+    {
+        // added migration for new FV task
+        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
+        if (![self performMigrationFromThreeToFourWithError:&migrationError])
         {
             APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:previousVersionKey], @(kTheEntireDataModelOfTheApp));
         }
@@ -124,12 +144,12 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
 - (void) setUpInitializationOptions
 {
     
-    [APCUtilities setRealApplicationName:@"Asthma Health"];
+    [APCUtilities setRealApplicationName:@"Asthma Health+"];
     
     NSDictionary *permissionsDescriptions = @{
                                               @(kSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS will allow the app to advise you of air quality in your area. Your actual location will never be shared.", @""),
                                               @(kSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
-                                              @(kSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
+                                              @(kSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for measuring lung function from your vortex whistle.", @""),
                                               @(kSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
                                               @(kSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant Asthma access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
                                               };
@@ -161,7 +181,8 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
                                                    ],
                                            kAppServicesListRequiredKey           : @[
                                                    @(kSignUpPermissionsTypeLocation),
-                                                   @(kSignUpPermissionsTypeLocalNotifications)
+                                                   @(kSignUpPermissionsTypeLocalNotifications),
+                                                   @(kSignUpPermissionsTypeMicrophone)
                                                    ],
                                            kAppServicesDescriptionsKey : permissionsDescriptions,
                                            kAppProfileElementsListKey            : @[
@@ -180,12 +201,17 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
     APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyTaskID reminderBody:NSLocalizedString(@"Daily Survey", nil)];
     APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklyScheduleTaskId reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
     
+    //added in daily FVC maneuver task
+    APCTaskReminder *dailyFVCSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyFVCTaskId reminderBody:NSLocalizedString(@"Daily Lung Function Test", nil)];
+    
+    
     //define completion as defined in resultsSummary
     NSPredicate *medicationPredicate = [NSPredicate predicateWithFormat:@"SELF.integerValue == 1"];
     APCTaskReminder *medicationReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyTaskID resultsSummaryKey:kTookMedicineKey completedTaskPredicate:medicationPredicate reminderBody:NSLocalizedString(@"Take Medication", nil)];
     
     [self.tasksReminder manageTaskReminder:dailySurveyReminder];
     [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
+    [self.tasksReminder manageTaskReminder:dailyFVCSurveyReminder]; //added
     [self.tasksReminder manageTaskReminder:medicationReminder];
 }
 
@@ -196,10 +222,11 @@ static NSString *const kConsentPropertiesFileName       = @"APHConsentSection";
                                                  @"DailyPrompt-27829fa5-d731-4372-ba30-a5859f655297" : [UIColor appTertiaryGreenColor],
                                                  @"WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a" : [UIColor appTertiaryGreenColor],
                                                  @"MedicalHistory-b3cd0d66-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
+                                                 @"FVC-c2379e84-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryGreenColor], //added
                                                  @"AsthmaMedication-c2379e84-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
                                                  @"YourAsthma-cc06cd68-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
                                                  @"AsthmaHistory-d6d07ba4-b943-11e4-a71e-12e3f512a338" : [UIColor appTertiaryPurpleColor],
-                                                 @"APHEnrollmentForRecontactTaskViewController-1E174065-5B02-11E4-8ED6-0800200C9A66" : [UIColor appTertiaryPurpleColor],
+                                                @"APHEnrollmentForRecontactTaskViewController-1E174065-5B02-11E4-8ED6-0800200C9A66" : [UIColor appTertiaryPurpleColor],
                                                  @"AboutYou-27829fa5-d731-4372-ba30-a5859f688297" : [UIColor appTertiaryPurpleColor]
                                                  }];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];

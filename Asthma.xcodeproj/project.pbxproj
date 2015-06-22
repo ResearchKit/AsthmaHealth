@@ -30,6 +30,12 @@
 		5BBDAEC31A33E2B40047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEC21A33E2B40047DF87 /* HTMLContent */; };
 		5BBDAEEE1A35025D0047DF87 /* APHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */; };
 		5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEF41A3515960047DF87 /* LocationInfo.json */; };
+		5C72DB0D1B2403740089A3D0 /* SMUSpiroTestTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DB051B2403740089A3D0 /* SMUSpiroTestTaskViewController.m */; };
+		5C72DB0E1B2403740089A3D0 /* SMUSpiroStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C72DB061B2403740089A3D0 /* SMUSpiroStoryboard.storyboard */; };
+		5C72DB0F1B2403740089A3D0 /* SMUSpiroInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DB081B2403740089A3D0 /* SMUSpiroInitialViewController.m */; };
+		5C72DB101B2403740089A3D0 /* SMUSpiroContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DB0A1B2403740089A3D0 /* SMUSpiroContainerViewController.m */; };
+		5C72DB111B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DB0C1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m */; };
+		5C72DB131B2403B10089A3D0 /* APHTasksAndSchedulesMod.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C72DB121B2403B10089A3D0 /* APHTasksAndSchedulesMod.json */; };
 		6C13EE2D1A97D77D003D10C9 /* MedicalHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */; };
 		6C13EE311A97D783003D10C9 /* AsthmaMedicationSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */; };
 		6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C13EE321A97D78A003D10C9 /* YourAsthma.json */; };
@@ -59,6 +65,11 @@
 		7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */; };
 		7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */; };
 		7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */; };
+		A400840B1B374CE8003B23B6 /* SMUSpiroFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400840A1B374CE8003B23B6 /* SMUSpiroFailViewController.m */; };
+		A4FDB9EC1B31D14F00787D7B /* ForcedExpirationTest.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */; };
+		A4FDB9FF1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */; };
+		A4FDBA021B3210D400787D7B /* SMUSpiroSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */; };
+		A4FDBA1E1B32668F00787D7B /* SMUSpiroCompletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */; };
 		A78116501A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */; };
 		A78116511A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */; };
 		A78116521A96B69B00CEC822 /* 12_Recontact@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */; };
@@ -92,6 +103,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
 			remoteInfo = ResearchKitTests;
+		};
+		5CC3BD511B24909800FE79A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CC3BD461B24909700FE79A8 /* OpenSpirometry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B636121C1B1CC38500289665;
+			remoteInfo = OpenSpirometry;
+		};
+		5CC3BD531B24909800FE79A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CC3BD461B24909700FE79A8 /* OpenSpirometry.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B63612351B1CC38500289665;
+			remoteInfo = OpenSpirometryTests;
 		};
 		6C4584281A910313007D076D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -216,6 +241,17 @@
 		5BBDAEEC1A35025D0047DF87 /* APHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWebViewController.h; sourceTree = "<group>"; };
 		5BBDAEED1A35025D0047DF87 /* APHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWebViewController.m; sourceTree = "<group>"; };
 		5BBDAEF41A3515960047DF87 /* LocationInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationInfo.json; sourceTree = "<group>"; };
+		5C72DB041B2403740089A3D0 /* SMUSpiroTestTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroTestTaskViewController.h; sourceTree = "<group>"; };
+		5C72DB051B2403740089A3D0 /* SMUSpiroTestTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroTestTaskViewController.m; sourceTree = "<group>"; };
+		5C72DB061B2403740089A3D0 /* SMUSpiroStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SMUSpiroStoryboard.storyboard; sourceTree = "<group>"; };
+		5C72DB071B2403740089A3D0 /* SMUSpiroInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroInitialViewController.h; sourceTree = "<group>"; };
+		5C72DB081B2403740089A3D0 /* SMUSpiroInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroInitialViewController.m; sourceTree = "<group>"; };
+		5C72DB091B2403740089A3D0 /* SMUSpiroContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroContainerViewController.h; sourceTree = "<group>"; };
+		5C72DB0A1B2403740089A3D0 /* SMUSpiroContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroContainerViewController.m; sourceTree = "<group>"; };
+		5C72DB0B1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroWhistleAnalyzerViewController.h; sourceTree = "<group>"; };
+		5C72DB0C1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroWhistleAnalyzerViewController.m; sourceTree = "<group>"; };
+		5C72DB121B2403B10089A3D0 /* APHTasksAndSchedulesMod.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHTasksAndSchedulesMod.json; sourceTree = "<group>"; };
+		5CC3BD461B24909700FE79A8 /* OpenSpirometry.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSpirometry.xcodeproj; path = OpenSpirometry/OpenSpirometry.xcodeproj; sourceTree = "<group>"; };
 		6C13EE2C1A97D77D003D10C9 /* MedicalHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MedicalHistory.json; sourceTree = "<group>"; };
 		6C13EE301A97D783003D10C9 /* AsthmaMedicationSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AsthmaMedicationSurvey.json; sourceTree = "<group>"; };
 		6C13EE321A97D78A003D10C9 /* YourAsthma.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YourAsthma.json; sourceTree = "<group>"; };
@@ -260,6 +296,15 @@
 		7B72A79C1A128708002FCD1E /* Asthma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Asthma.entitlements; sourceTree = "<group>"; };
 		7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
 		7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
+		A40084091B374CE8003B23B6 /* SMUSpiroFailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroFailViewController.h; sourceTree = "<group>"; };
+		A400840A1B374CE8003B23B6 /* SMUSpiroFailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroFailViewController.m; sourceTree = "<group>"; };
+		A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ForcedExpirationTest.json; sourceTree = "<group>"; };
+		A4FDB9FD1B3210C800787D7B /* SMUSpiroLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUSpiroLearnMoreViewController.h; path = ../../SMUSpiroLearnMoreViewController.h; sourceTree = "<group>"; };
+		A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroLearnMoreViewController.m; path = ../../SMUSpiroLearnMoreViewController.m; sourceTree = "<group>"; };
+		A4FDBA001B3210D400787D7B /* SMUSpiroSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUSpiroSettingsViewController.h; path = ../../SMUSpiroSettingsViewController.h; sourceTree = "<group>"; };
+		A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroSettingsViewController.m; path = ../../SMUSpiroSettingsViewController.m; sourceTree = "<group>"; };
+		A4FDBA1C1B32668F00787D7B /* SMUSpiroCompletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroCompletionViewController.h; sourceTree = "<group>"; };
+		A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroCompletionViewController.m; sourceTree = "<group>"; };
 		A78116431A96B69B00CEC822 /* 10_PotentialBenifits_Alt@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits_Alt@2x.m4v"; sourceTree = "<group>"; };
 		A78116441A96B69B00CEC822 /* 11_VisitingDoctor@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_VisitingDoctor@2x.m4v"; sourceTree = "<group>"; };
 		A78116451A96B69B00CEC822 /* 12_Recontact@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_Recontact@2x.m4v"; sourceTree = "<group>"; };
@@ -408,9 +453,11 @@
 				5B975A361A11317800A34E42 /* Learn.json */,
 				6CECC1CB1A79A13C00458980 /* StudyOverview.json */,
 				5B975A371A11317800A34E42 /* WithdrawStudy.json */,
+				A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */,
 				CF175C171A01B2E0008C10C9 /* asthma.bothers.json */,
 				5BB6478E19F6E5B300AA30AA /* APCParameters.json */,
 				5BB6478F19F6E5B300AA30AA /* APHTasksAndSchedules.json */,
+				5C72DB121B2403B10089A3D0 /* APHTasksAndSchedulesMod.json */,
 				CFE623BD19FAD114001BFF5A /* SleepSurvey.json */,
 			);
 			path = JSONs;
@@ -422,6 +469,39 @@
 				5A004E091AA7917900F7A9A9 /* consent.pdf */,
 			);
 			path = PDF;
+			sourceTree = "<group>";
+		};
+		5C72DB031B24034A0089A3D0 /* LungFunctionTest */ = {
+			isa = PBXGroup;
+			children = (
+				A4FDB9FD1B3210C800787D7B /* SMUSpiroLearnMoreViewController.h */,
+				A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */,
+				A4FDBA001B3210D400787D7B /* SMUSpiroSettingsViewController.h */,
+				A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */,
+				5C72DB041B2403740089A3D0 /* SMUSpiroTestTaskViewController.h */,
+				5C72DB051B2403740089A3D0 /* SMUSpiroTestTaskViewController.m */,
+				5C72DB061B2403740089A3D0 /* SMUSpiroStoryboard.storyboard */,
+				A40084091B374CE8003B23B6 /* SMUSpiroFailViewController.h */,
+				A400840A1B374CE8003B23B6 /* SMUSpiroFailViewController.m */,
+				5C72DB071B2403740089A3D0 /* SMUSpiroInitialViewController.h */,
+				5C72DB081B2403740089A3D0 /* SMUSpiroInitialViewController.m */,
+				5C72DB091B2403740089A3D0 /* SMUSpiroContainerViewController.h */,
+				5C72DB0A1B2403740089A3D0 /* SMUSpiroContainerViewController.m */,
+				A4FDBA1C1B32668F00787D7B /* SMUSpiroCompletionViewController.h */,
+				A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */,
+				5C72DB0B1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.h */,
+				5C72DB0C1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m */,
+			);
+			name = LungFunctionTest;
+			sourceTree = "<group>";
+		};
+		5CC3BD471B24909700FE79A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CC3BD521B24909800FE79A8 /* OpenSpirometry.app */,
+				5CC3BD541B24909800FE79A8 /* OpenSpirometryTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		6C4584241A910313007D076D /* Products */ = {
@@ -569,6 +649,7 @@
 		CFCA43B519F5C8B200D68EEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CC3BD461B24909700FE79A8 /* OpenSpirometry.xcodeproj */,
 				743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */,
 				6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */,
 				F5F12B3C1A2F88120015982C /* APCAppCore.xcodeproj */,
@@ -634,6 +715,7 @@
 		F5B1F1B41A33CDCF00C377FB /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
+				5C72DB031B24034A0089A3D0 /* LungFunctionTest */,
 				7B3CBC8E1A76C6A900DE27A4 /* EnrollmentForRecontact */,
 				6CF025161A68C84B00073EA7 /* APHConsentTask.h */,
 				6CF025171A68C84B00073EA7 /* APHConsentTask.m */,
@@ -685,6 +767,7 @@
 				TargetAttributes = {
 					CFCA432D19F5B00200D68EEE = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = K8F85C9A8H;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -720,6 +803,10 @@
 					ProjectRef = 743AD11C1ABEF36C0071C218 /* BridgeSDK.xcodeproj */;
 				},
 				{
+					ProductGroup = 5CC3BD471B24909700FE79A8 /* Products */;
+					ProjectRef = 5CC3BD461B24909700FE79A8 /* OpenSpirometry.xcodeproj */;
+				},
+				{
 					ProductGroup = 6CC004681AC863460042B2B1 /* Products */;
 					ProjectRef = 6CC004671AC863460042B2B1 /* ResearchKit.xcodeproj */;
 				},
@@ -737,6 +824,20 @@
 			fileType = wrapper.cfbundle;
 			path = ResearchKitTests.xctest;
 			remoteRef = 08084A981AD840390006AB9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5CC3BD521B24909800FE79A8 /* OpenSpirometry.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = OpenSpirometry.app;
+			remoteRef = 5CC3BD511B24909800FE79A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5CC3BD541B24909800FE79A8 /* OpenSpirometryTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OpenSpirometryTests.xctest;
+			remoteRef = 5CC3BD531B24909800FE79A8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		6C4584291A910313007D076D /* APCAppCore.framework */ = {
@@ -789,6 +890,7 @@
 				6C13EE331A97D78A003D10C9 /* YourAsthma.json in Resources */,
 				6C13EE351A97D78F003D10C9 /* AsthmaHistory.json in Resources */,
 				5B18CEE21A2D057C001A905E /* TermsAndConditions.json in Resources */,
+				A4FDB9EC1B31D14F00787D7B /* ForcedExpirationTest.json in Resources */,
 				CFCA436319F5BE8500D68EEE /* Main.storyboard in Resources */,
 				5BBDAEF51A3515960047DF87 /* LocationInfo.json in Resources */,
 				7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */,
@@ -805,11 +907,13 @@
 				5BB10C101A91F4C4002D2DD2 /* Intro.mp4 in Resources */,
 				5A0F98E71AA3BB2900A2A7EB /* AboutYou.json in Resources */,
 				5A004E0B1AA7918600F7A9A9 /* consent.pdf in Resources */,
+				5C72DB0E1B2403740089A3D0 /* SMUSpiroStoryboard.storyboard in Resources */,
 				F551E1131A2FD54E00397330 /* AsthmaDailyPrompt.json in Resources */,
 				6C13EE311A97D783003D10C9 /* AsthmaMedicationSurvey.json in Resources */,
 				5B1D9D591A1BD046000F4AD6 /* APHDashboard.storyboard in Resources */,
 				5BB6479619F6E5B300AA30AA /* APCParameters.json in Resources */,
 				6C13EE2D1A97D77D003D10C9 /* MedicalHistory.json in Resources */,
+				5C72DB131B2403B10089A3D0 /* APHTasksAndSchedulesMod.json in Resources */,
 				5B975A381A11317800A34E42 /* Learn.json in Resources */,
 				CFCA433F19F5B00200D68EEE /* Images.xcassets in Resources */,
 				5B55FDC41A02C618009BEE5E /* APHOnboarding.storyboard in Resources */,
@@ -829,16 +933,22 @@
 				6C1F53EF1A9550C50068F233 /* APHAirQualityDataModel.m in Sources */,
 				6CB01B7A1A6EF85C003BFA39 /* APHQuizTextViewTableViewCell.m in Sources */,
 				5B0432451A30413A000DC9ED /* APHInEligibleViewController.m in Sources */,
+				5C72DB0D1B2403740089A3D0 /* SMUSpiroTestTaskViewController.m in Sources */,
 				6CB01B751A6EEC74003BFA39 /* QuizResultTableViewCell.m in Sources */,
 				7B3CBC981A76C6CC00DE27A4 /* APHEnrollmentIntroduction.m in Sources */,
 				6CF025131A68459D00073EA7 /* APHBooleanQuestionStep.m in Sources */,
+				A4FDBA021B3210D400787D7B /* SMUSpiroSettingsViewController.m in Sources */,
 				7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */,
 				5BB10C2E1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m in Sources */,
 				5BB6474A19F6E35B00AA30AA /* APHAppDelegate.m in Sources */,
+				A400840B1B374CE8003B23B6 /* SMUSpiroFailViewController.m in Sources */,
 				6C6995C21A84234C001C557E /* APHCalendarCollectionViewController.m in Sources */,
 				6CB769471A702C8C00A89871 /* APHQuizQuestionTableViewCell.m in Sources */,
 				F5B1F1BA1A33D0F900C377FB /* APHWeeklyTaskViewController.m in Sources */,
+				5C72DB0F1B2403740089A3D0 /* SMUSpiroInitialViewController.m in Sources */,
 				5B47BA8E1A211E330080F8DC /* APHAirQualityCollectionViewCell.m in Sources */,
+				5C72DB101B2403740089A3D0 /* SMUSpiroContainerViewController.m in Sources */,
+				A4FDBA1E1B32668F00787D7B /* SMUSpiroCompletionViewController.m in Sources */,
 				6C6995C61A84236A001C557E /* APHCalendarCollectionViewCell.m in Sources */,
 				5B47BA941A2123250080F8DC /* APHDashboardAirQualityTableViewCell.m in Sources */,
 				F53F27AE1A2D348600A1D725 /* APHTableViewItem.m in Sources */,
@@ -848,7 +958,9 @@
 				6CF025181A68C84B00073EA7 /* APHConsentTask.m in Sources */,
 				5B8ED4AC1A834182009CDE44 /* APHDashboardBadgesTableViewCell.m in Sources */,
 				7B3CBC971A76C6CC00DE27A4 /* APHEnrollmentForRecontactTaskViewController.m in Sources */,
+				5C72DB111B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m in Sources */,
 				5B8ED4B01A836BFA009CDE44 /* APHBadgesCollectionViewCell.m in Sources */,
+				A4FDB9FF1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m in Sources */,
 				6C3C6C7A1A6734BB00A1E390 /* APHQuizStepViewController.m in Sources */,
 				7423AB5F1AA40714004A325A /* APHConsentRedirector.m in Sources */,
 				F5192D3A1A34C6D300A5CF3D /* APHConstants.m in Sources */,
@@ -927,6 +1039,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -934,6 +1050,7 @@
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = DebugAndSendToDataVerificationServer;
@@ -946,8 +1063,12 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -956,6 +1077,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = DebugAndSendToDataVerificationServer;
 		};
@@ -993,6 +1115,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1000,6 +1126,7 @@
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Development;
@@ -1012,11 +1139,15 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DEVELOPMENT=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1026,6 +1157,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Development;
 		};
@@ -1063,6 +1195,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1070,6 +1206,7 @@
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1102,12 +1239,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = (
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1121,8 +1263,12 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1131,6 +1277,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1142,8 +1289,12 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Asthma/Asthma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1152,6 +1303,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

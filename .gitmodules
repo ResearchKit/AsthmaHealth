@@ -8,3 +8,6 @@
 [submodule "AppCore"]
 	path = AppCore
 	url = https://github.com/ResearchKit/AppCore.git
+[submodule "OpenSpirometry"]
+	path = OpenSpirometry
+	url = https://github.com/redeian/OpenSpirometry.git
