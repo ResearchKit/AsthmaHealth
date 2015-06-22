@@ -333,7 +333,7 @@ static NSString *const kPreviousVersionKey              = @"previousVersion";
         else
         {
             NSFileManager*  fileManager = [NSFileManager defaultManager];
-            NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
+            NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:kDatabaseName];
             
             if ([fileManager fileExistsAtPath:filePath])
             {
