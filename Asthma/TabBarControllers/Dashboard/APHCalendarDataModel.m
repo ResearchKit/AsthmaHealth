@@ -35,6 +35,13 @@
 #import "APHConstants.h"
 static float const kParticipationTrophyThreshold = 0.85;
 
+static NSString *kHadSymptomsBoolean        = @"0";
+static NSString *kNoSymptomsBoolean         = @"1";
+static NSString *kMissedWorkBoolean         = @"0";
+static NSString *kAttendedWorkBoolean       = @"1";
+static NSString *kParticipatedBoolean       = @"1";
+static NSString *kNoParticipationBoolean    = @"0";
+
 @implementation APHCalendarDataModel
 
 #pragma mark APHCalendarCollectionViewController delegate
@@ -93,9 +100,9 @@ static float const kParticipationTrophyThreshold = 0.85;
                      if ([date compare:[NSDate new]] == NSOrderedDescending) {
                          [complianceDictionary setObject:@"" forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
                      }else if ((float)completed / (float)required > kParticipationTrophyThreshold){
-                         [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
+                         [complianceDictionary setObject:kParticipatedBoolean forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
                      }else{
-                         [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
+                         [complianceDictionary setObject:kNoParticipationBoolean forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
                      }
                  }
                  
@@ -155,9 +162,9 @@ static float const kParticipationTrophyThreshold = 0.85;
                 if ((int)monthComponents.month == (int)month) {
                     NSString *keyString = [kDaysMissedKey stringByAppendingFormat:@"%i", (int)weekday];
                     if (dictionary[keyString]) {//missed work, red == 0
-                        [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
+                        [complianceDictionary setObject:kMissedWorkBoolean forKey:[NSString stringWithFormat:@"%i", day]];
                     }else{
-                        [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];
+                        [complianceDictionary setObject:kAttendedWorkBoolean forKey:[NSString stringWithFormat:@"%i", day]];
                     }
                 }
                 
@@ -201,9 +208,9 @@ static float const kParticipationTrophyThreshold = 0.85;
                 NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:startOn];
                 int day = (int)[weekdayComponents day];
                 if ([dictionary[kNighttimeSickKey] isEqualToNumber: @1]) {//had symptoms
-                    [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
+                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];
                 }else if ([dictionary[kNighttimeSickKey] isEqualToNumber: @0]){
-                    [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];//1 = compliance/green color
+                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];//1 = compliance/green color
                 }
             }
         }
@@ -239,9 +246,9 @@ static float const kParticipationTrophyThreshold = 0.85;
                 NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:startOn];
                 int day = (int)[weekdayComponents day];
                 if ([dictionary[kDaytimeSickKey] isEqualToNumber: @1]) {//had symptoms
-                    [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
+                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];
                 }else if ([dictionary[kDaytimeSickKey] isEqualToNumber: @0]){
-                    [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];//1 = compliance/green color
+                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];//1 = compliance/green color
                 }
             }
         }
