@@ -33,11 +33,10 @@
  
 #import "APHAsthmaBadgesObject.h"
 #import "APHConstants.h"
+@import APCAppCore;
 
 static const int maximumWorkDays = 5;
 static const int daysToSearchForCompletedWeeklySurvey = 21;
-
-@import APCAppCore;
 
 @interface APHAsthmaBadgesObject ()
 
@@ -65,6 +64,9 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
     return self;
 }
 
+
+#pragma mark - Data Providers
+
 - (NSArray *)dailyScheduledTasks
 {
     if (!_dailyScheduledTasks) {
@@ -83,7 +85,7 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         _dailyScheduledTasks = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
         APCLogError2(error);
     }
-
+    
     return _dailyScheduledTasks;
 }
 
@@ -136,13 +138,47 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
 
 - (void) calculateCompletionValue
 {
-    if (self.dailyScheduledTasks.count == 0) {
+    
+    APCActivitiesDateState *dateState = [[APCActivitiesDateState alloc]init];
+    NSUInteger totalActivities = 0;
+    NSUInteger completedActivities = 0;
+    NSDictionary *dailySurveyState;
+    NSDictionary *weeklySurveyState;
+    NSDictionary *states;
+    
+    //get states for the dates we're interested in -4 and today
+    NSDate *dateToQuery = [[NSDate new]dateByAddingDays:-4];
+    while ([dateToQuery compare:[NSDate new]] == NSOrderedAscending || [dateToQuery compare:[NSDate new]] == NSOrderedSame) {
+        states = [dateState activitiesStateForDate:dateToQuery];
+        dailySurveyState = [states objectForKey:kDailySurveyTaskID];
+        weeklySurveyState = [states objectForKey:kWeeklySurveyTaskID];
+        
+        //iterate over times in state
+        for (NSDate *time in dailySurveyState) {
+            if ([[dailySurveyState objectForKey:time] isEqualToNumber:@1]) {
+                completedActivities ++;
+            }
+            totalActivities++;
+        }
+        
+        for (NSDate *time in weeklySurveyState) {
+            if ([[weeklySurveyState objectForKey:time] isEqualToNumber:@1]) {
+                completedActivities ++;
+            }
+            totalActivities++;
+        }
+        
+        dateToQuery = [dateToQuery dateByAddingDays:1];
+    }
+    
+    if (totalActivities == 0) {
         _completionValue = 0;
     }else{
-        _completionValue = (double)[self completedDailyScheduledTasks].count/(double)[self dailyScheduledTasks].count;
+        _completionValue = (double)completedActivities/(double)totalActivities;
     }
 }
 
+#pragma mark Row Value Calculations
 - (void) calculateWorkAttendanceValue
 {
     _workAttendanceValue = -1;
@@ -189,7 +225,7 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         [dailyPromptTasks enumerateObjectsUsingBlock:^(APCScheduledTask * obj, NSUInteger __unused idx, BOOL __unused *stop) {
             NSString * resultSummary = obj.lastResult.resultSummary;
             NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-            if (!dictionary[kDaytimeSickKey] && ![dictionary[kDaytimeSickKey] boolValue]) {
+            if ([dictionary[kDaytimeSickKey] isEqualToNumber:@0]) {
                 freeDays ++;
             }
         }];
@@ -211,7 +247,7 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         [dailyPromptTasks enumerateObjectsUsingBlock:^(APCScheduledTask * obj, NSUInteger __unused idx, BOOL __unused *stop) {
             NSString * resultSummary = obj.lastResult.resultSummary;
             NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-            if (!dictionary[kNighttimeSickKey] && ![dictionary[kNighttimeSickKey] boolValue]) {
+            if ([dictionary[kNighttimeSickKey] isEqualToNumber:@0]) {
                 freeNights ++;
             }
         }];
@@ -221,14 +257,14 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
 
 - (void) calculateAsthmaFullyControlledValue
 {
-//    < 2 days of daytime symptoms (daily survey)
+    //    < 2 days of daytime symptoms (daily survey)
     NSUInteger maxNumberOfDaytimeSymptoms = 2;
-//    Use of quick relief medicine on < 2 days and < 4 occasions/wk (daily survey)
+    //    Use of quick relief medicine on < 2 days and < 4 occasions/wk (daily survey)
     NSUInteger maxNumberQuickReliefUsage = 4;
-//    No nocturnal symptoms (daily survey)
-//    No exacerbations (no use of prednisone) (weekly survey, applies to BOTH prednisone questions)
-//    No emergency visits (or hospitalizations, or unscheduled MD visit for asthma)  (weekly survey)
-//    No treatment related side effects (weekly survey)
+    //    No nocturnal symptoms (daily survey)
+    //    No exacerbations (no use of prednisone) (weekly survey, applies to BOTH prednisone questions)
+    //    No emergency visits (or hospitalizations, or unscheduled MD visit for asthma)  (weekly survey)
+    //    No treatment related side effects (weekly survey)
     
     NSUInteger daytimeSymptoms = 0;
     NSUInteger quickReliefUsage = 0;
@@ -294,7 +330,7 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         totalScore+=defaultScore;
         userScore = (relatedSideEffects == 0) ? userScore+defaultScore : userScore;
     }
-
+    
     _asthmaFullyControlUserScore = userScore;
     _asthmaFullyControlTotalScore = totalScore;
     

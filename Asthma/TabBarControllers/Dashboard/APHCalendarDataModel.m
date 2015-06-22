@@ -35,12 +35,13 @@
 #import "APHConstants.h"
 static float const kParticipationTrophyThreshold = 0.85;
 
-static NSString *kHadSymptomsBoolean        = @"0";
-static NSString *kNoSymptomsBoolean         = @"1";
-static NSString *kMissedWorkBoolean         = @"0";
-static NSString *kAttendedWorkBoolean       = @"1";
-static NSString *kParticipatedBoolean       = @"1";
-static NSString *kNoParticipationBoolean    = @"0";
+static NSString *kHadSymptomsBoolean            = @"0";
+static NSString *kNoSymptomsBoolean             = @"1";
+static NSString *kMissedWorkBoolean             = @"0";
+static NSString *kAttendedWorkBoolean           = @"1";
+static NSString *kParticipatedBoolean           = @"1";
+static NSString *kNoParticipationBoolean        = @"0";
+static NSString *kUnansweredSurveyQuestion      = @"";
 
 @implementation APHCalendarDataModel
 
@@ -93,14 +94,12 @@ static NSString *kNoParticipationBoolean    = @"0";
                          completed += [taskGroup requiredCompletedTasks].count;
                      }
                      
-                     NSDateComponents* components = [gregorian components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
-                     
                      if ([date compare:[NSDate new]] == NSOrderedDescending) {
-                         [complianceDictionary setObject:@"" forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
+                         [complianceDictionary setObject:kUnansweredSurveyQuestion forKey:[self dayFromDate:date]];
                      }else if ((float)completed / (float)required > kParticipationTrophyThreshold){
-                         [complianceDictionary setObject:kParticipatedBoolean forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
+                         [complianceDictionary setObject:kParticipatedBoolean forKey:[self dayFromDate:date]];
                      }else{
-                         [complianceDictionary setObject:kNoParticipationBoolean forKey:[NSString stringWithFormat:@"%i", (int)components.day]];
+                         [complianceDictionary setObject:kNoParticipationBoolean forKey:[self dayFromDate:date]];
                      }
                  }
                  
@@ -148,10 +147,6 @@ static NSString *kNoParticipationBoolean    = @"0";
             NSDateComponents *monthComponents = [gregorian components:(NSCalendarUnitMonth) fromDate:dateToExamine];
             
             while (weekday < 8) {
-                //get the day of month for startOn
-                NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:dateToExamine];
-                int day = (int)[weekdayComponents day];
-                
                 //get the result summary for this weekly prompt task
                 NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
@@ -160,9 +155,9 @@ static NSString *kNoParticipationBoolean    = @"0";
                 if ((int)monthComponents.month == (int)month) {
                     NSString *keyString = [kDaysMissedKey stringByAppendingFormat:@"%i", (int)weekday];
                     if (dictionary[keyString]) {//missed work, red == 0
-                        [complianceDictionary setObject:kMissedWorkBoolean forKey:[NSString stringWithFormat:@"%i", day]];
+                        [complianceDictionary setObject:kMissedWorkBoolean forKey:[self dayFromDate:dateToExamine]];
                     }else{
-                        [complianceDictionary setObject:kAttendedWorkBoolean forKey:[NSString stringWithFormat:@"%i", day]];
+                        [complianceDictionary setObject:kAttendedWorkBoolean forKey:[self dayFromDate:dateToExamine]];
                     }
                 }
                 
@@ -203,12 +198,10 @@ static NSString *kNoParticipationBoolean    = @"0";
             if ([startOn compare:[NSDate new]] == NSOrderedAscending || [startOn compare:[NSDate new]] == NSOrderedSame) {//no need to parse scheduled tasks after today
                 NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-                NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:startOn];
-                int day = (int)[weekdayComponents day];
                 if ([dictionary[kNighttimeSickKey] isEqualToNumber: @1]) {//had symptoms
-                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];
+                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[self dayFromDate:startOn]];
                 }else if ([dictionary[kNighttimeSickKey] isEqualToNumber: @0]){
-                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];//1 = compliance/green color
+                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[self dayFromDate:startOn]];//1 = compliance/green color
                 }
             }
         }
@@ -241,12 +234,10 @@ static NSString *kNoParticipationBoolean    = @"0";
             if ([startOn earlierDate:[NSDate new]] == startOn) {//no need to parse scheduled tasks after today
                 NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-                NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:startOn];
-                int day = (int)[weekdayComponents day];
                 if ([dictionary[kDaytimeSickKey] isEqualToNumber: @1]) {//had symptoms
-                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];
+                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[self dayFromDate:startOn]];
                 }else if ([dictionary[kDaytimeSickKey] isEqualToNumber: @0]){
-                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[NSString stringWithFormat:@"%i", day]];//1 = compliance/green color
+                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[self dayFromDate:startOn]];//1 = compliance/green color
                 }
             }
         }
@@ -256,6 +247,19 @@ static NSString *kNoParticipationBoolean    = @"0";
         });
     }
 }
+#pragma mark - Utility methods
+
+- (NSString *)dayFromDate : (NSDate *)date
+{
+
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents* components = [gregorian components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+ 
+    return [NSString stringWithFormat:@"%lu", components.day];
+}
+
 
 #pragma mark - Fetch Request
 - (NSArray *)scheduledTasksForDateRange: (APCDateRange *)dateRange survey: (NSString *)surveyTaskID
