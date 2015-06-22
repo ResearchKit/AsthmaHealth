@@ -1,41 +1,28 @@
 //
-//  SMUSpiroInitialViewController.m
+//  SMUSpiroFailViewController.m
 //  Asthma
 //
-//  Created by Eric Larson on 5/27/15.
+//  Created by Daniel Huang on 6/21/15.
 //  Copyright (c) 2015 Apple, Inc. All rights reserved.
 //
 
-#import "SMUSpiroInitialViewController.h"
+#import "SMUSpiroFailViewController.h"
 
-
-@interface SMUSpiroInitialViewController ()
-@property (strong, nonatomic) SpirometerEffortAnalyzer *spiro;
+@interface SMUSpiroFailViewController ()
 
 @end
 
-@implementation SMUSpiroInitialViewController
-- (IBAction)nextPressed:(id)sender {
-    [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
-    
-}
+@implementation SMUSpiroFailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.spiro = [[SpirometerEffortAnalyzer alloc] init];
-    self.spiro.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-# pragma mark SpirometerDelegate Methods
-
-
 
 /*
 #pragma mark - Navigation

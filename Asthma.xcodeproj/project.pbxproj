@@ -65,6 +65,7 @@
 		7B3CBC991A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CBC941A76C6CC00DE27A4 /* APHEnrollmentIntroduction.storyboard */; };
 		7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CBC961A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m */; };
 		7BA67A821AB20F6600238899 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */; };
+		A400840B1B374CE8003B23B6 /* SMUSpiroFailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400840A1B374CE8003B23B6 /* SMUSpiroFailViewController.m */; };
 		A4FDB9EC1B31D14F00787D7B /* ForcedExpirationTest.json in Resources */ = {isa = PBXBuildFile; fileRef = A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */; };
 		A4FDB9FF1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */; };
 		A4FDBA021B3210D400787D7B /* SMUSpiroSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDBA011B3210D400787D7B /* SMUSpiroSettingsViewController.m */; };
@@ -295,6 +296,8 @@
 		7B72A79C1A128708002FCD1E /* Asthma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Asthma.entitlements; sourceTree = "<group>"; };
 		7BA67A801AB20F6600238899 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
 		7BA67A811AB20F6600238899 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
+		A40084091B374CE8003B23B6 /* SMUSpiroFailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUSpiroFailViewController.h; sourceTree = "<group>"; };
+		A400840A1B374CE8003B23B6 /* SMUSpiroFailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUSpiroFailViewController.m; sourceTree = "<group>"; };
 		A4FDB9EB1B31D14F00787D7B /* ForcedExpirationTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ForcedExpirationTest.json; sourceTree = "<group>"; };
 		A4FDB9FD1B3210C800787D7B /* SMUSpiroLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUSpiroLearnMoreViewController.h; path = ../../SMUSpiroLearnMoreViewController.h; sourceTree = "<group>"; };
 		A4FDB9FE1B3210C800787D7B /* SMUSpiroLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUSpiroLearnMoreViewController.m; path = ../../SMUSpiroLearnMoreViewController.m; sourceTree = "<group>"; };
@@ -478,13 +481,15 @@
 				5C72DB041B2403740089A3D0 /* SMUSpiroTestTaskViewController.h */,
 				5C72DB051B2403740089A3D0 /* SMUSpiroTestTaskViewController.m */,
 				5C72DB061B2403740089A3D0 /* SMUSpiroStoryboard.storyboard */,
+				A40084091B374CE8003B23B6 /* SMUSpiroFailViewController.h */,
+				A400840A1B374CE8003B23B6 /* SMUSpiroFailViewController.m */,
 				5C72DB071B2403740089A3D0 /* SMUSpiroInitialViewController.h */,
 				5C72DB081B2403740089A3D0 /* SMUSpiroInitialViewController.m */,
 				5C72DB091B2403740089A3D0 /* SMUSpiroContainerViewController.h */,
 				5C72DB0A1B2403740089A3D0 /* SMUSpiroContainerViewController.m */,
-				5C72DB0B1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.h */,
 				A4FDBA1C1B32668F00787D7B /* SMUSpiroCompletionViewController.h */,
 				A4FDBA1D1B32668F00787D7B /* SMUSpiroCompletionViewController.m */,
+				5C72DB0B1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.h */,
 				5C72DB0C1B2403740089A3D0 /* SMUSpiroWhistleAnalyzerViewController.m */,
 			);
 			name = LungFunctionTest;
@@ -762,6 +767,7 @@
 				TargetAttributes = {
 					CFCA432D19F5B00200D68EEE = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = K8F85C9A8H;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -935,6 +941,7 @@
 				7B3CBC9A1A76C6CC00DE27A4 /* APHEnrollmentIntroTableViewController.m in Sources */,
 				5BB10C2E1A922A1D002D2DD2 /* APHAirQualitySectionHeaderView.m in Sources */,
 				5BB6474A19F6E35B00AA30AA /* APHAppDelegate.m in Sources */,
+				A400840B1B374CE8003B23B6 /* SMUSpiroFailViewController.m in Sources */,
 				6C6995C21A84234C001C557E /* APHCalendarCollectionViewController.m in Sources */,
 				6CB769471A702C8C00A89871 /* APHQuizQuestionTableViewCell.m in Sources */,
 				F5B1F1BA1A33D0F900C377FB /* APHWeeklyTaskViewController.m in Sources */,
@@ -1032,6 +1039,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1039,6 +1050,7 @@
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = DebugAndSendToDataVerificationServer;
@@ -1053,6 +1065,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1061,6 +1077,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = DebugAndSendToDataVerificationServer;
 		};
@@ -1098,6 +1115,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1105,6 +1126,7 @@
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Development;
@@ -1123,6 +1145,10 @@
 					"$(inherited)",
 					"DEVELOPMENT=1",
 				);
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1131,6 +1157,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Development;
 		};
@@ -1168,6 +1195,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1175,6 +1206,7 @@
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1207,12 +1239,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = (
 					"-Wall",
 					"-Wextra",
 				);
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1228,6 +1265,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1236,6 +1277,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1249,6 +1291,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Asthma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -1257,6 +1303,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
