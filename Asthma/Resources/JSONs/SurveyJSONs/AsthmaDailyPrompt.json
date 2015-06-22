@@ -190,7 +190,10 @@
             "type": "SurveyQuestion",
             "constraints": {
                 "dataType": "integer",
-                "type": "IntegerConstraints"
+                "type": "IntegerConstraints",
+                "step": null,
+                "maxValue": 900,
+                "minValue": 60
             }
         },
         {
@@ -224,17 +227,6 @@
                         "label": "I'm not sure"
                     }
                 ]
-            }
-        },
-        {
-            "identifier": "medicine_change",
-            "prompt": "Did your usual daily asthma medicine change?",
-            "uiHint": "checkbox",
-            "guid": "e872f8fa-c157-457b-890f-9e28eeed6efa",
-            "type": "SurveyQuestion",
-            "constraints": {
-                "dataType": "boolean",
-                "type": "BooleanConstraints"
             }
         }
     ]

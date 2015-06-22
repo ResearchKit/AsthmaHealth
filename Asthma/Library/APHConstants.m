@@ -48,8 +48,15 @@ NSString * const kSideEffectKey = @"SideEffect";
 NSString * const kMissWorkKey = @"MissWork";
 NSString * const kDaysMissedKey = @"MissedDay:";
 
+//Survey identifiers
 NSString * const kDailySurveyTaskID = @"DailyPrompt-27829fa5-d731-4372-ba30-a5859f655297";
 NSString * const kWeeklySurveyTaskID = @"WeeklySurvey-b573a78-8917-4582-8f1f-0552d0bfd28a";
+NSString * const kAboutYouSurveyTaskID = @"AboutYou-27829fa5-d731-4372-ba30-a5859f688297";
+NSString * const kMedicalHistorySurveyTaskID = @"MedicalHistory-b3cd0d66-b943-11e4-a71e-12e3f512a338";
+NSString * const kMedicationSurveyTaskID = @"AsthmaMedication-c2379e84-b943-11e4-a71e-12e3f512a338";
+NSString * const kYourAsthmaSurveyTaskID = @"YourAsthma-cc06cd68-b943-11e4-a71e-12e3f512a338";
+NSString * const kAsthmaHistorySurveyTaskID = @"AsthmaHistory-d6d07ba4-b943-11e4-a71e-12e3f512a338";
+NSString * const kEnrollmentSurveyTaskID = @"APHEnrollmentForRecontactTaskViewController-1E174065-5B02-11E4-8ED6-0800200C9A66";
 
 NSString * const kSteroid1StepIdentifier = @"asthma_medicine";
 NSString * const kSteroid2StepIdentifier = @"prednisone";

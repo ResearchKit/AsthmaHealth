@@ -1,36 +1,36 @@
-// 
-//  APHDashboardViewController.m 
-//  Asthma 
-// 
-// Copyright (c) 2015, Icahn School of Medicine at Mount Sinai. All rights reserved. 
-// 
+//
+//  APHDashboardViewController.m
+//  Asthma
+//
+// Copyright (c) 2015, Icahn School of Medicine at Mount Sinai. All rights reserved.
+//
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
-// 
+//
 // 1.  Redistributions of source code must retain the above copyright notice, this
 // list of conditions and the following disclaimer.
-// 
-// 2.  Redistributions in binary form must reproduce the above copyright notice, 
-// this list of conditions and the following disclaimer in the documentation and/or 
-// other materials provided with the distribution. 
-// 
-// 3.  Neither the name of the copyright holder(s) nor the names of any contributors 
-// may be used to endorse or promote products derived from this software without 
-// specific prior written permission. No license is granted to the trademarks of 
-// the copyright holders even if such marks are included in this software. 
-// 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE 
-// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
-// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
-// 
- 
+//
+// 2.  Redistributions in binary form must reproduce the above copyright notice,
+// this list of conditions and the following disclaimer in the documentation and/or
+// other materials provided with the distribution.
+//
+// 3.  Neither the name of the copyright holder(s) nor the names of any contributors
+// may be used to endorse or promote products derived from this software without
+// specific prior written permission. No license is granted to the trademarks of
+// the copyright holders even if such marks are included in this software.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
 #import "APHDashboardViewController.h"
 #import "APHDashboardEditViewController.h"
 #import "APHDashboardAirQualityTableViewCell.h"
@@ -44,6 +44,7 @@
 #import "APHCalendarDataModel.h"
 #import "APHAirQualityDataModel.h"
 #import "APHConstants.h"
+#import "APHAppDelegate.h"
 
 static NSString *kTooltipBadgesContent = @"As you complete daily surveys, work without asthma interruption, and achieve asthma-free nights and days, you'll earn badges for succeeding five of the last seven days. Tap item to see calendar view.";
 static NSString *kTooltipStepsContent = @"This graph shows the number of steps you have taken each day, as recorded by your phone or connected device. Tap the button in the upper right corner to make the graph larger.";
@@ -74,7 +75,6 @@ NSString *const kDataNotAvailable = @"N/A";
 @property (nonatomic, assign) BOOL shouldAnimateObjects;
 
 //Air Quality
-@property (nonatomic, strong) APHAirQualityDataModel *airQualityDataModel;
 @property (nonatomic, strong) APHTableViewDashboardAQAlertItem * aqiObject;
 @property (nonatomic, assign) float numberOfItemsForAirQuality;
 @property (nonatomic, assign) float airQualityCollectionViewCellHeight;
@@ -124,13 +124,12 @@ NSString *const kDataNotAvailable = @"N/A";
     //calendar
     self.calendarDataModel = [[APHCalendarDataModel alloc]init];
     //air quality properties to be updated on notification from APHAirQualityDataModel
-    self.airQualityDataModel = [[APHAirQualityDataModel alloc]init];
-    self.airQualityDataModel.airQualityReportReceiver = self;
+    
     self.numberOfItemsForAirQuality = 0;
     self.airQualityCollectionViewCellHeight = 0.0f;
     self.airQualityCollectionViewHeaderHeight = 0.0f;
     self.aqiObject = [APHTableViewDashboardAQAlertItem new];
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -141,6 +140,14 @@ NSString *const kDataNotAvailable = @"N/A";
     self.rowItemsOrder = [NSMutableArray arrayWithArray:[defaults objectForKey:kAPCDashboardRowItemsOrder]];
     self.badgeObject = [APHAsthmaBadgesObject new];
     self.shouldAnimateObjects = NO;
+    
+    //get aqi if exists
+    __weak APHAirQualityDataModel *airQualityDataModel = [(APHAppDelegate *)[UIApplication sharedApplication].delegate airQualityDataModel];
+    airQualityDataModel.airQualityReportReceiver = self;
+    if (airQualityDataModel.aqiObject) {
+        [self airQualityModel:airQualityDataModel didDeliverAirQualityAlert:airQualityDataModel.aqiObject];
+    }
+    
     [self prepareScoringObjects];
     [self prepareData];
 }
@@ -150,17 +157,17 @@ NSString *const kDataNotAvailable = @"N/A";
     {
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
         self.stepScore = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
-                                                                        unit:[HKUnit countUnit]
-                                                                numberOfDays:-kNumberOfDaysToDisplay];
+                                                                      unit:[HKUnit countUnit]
+                                                              numberOfDays:-kNumberOfDaysToDisplay];
     }
     
     {
-        self.peakScore = [[APCScoring alloc] initWithTask:@"DailyPrompt-27829fa5-d731-4372-ba30-a5859f655297"
-                                              numberOfDays:-kNumberOfDaysToDisplay
-                                                  valueKey:kPeakFlowKey
-                                                   dataKey:nil
+        self.peakScore = [[APCScoring alloc] initWithTask:kDailySurveyTaskID
+                                             numberOfDays:-kNumberOfDaysToDisplay
+                                                 valueKey:kPeakFlowKey
+                                                  dataKey:nil
                                                   sortKey:nil
-                                               groupBy:APHTimelineGroupDay];
+                                                  groupBy:APHTimelineGroupDay];
     }
     
 }
@@ -182,7 +189,7 @@ NSString *const kDataNotAvailable = @"N/A";
         
         NSUInteger allScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfAllScheduledTasksForToday;
         NSUInteger completedScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfCompletedScheduledTasksForToday;
-                
+        
         {
             APCTableViewDashboardProgressItem *item = [APCTableViewDashboardProgressItem new];
             item.identifier = kAPCDashboardProgressTableViewCellIdentifier;
@@ -304,7 +311,7 @@ NSString *const kDataNotAvailable = @"N/A";
     }
     
     [self.tableView reloadData];
-
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -343,7 +350,7 @@ NSString *const kDataNotAvailable = @"N/A";
         if (self.shouldAnimateObjects) {
             [badgeCell.concentricProgressView setNeedsLayout];
         }
-    
+        
     } else if ([dashboardItem isKindOfClass:[APCTableViewDashboardAsthmaControlItem class]]){
         APCTableViewDashboardAsthmaControlItem *asthmaItem = (APCTableViewDashboardAsthmaControlItem *)dashboardItem;
         
@@ -514,7 +521,7 @@ NSString *const kDataNotAvailable = @"N/A";
             default:
                 break;
         }
-    
+        
     } else if ([dashboardItem isKindOfClass:[APHTableViewDashboardBadgesItem class]]){
         APHBadgesCollectionViewCell *badgeCell = [collectionView dequeueReusableCellWithReuseIdentifier:kAPHBadgesCollectionViewCellIdentifier forIndexPath:indexPath];
         badgeCell.imageView.image = [UIImage imageNamed:@"icon_trophy_empty"];
@@ -761,24 +768,17 @@ NSString *const kDataNotAvailable = @"N/A";
     self.shouldAnimateObjects = YES;
 }
 
-#pragma mark - APHAirQualityDataModel 
+#pragma mark - APHAirQualityDataModel
 -(void)airQualityModel:(APHAirQualityDataModel *)__unused model didDeliverAirQualityAlert:(APHTableViewDashboardAQAlertItem *)alert{
     
-    __weak APHDashboardViewController *weakSelf = self;
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        weakSelf.aqiObject = alert;
-        weakSelf.numberOfItemsForAirQuality = 4;
-        weakSelf.airQualityCollectionViewCellHeight = 54.0f;
-        weakSelf.airQualityCollectionViewHeaderHeight = 36.0f;
-        weakSelf.aqiObject.showTomorrowInfo = YES;
-        weakSelf.shouldAnimateObjects = NO;
-        [weakSelf prepareData];
-    });
-   
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        weakSelf.shouldAnimateObjects = YES;
-    });
+    self.aqiObject = alert;
+    self.numberOfItemsForAirQuality = 4;
+    self.airQualityCollectionViewCellHeight = 54.0f;
+    self.airQualityCollectionViewHeaderHeight = 36.0f;
+    self.aqiObject.showTomorrowInfo = YES;
+    self.shouldAnimateObjects = NO;
+    [self prepareData];
+    self.shouldAnimateObjects = YES;
     
 }
 

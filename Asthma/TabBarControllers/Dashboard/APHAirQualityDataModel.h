@@ -47,5 +47,6 @@
 @end
 
 @interface APHAirQualityDataModel : NSObject <CLLocationManagerDelegate>
+@property (nonatomic, strong) APHTableViewDashboardAQAlertItem *aqiObject;
 @property (weak, nonatomic) id<APHAirQualityReportReceiver> airQualityReportReceiver;
 @end

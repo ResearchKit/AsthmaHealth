@@ -49,7 +49,7 @@
         },
         {
             "identifier": "chronic_pulmonary_diesease",
-            "prompt": "Do you have or have you had chronic pulmonary disease?",
+            "prompt": "Do you have or have you had chronic pulmonary disease (emphysema or chronic bronchitis)?",
             "uiHint": "checkbox",
             "guid": "854eff00-3b2f-41a2-9b36-17b72287819b",
             "type": "SurveyQuestion",

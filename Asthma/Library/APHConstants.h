@@ -50,6 +50,12 @@ FOUNDATION_EXPORT NSString * const kDaysMissedKey;
 
 FOUNDATION_EXPORT NSString * const kDailySurveyTaskID;
 FOUNDATION_EXPORT NSString * const kWeeklySurveyTaskID;
+FOUNDATION_EXPORT NSString * const kAboutYouSurveyTaskID;
+FOUNDATION_EXPORT NSString * const kMedicalHistorySurveyTaskID;
+FOUNDATION_EXPORT NSString * const kMedicationSurveyTaskID;
+FOUNDATION_EXPORT NSString * const kYourAsthmaSurveyTaskID;
+FOUNDATION_EXPORT NSString * const kAsthmaHistorySurveyTaskID;
+FOUNDATION_EXPORT NSString * const kEnrollmentSurveyTaskID;
 
 FOUNDATION_EXPORT NSString * const kSteroid1StepIdentifier;
 FOUNDATION_EXPORT NSString * const kSteroid2StepIdentifier;

@@ -224,7 +224,10 @@
             "type": "SurveyQuestion",
             "constraints": {
                 "dataType": "integer",
-                "type": "IntegerConstraints"
+                "type": "IntegerConstraints",
+                "step": null,
+                "maxValue": 900,
+                "minValue": 60
             }
         },
         {
