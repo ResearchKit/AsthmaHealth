@@ -155,14 +155,14 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         
         //iterate over times in state
         for (NSDate *time in dailySurveyState) {
-            if ([[dailySurveyState objectForKey:time] isEqualToNumber:@1]) {
+            if ([[dailySurveyState objectForKey:time] isEqualToNumber:@(YES)]) {
                 completedActivities ++;
             }
             totalActivities++;
         }
         
         for (NSDate *time in weeklySurveyState) {
-            if ([[weeklySurveyState objectForKey:time] isEqualToNumber:@1]) {
+            if ([[weeklySurveyState objectForKey:time] isEqualToNumber:@(YES)]) {
                 completedActivities ++;
             }
             totalActivities++;
@@ -225,7 +225,7 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         [dailyPromptTasks enumerateObjectsUsingBlock:^(APCScheduledTask * obj, NSUInteger __unused idx, BOOL __unused *stop) {
             NSString * resultSummary = obj.lastResult.resultSummary;
             NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-            if ([dictionary[kDaytimeSickKey] isEqualToNumber:@0]) {
+            if ([dictionary[kDaytimeSickKey] isEqualToNumber:@(NO)]) {
                 freeDays ++;
             }
         }];
@@ -247,7 +247,7 @@ static const int daysToSearchForCompletedWeeklySurvey = 21;
         [dailyPromptTasks enumerateObjectsUsingBlock:^(APCScheduledTask * obj, NSUInteger __unused idx, BOOL __unused *stop) {
             NSString * resultSummary = obj.lastResult.resultSummary;
             NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-            if ([dictionary[kNighttimeSickKey] isEqualToNumber:@0]) {
+            if ([dictionary[kNighttimeSickKey] isEqualToNumber:@(NO)]) {
                 freeNights ++;
             }
         }];
