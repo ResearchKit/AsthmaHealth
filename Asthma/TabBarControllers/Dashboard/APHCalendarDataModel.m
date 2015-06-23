@@ -198,9 +198,9 @@ static NSString *kUnansweredSurveyQuestion      = @"";
             if ([startOn compare:[NSDate new]] == NSOrderedAscending || [startOn compare:[NSDate new]] == NSOrderedSame) {//no need to parse scheduled tasks after today
                 NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-                if ([dictionary[kNighttimeSickKey] isEqualToNumber: @1]) {//had symptoms
+                if ([dictionary[kNighttimeSickKey] isEqualToNumber: @(YES)]) {//had symptoms
                     [complianceDictionary setObject:kHadSymptomsBoolean forKey:[self dayFromDate:startOn]];
-                }else if ([dictionary[kNighttimeSickKey] isEqualToNumber: @0]){
+                }else if ([dictionary[kNighttimeSickKey] isEqualToNumber: @(NO)]){
                     [complianceDictionary setObject:kNoSymptomsBoolean forKey:[self dayFromDate:startOn]];//1 = compliance/green color
                 }
             }
@@ -234,9 +234,9 @@ static NSString *kUnansweredSurveyQuestion      = @"";
             if ([startOn earlierDate:[NSDate new]] == startOn) {//no need to parse scheduled tasks after today
                 NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-                if ([dictionary[kDaytimeSickKey] isEqualToNumber: @1]) {//had symptoms
+                if ([dictionary[kDaytimeSickKey] isEqualToNumber: @(YES)]) {//had symptoms
                     [complianceDictionary setObject:kHadSymptomsBoolean forKey:[self dayFromDate:startOn]];
-                }else if ([dictionary[kDaytimeSickKey] isEqualToNumber: @0]){
+                }else if ([dictionary[kDaytimeSickKey] isEqualToNumber: @(NO)]){
                     [complianceDictionary setObject:kNoSymptomsBoolean forKey:[self dayFromDate:startOn]];//1 = compliance/green color
                 }
             }
@@ -257,7 +257,7 @@ static NSString *kUnansweredSurveyQuestion      = @"";
     
     NSDateComponents* components = [gregorian components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
  
-    return [NSString stringWithFormat:@"%lu", components.day];
+    return [NSString stringWithFormat:@"%lu", (long)components.day];
 }
 
 
