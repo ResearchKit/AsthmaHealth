@@ -35,48 +35,81 @@
 #import "APHConstants.h"
 static float const kParticipationTrophyThreshold = 0.85;
 
+static NSString *kHadSymptomsBoolean            = @"0";
+static NSString *kNoSymptomsBoolean             = @"1";
+static NSString *kMissedWorkBoolean             = @"0";
+static NSString *kAttendedWorkBoolean           = @"1";
+static NSString *kParticipatedBoolean           = @"1";
+static NSString *kNoParticipationBoolean        = @"0";
+static NSString *kUnansweredSurveyQuestion      = @"";
+
 @implementation APHCalendarDataModel
 
 #pragma mark APHCalendarCollectionViewController delegate
--(NSDictionary *)userCompliedWithDailyScheduledTasks:(APHCalendarTaskType)task inMonth:(NSUInteger)month inYear:(NSUInteger)year{
-    
-    NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
+-(void)createComplianceDictionaryForTaskType:(APHCalendarTaskType)task
+                                     inMonth:(NSUInteger)month
+                                      inYear:(NSUInteger)year
+{
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     APCDateRange *dateRange;
     
     if (task == kAPHCalendarTaskTypeParticipation) {
+        //should reflect the completion of the Daily Survey and Weekly Survey (when shown)
         
-        for (int day = 1; day < 32; day++) {
-            [comps setDay:day];
-            [comps setMonth:month];
-            [comps setYear:year];
-            
-            NSDate *date = [gregorian dateFromComponents:comps];
-            
-            if ([date earlierDate:[NSDate new]] == date) {
-                
-                dateRange = [[APCDateRange alloc]initWithStartDate:date durationInterval:86400];
-                
-                NSInteger scheduled = [APHCalendarDataModel allScheduledTasksForDateRange:dateRange completed:nil inContext:((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.mainContext].count;
-                
-                if (scheduled > 0) {
-                    
-                    NSInteger completedScheduled = [APHCalendarDataModel allScheduledTasksForDateRange:dateRange completed:[NSNumber numberWithBool:1] inContext:((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.mainContext].count;
-                    
-                    if ((float)completedScheduled / (float)scheduled > kParticipationTrophyThreshold){
-                        [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];
-                    }else{
-                        [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
-                    }
-                }
-            }else{
-                return complianceDictionary;
-            }
-        }
+        [comps setDay:1];
+        [comps setMonth:month];
+        [comps setYear:year];
         
-        return complianceDictionary;
+        NSDate *startDate = [gregorian dateFromComponents:comps];
+        
+        NSRange daysRange = [gregorian rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:startDate];
+        
+        NSInteger endDay = daysRange.length;
+
+        [comps setDay:endDay];
+        [comps setMonth:month];
+        [comps setYear:year];
+        NSDate *endDate = [gregorian dateFromComponents:comps];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"taskID == %@ OR taskID == %@", kDailySurveyTaskID, kWeeklySurveyTaskID];
+        
+        [[APCScheduler defaultScheduler] fetchTaskGroupsFromDate:startDate
+                                                          toDate:endDate
+                                          forTasksMatchingFilter:predicate
+                                                      usingQueue:[NSOperationQueue mainQueue]
+                                                 toReportResults:^(NSDictionary *dates, NSError *queryError)
+         {
+             
+             NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
+             //iterate over the task groups setting the complianceDictionary
+             if (!queryError) {
+                 for (NSDate *date in dates) {
+                     NSUInteger required = 0;
+                     NSUInteger completed = 0;
+                     NSArray *tasks = [dates objectForKey:date];
+                     for (APCTaskGroup *taskGroup in tasks) {
+                         required += [taskGroup requiredRemainingTasks].count + [taskGroup requiredCompletedTasks].count;
+                         completed += [taskGroup requiredCompletedTasks].count;
+                     }
+                     
+                     if ([date compare:[NSDate new]] == NSOrderedDescending) {
+                         [complianceDictionary setObject:kUnansweredSurveyQuestion forKey:[self dayFromDate:date]];
+                     }else if ((float)completed / (float)required > kParticipationTrophyThreshold){
+                         [complianceDictionary setObject:kParticipatedBoolean forKey:[self dayFromDate:date]];
+                     }else{
+                         [complianceDictionary setObject:kNoParticipationBoolean forKey:[self dayFromDate:date]];
+                     }
+                 }
+                 
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+                 });
+                 
+             }
+         }];
+        
     }
     
     if (task == kAPHCalendarTaskTypeAttendance) {
@@ -94,15 +127,14 @@ static float const kParticipationTrophyThreshold = 0.85;
         
         dateRange = [[APCDateRange alloc]initWithStartDate:startDate endDate:endDate];
         
-        //get the weekly prompt tasks within the date range
-        NSArray *completedScheduledTasks = [APHCalendarDataModel allScheduledWeeklyPromptTasksForDateRange:dateRange completed:@YES inContext:((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.mainContext];
-        
-        //iterate over the weekly prompt tasks
-        for (APCScheduledTask *task in completedScheduledTasks) {
+        NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
+        NSArray *scheduledTasks = [self scheduledTasksForDateRange:dateRange survey:kWeeklySurveyTaskID];
+        for(APCScheduledTask *scheduledTask in scheduledTasks){
+            //need to get to scheduledTasks
             
             //the task startDate is always a Saturday because that's the delivery date.
             //However, the results always relate to the prior week from Sun to Sat
-            NSDate *startOn = task.startOn;
+            NSDate *startOn = scheduledTask.startOn;
             
             //Sunday of prior week
             NSDate *priorSunday = [NSDate priorSundayAtMidnightFromDate:startOn];
@@ -115,21 +147,17 @@ static float const kParticipationTrophyThreshold = 0.85;
             NSDateComponents *monthComponents = [gregorian components:(NSCalendarUnitMonth) fromDate:dateToExamine];
             
             while (weekday < 8) {
-                //get the day of month for startOn
-                NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:dateToExamine];
-                int day = (int)[weekdayComponents day];
-                
                 //get the result summary for this weekly prompt task
-                NSString * resultSummary = task.lastResult.resultSummary;
+                NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
                 
                 //check we're still in the current month
                 if ((int)monthComponents.month == (int)month) {
                     NSString *keyString = [kDaysMissedKey stringByAppendingFormat:@"%i", (int)weekday];
                     if (dictionary[keyString]) {//missed work, red == 0
-                        [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
+                        [complianceDictionary setObject:kMissedWorkBoolean forKey:[self dayFromDate:dateToExamine]];
                     }else{
-                        [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];
+                        [complianceDictionary setObject:kAttendedWorkBoolean forKey:[self dayFromDate:dateToExamine]];
                     }
                 }
                 
@@ -137,10 +165,12 @@ static float const kParticipationTrophyThreshold = 0.85;
                 dateToExamine = [dateToExamine dateByAddingDays:1];
                 monthComponents = [gregorian components:(NSCalendarUnitMonth) fromDate:dateToExamine];
             }
-            
         }
         
-        return complianceDictionary;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+        });
         
     }
     
@@ -159,25 +189,27 @@ static float const kParticipationTrophyThreshold = 0.85;
         
         dateRange = [[APCDateRange alloc]initWithStartDate:startDate endDate:endDate];
         
-        //get array of completed scheduled tasks
-        NSArray *completedScheduledTasks = [APHCalendarDataModel allScheduledDailyPromptTasksForDateRange:dateRange completed:@YES inContext:((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.mainContext];
+        NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
         
-        for (APCScheduledTask *task in completedScheduledTasks) {
-            NSDate *startOn = task.startOn;
+        NSArray *scheduledTasks = [self scheduledTasksForDateRange:dateRange survey:kDailySurveyTaskID];
+        for(APCScheduledTask *scheduledTask in scheduledTasks){
+            NSDate *startOn = scheduledTask.startOn;
             
-            if ([startOn earlierDate:[NSDate new]] == startOn) {//no need to parse scheduled tasks after today
-                NSString * resultSummary = task.lastResult.resultSummary;
+            if ([startOn compare:[NSDate new]] == NSOrderedAscending || [startOn compare:[NSDate new]] == NSOrderedSame) {//no need to parse scheduled tasks after today
+                NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-                NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:startOn];
-                int day = (int)[weekdayComponents day];
-                if (dictionary[kNighttimeSickKey]) {//had symptoms, red == 0
-                    [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
-                }else{
-                    [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];
+                if ([dictionary[kNighttimeSickKey] isEqualToNumber: @(YES)]) {//had symptoms
+                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[self dayFromDate:startOn]];
+                }else if ([dictionary[kNighttimeSickKey] isEqualToNumber: @(NO)]){
+                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[self dayFromDate:startOn]];//1 = compliance/green color
                 }
             }
         }
-        return complianceDictionary;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+        });
+        
     }
     
     if (task == kAPHCalendarTaskTypeFreeDays) {
@@ -194,128 +226,61 @@ static float const kParticipationTrophyThreshold = 0.85;
         
         dateRange = [[APCDateRange alloc]initWithStartDate:startDate endDate:endDate];
         
-        //get array of completed scheduled tasks
-        NSArray *completedScheduledTasks = [APHCalendarDataModel allScheduledDailyPromptTasksForDateRange:dateRange completed:@YES inContext:((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.mainContext];
-        
-        for (APCScheduledTask *task in completedScheduledTasks) {
-            NSDate *startOn = task.startOn;
+        NSMutableDictionary *complianceDictionary = [[NSMutableDictionary alloc]init];
+        NSArray *scheduledTasks = [self scheduledTasksForDateRange:dateRange survey:kDailySurveyTaskID];
+        for(APCScheduledTask *scheduledTask in scheduledTasks){
             
+            NSDate *startOn = scheduledTask.startOn;
             if ([startOn earlierDate:[NSDate new]] == startOn) {//no need to parse scheduled tasks after today
-                NSString * resultSummary = task.lastResult.resultSummary;
+                NSString * resultSummary = scheduledTask.lastResult.resultSummary;
                 NSDictionary * dictionary = resultSummary ? [NSDictionary dictionaryWithJSONString:resultSummary] : nil;
-                NSDateComponents *weekdayComponents = [gregorian components:(NSCalendarUnitDay) fromDate:startOn];
-                int day = (int)[weekdayComponents day];
-                if (dictionary[kDaytimeSickKey]) {//had symptoms, red == 0
-                    [complianceDictionary setObject:@"0" forKey:[NSString stringWithFormat:@"%i", day]];
-                }else{
-                    [complianceDictionary setObject:@"1" forKey:[NSString stringWithFormat:@"%i", day]];
+                if ([dictionary[kDaytimeSickKey] isEqualToNumber: @(YES)]) {//had symptoms
+                    [complianceDictionary setObject:kHadSymptomsBoolean forKey:[self dayFromDate:startOn]];
+                }else if ([dictionary[kDaytimeSickKey] isEqualToNumber: @(NO)]){
+                    [complianceDictionary setObject:kNoSymptomsBoolean forKey:[self dayFromDate:startOn]];//1 = compliance/green color
                 }
             }
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:calendarDataSourceDidUpdateComplianceDictionaryNotification object:complianceDictionary];
+        });
     }
-    return complianceDictionary;
+}
+#pragma mark - Utility methods
+
+- (NSString *)dayFromDate : (NSDate *)date
+{
+
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents* components = [gregorian components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+ 
+    return [NSString stringWithFormat:@"%lu", (long)components.day];
 }
 
-+ (NSArray *)allScheduledTasksForDateRange: (APCDateRange*) dateRange completed: (NSNumber*) completed inContext: (NSManagedObjectContext*) context
-{
-    NSFetchRequest * request = [APCScheduledTask request];
-    request.shouldRefreshRefetchedObjects = YES;
-    NSPredicate * datePredicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (endOn <= %@)", dateRange.startDate, dateRange.endDate];
-    
-    NSPredicate * completionPredicate = nil;
-    if (completed != nil) {
-        completionPredicate = [completed isEqualToNumber:@YES] ? [NSPredicate predicateWithFormat:@"completed == %@", completed] :[NSPredicate predicateWithFormat:@"completed == nil ||  completed == %@", completed] ;
-    }
-    
-    NSPredicate * finalPredicate = completionPredicate ? [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, completionPredicate]] : datePredicate;
-    request.predicate = finalPredicate;
-    
-    NSSortDescriptor *titleSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"task.taskTitle" ascending:YES];
-    NSSortDescriptor * completedSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES];
-    request.sortDescriptors = @[completedSortDescriptor, titleSortDescriptor];
-    
-    NSError * error;
-    NSArray * array = [context executeFetchRequest:request error:&error];
-    if (array == nil) {
-        APCLogError2 (error);
-    }
-    
-    NSMutableArray * filteredArray = [NSMutableArray array];
-    
-    for (APCScheduledTask * scheduledTask in array) {
-        if ([scheduledTask.dateRange compare:dateRange] != kAPCDateRangeComparisonOutOfRange) {
-            [filteredArray addObject:scheduledTask];
-        }
-    }
-    return filteredArray.count ? filteredArray : nil;
-}
 
-+ (NSArray *)allScheduledDailyPromptTasksForDateRange: (APCDateRange*) dateRange completed: (NSNumber*) completed inContext: (NSManagedObjectContext*) context
+#pragma mark - Fetch Request
+- (NSArray *)scheduledTasksForDateRange: (APCDateRange *)dateRange survey: (NSString *)surveyTaskID
 {
-    NSFetchRequest * request = [APCScheduledTask request];
-    request.shouldRefreshRefetchedObjects = YES;
-    NSPredicate * datePredicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (endOn <= %@) AND task.taskID == %@", dateRange.startDate, dateRange.endDate, kDailySurveyTaskID];
+    NSArray *scheduledTasks = nil;
+    APCAppDelegate *appDelegate = (APCAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startOn" ascending:YES];
+    NSFetchRequest *request = [APCScheduledTask request];
+    [request setShouldRefreshRefetchedObjects:YES];
+    NSDate *startDate = dateRange.startDate;
+    NSDate *endDate = dateRange.endDate;
     
-    NSPredicate * completionPredicate = nil;
-    if (completed != nil) {
-        completionPredicate = [completed isEqualToNumber:@YES] ? [NSPredicate predicateWithFormat:@"completed == %@", completed] :[NSPredicate predicateWithFormat:@"completed == nil ||  completed == %@", completed] ;
-    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (startOn <= %@) AND task.taskID == %@", startDate, endDate, surveyTaskID];
+    request.predicate = predicate;
+    request.sortDescriptors = @[sortDescriptor];
     
-    NSPredicate * finalPredicate = completionPredicate ? [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, completionPredicate]] : datePredicate;
-    request.predicate = finalPredicate;
+    NSError *error = nil;
+    scheduledTasks = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
+    APCLogError2(error);
     
-    NSSortDescriptor *titleSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"task.taskTitle" ascending:YES];
-    NSSortDescriptor * completedSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES];
-    request.sortDescriptors = @[completedSortDescriptor, titleSortDescriptor];
-    
-    NSError * error;
-    NSArray * array = [context executeFetchRequest:request error:&error];
-    if (array == nil) {
-        APCLogError2 (error);
-    }
-    
-    NSMutableArray * filteredArray = [NSMutableArray array];
-    
-    for (APCScheduledTask * scheduledTask in array) {
-        if ([scheduledTask.dateRange compare:dateRange] != kAPCDateRangeComparisonOutOfRange) {
-            [filteredArray addObject:scheduledTask];
-        }
-    }
-    return filteredArray.count ? filteredArray : nil;
-}
-
-+ (NSArray *)allScheduledWeeklyPromptTasksForDateRange: (APCDateRange*) dateRange completed: (NSNumber*) completed inContext: (NSManagedObjectContext*) context
-{
-    NSFetchRequest * request = [APCScheduledTask request];
-    request.shouldRefreshRefetchedObjects = YES;
-    NSPredicate * datePredicate = [NSPredicate predicateWithFormat:@"(startOn >= %@) AND (endOn <= %@) AND task.taskID == %@", dateRange.startDate, dateRange.endDate, kWeeklySurveyTaskID];
-    
-    NSPredicate * completionPredicate = nil;
-    if (completed != nil) {
-        completionPredicate = [completed isEqualToNumber:@YES] ? [NSPredicate predicateWithFormat:@"completed == %@", completed] :[NSPredicate predicateWithFormat:@"completed == nil ||  completed == %@", completed] ;
-    }
-    
-    NSPredicate * finalPredicate = completionPredicate ? [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, completionPredicate]] : datePredicate;
-    request.predicate = finalPredicate;
-    
-    NSSortDescriptor *titleSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"task.taskTitle" ascending:YES];
-    NSSortDescriptor * completedSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES];
-    request.sortDescriptors = @[completedSortDescriptor, titleSortDescriptor];
-    
-    NSError * error;
-    NSArray * array = [context executeFetchRequest:request error:&error];
-    if (array == nil) {
-        APCLogError2 (error);
-    }
-    
-    NSMutableArray * filteredArray = [NSMutableArray array];
-    
-    for (APCScheduledTask * scheduledTask in array) {
-        if ([scheduledTask.dateRange compare:dateRange] != kAPCDateRangeComparisonOutOfRange) {
-            [filteredArray addObject:scheduledTask];
-        }
-    }
-    return filteredArray.count ? filteredArray : nil;
+    return scheduledTasks;
 }
 
 @end
