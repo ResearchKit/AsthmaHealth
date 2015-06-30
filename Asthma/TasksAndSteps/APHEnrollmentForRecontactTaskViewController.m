@@ -96,6 +96,7 @@ static  NSString  *kEnrollmentRecontact101 = @"enrollmentRecontact101";
             break;
 
         case ORKTaskViewControllerFinishReasonDiscarded:
+            [super taskViewController:self didFinishWithReason:reason error:error];
             break;
 
         case ORKTaskViewControllerFinishReasonCompleted:
