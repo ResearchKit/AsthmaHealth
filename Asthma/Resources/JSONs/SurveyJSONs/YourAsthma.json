@@ -2,7 +2,7 @@
     "identifier": "YourAsthma",
     "type": "Survey",
     "name": "YourAsthma",
-    "questions": [
+    "elements": [
         {
             "identifier": "asthma_gets_worse_with",
             "prompt": "My asthma gets worse with (check all that apply):",

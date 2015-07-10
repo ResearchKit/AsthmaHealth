@@ -2,7 +2,7 @@
     "identifier": "AsthmaDailyPrompt",
     "type": "Survey",
     "name": "AsthmaDailyPrompt",
-    "questions": [
+    "elements": [
         {
             "identifier": "day_symptoms",
             "prompt": "In the last 24 hours, did you have any daytime asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?",

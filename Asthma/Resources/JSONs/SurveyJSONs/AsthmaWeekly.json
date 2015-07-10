@@ -2,7 +2,7 @@
     "identifier": "AsthmaWeeklyPrompt",
     "type": "Survey",
     "name": "AsthmaWeeklyPrompt",
-    "questions": [
+    "elements": [
         {
             "identifier": "asthma_doc_visit",
             "prompt": "In the last week, did you see your asthma doctor/provider because your asthma got worse (other than for a regular visit)?",

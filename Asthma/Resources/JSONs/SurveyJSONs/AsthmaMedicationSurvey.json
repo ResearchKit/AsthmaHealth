@@ -2,7 +2,7 @@
     "identifier": "AsthmaMedication",
     "type": "Survey",
     "name": "AsthmaMedication",
-    "questions": [
+    "elements": [
                   {
                   "identifier": "prescribed_asthma_control_medication",
                   "prompt": "Are you prescribed daily asthma control medication?",
