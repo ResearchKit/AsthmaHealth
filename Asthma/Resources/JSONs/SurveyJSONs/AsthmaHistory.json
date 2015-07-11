@@ -2,7 +2,7 @@
     "identifier": "AsthmaHistory",
     "type": "Survey",
     "name": "AsthmaHistory",
-    "questions": [
+    "elements": [
         {
             "identifier": "age_when_diagnosed",
             "prompt": "How old were you when first diagnosed with asthma, or when you had your first symptoms?",

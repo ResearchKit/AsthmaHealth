@@ -2,7 +2,7 @@
     "identifier": "AboutYou",
     "type": "Survey",
     "name": "AboutYou",
-    "questions": [
+    "elements": [
         {
             "identifier": "ethnicity",
             "prompt": "Ethnicity",

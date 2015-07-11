@@ -2,7 +2,7 @@
     "identifier": "MedicalHistory",
     "type": "Survey",
     "name": "MedicalHistory",
-    "questions": [
+    "elements": [
         {
             "identifier": "heart_attack",
             "prompt": "Have you ever had a heart attack?",
